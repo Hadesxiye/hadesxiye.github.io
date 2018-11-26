@@ -88,7 +88,7 @@
 <meta property="og:description" content="Shell脚本能极大简化那些简答而重复的工作，学会写Shell，我觉得可以。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://hadesxiye.github.io/images/hello.png">
-<meta property="og:updated_time" content="2018-08-23T11:05:23.589Z">
+<meta property="og:updated_time" content="2018-11-26T08:30:18.814Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shell脚本的入门（一）">
 <meta name="twitter:description" content="Shell脚本能极大简化那些简答而重复的工作，学会写Shell，我觉得可以。">
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,018
+                  2,181
                 </span>
               
 
@@ -424,7 +424,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  8
+                  9
                 </span>
               
             </div>
@@ -448,7 +448,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="/images/hello.png" rel="gallery_cjoy0zzp500049fy7eva903v7"
+                 href="/images/hello.png" rel="gallery_cjoy5cw5k0000tyy7a973mk1g"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="/images/hello.png" itemprop="contentUrl"/>
               </a>
@@ -481,17 +481,17 @@ echo &quot;Hello World&quot;</code><br>2.保存为 <code>hello world.sh</code>�
 </blockquote>
 <p>这很简单，无图。</p>
 <hr>
-<h2 id="Shell中的变量"><a href="#Shell中的变量" class="headerlink" title="Shell中的变量"></a><strong>Shell中的变量</strong></h2><h3 id="变量的定义"><a href="#变量的定义" class="headerlink" title="变量的定义"></a>变量的定义</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">example=&quot;a1&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="Shell中的变量"><a href="#Shell中的变量" class="headerlink" title="Shell中的变量"></a><strong>Shell中的变量</strong></h2><h3 id="变量的定义"><a href="#变量的定义" class="headerlink" title="变量的定义"></a>变量的定义</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">example=<span class="string">"a1"</span></span><br></pre></td></tr></table></figure>
 <p>或者</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">example=a1</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">example=a1</span><br></pre></td></tr></table></figure>
 <p>但是<br><code>example=a 1</code>  并不等同于 <code>example=&quot;a 1&quot;</code><br>因为<code>&quot; &quot;</code>（空格）在shell中用作指令的间隔<br><code>example=a 1</code> 其实只是将a负责给example 然后在输入了个1</p>
 <blockquote>
 <p>这很重要，在很多赋值的时候不注意会导致获取到的变量并不是你期望的那样，别问我怎么知道的！</p>
 </blockquote>
 <h3 id="变量的访问"><a href="#变量的访问" class="headerlink" title="变量的访问"></a>变量的访问</h3><p>在变量前加上<code>$</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $example</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$example</span></span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="Shell中的四则运算"><a href="#Shell中的四则运算" class="headerlink" title="Shell中的四则运算"></a><strong>Shell中的四则运算</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$a + $b</span><br><span class="line">$a - $b</span><br><span class="line">$a \* $b</span><br><span class="line">$a / $b</span><br></pre></td></tr></table></figure>
+<h2 id="Shell中的四则运算"><a href="#Shell中的四则运算" class="headerlink" title="Shell中的四则运算"></a><strong>Shell中的四则运算</strong></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$a</span> + <span class="variable">$b</span></span><br><span class="line"><span class="variable">$a</span> - <span class="variable">$b</span></span><br><span class="line"><span class="variable">$a</span> \* <span class="variable">$b</span></span><br><span class="line"><span class="variable">$a</span> / <span class="variable">$b</span></span><br></pre></td></tr></table></figure>
 <p><strong>注意</strong></p>
 <blockquote>
 <p>乘法的时候需要进行转义<br><code>=</code> 赋值时，前后无空格<br>而运算符号前后必须有空格</p>
@@ -500,7 +500,7 @@ echo &quot;Hello World&quot;</code><br>2.保存为 <code>hello world.sh</code>�
 <h2 id="Shell中的其他运算符"><a href="#Shell中的其他运算符" class="headerlink" title="Shell中的其他运算符"></a><strong>Shell中的其他运算符</strong></h2><blockquote>
 <p>=、==、!=、！、-o、-a</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-o 或</span><br><span class="line">-a 与</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-o 或</span><br><span class="line">-a 与</span><br></pre></td></tr></table></figure>
 <h3 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h3><blockquote>
 <p>-eq        两个数相等返回true<br>-ne          两个数不相等返回true<br>-gt            左侧数大于右侧数返回true<br>-It          左侧数小于右侧数返回true<br>-ge        左侧数大于等于右侧数返回true<br>-le            左侧数小于等于右侧数返回true</p>
 </blockquote>
@@ -508,149 +508,39 @@ echo &quot;Hello World&quot;</code><br>2.保存为 <code>hello world.sh</code>�
 <p>=    两个字符串相等返回true<br>!=    两个字符串不相等返回true<br>-z    字符串长度为0返回true<br>-n    字符串长度不为0返回true<br>-d file    检测文件是否是目录，如果是，则返回 true<br>-r file    检测文件是否可读，如果是，则返回 true<br>-w file    检测文件是否可写，如果是，则返回 true<br>-x file    检测文件是否可执行，如果是，则返回 true<br>-s file    检测文件是否为空（文件大小是否大于0，不为空返回 true<br>-e file    检测文件（包括目录）是否存在，如果是，则返回 true</p>
 </blockquote>
 <hr>
-<h2 id="Shell字符串操作"><a href="#Shell字符串操作" class="headerlink" title="Shell字符串操作"></a><strong>Shell字符串操作</strong></h2><pre><code>
-  mtext="hello"  #定义字符串
-  mtext2="world"
-  mtext3=$mtext" "$mtext2  #字符串的拼接
-  echo $mtext3  #输出字符串
-  echo ${#mtext3}  #输出字符串长度
-  echo ${mtext3:1:4}  #截取字符串
-</code></pre>
-
+<h2 id="Shell字符串操作"><a href="#Shell字符串操作" class="headerlink" title="Shell字符串操作"></a><strong>Shell字符串操作</strong></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mtext=<span class="string">"hello"</span>  <span class="comment">#定义字符串</span></span><br><span class="line">mtext2=<span class="string">"world"</span></span><br><span class="line">mtext3=<span class="variable">$mtext</span><span class="string">" "</span><span class="variable">$mtext2</span>  <span class="comment">#字符串的拼接</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$mtext3</span>  <span class="comment">#输出字符串</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;#mtext3&#125;</span>  <span class="comment">#输出字符串长度</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;mtext3:1:4&#125;</span>  <span class="comment">#截取字符串</span></span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="Shell数组"><a href="#Shell数组" class="headerlink" title="Shell数组"></a><strong>Shell数组</strong></h2><pre><code>
-  array=(1 2 3 4 5)  #定义数组
-  array2=(aa bb cc dd ee)  #定义数组
-  value=${array[3]}  #找到某一个下标的数，然后赋值
-  echo $value  #打印
-  value2=${array2[3]}  #找到某一个下标的数，然后赋值
-  echo $value2  #打印
-  length=${#array[* ]}  #获取数组长度
-  echo $length
-</code></pre>
-
+<h2 id="Shell数组"><a href="#Shell数组" class="headerlink" title="Shell数组"></a><strong>Shell数组</strong></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">array=(1 2 3 4 5)  <span class="comment">#定义数组</span></span><br><span class="line">array2=(aa bb cc dd ee)  <span class="comment">#定义数组</span></span><br><span class="line">value=<span class="variable">$&#123;array[3]&#125;</span>  <span class="comment">#找到某一个下标的数，然后赋值</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$value</span>  <span class="comment">#打印</span></span><br><span class="line">value2=<span class="variable">$&#123;array2[3]&#125;</span>  <span class="comment">#找到某一个下标的数，然后赋值</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$value2</span>  <span class="comment">#打印</span></span><br><span class="line">length=<span class="variable">$&#123;#array[* ]&#125;</span>  <span class="comment">#获取数组长度</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$length</span></span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="Shell输出"><a href="#Shell输出" class="headerlink" title="Shell输出"></a><strong>Shell输出</strong></h2><pre><code>
-  echo
-</code></pre>
-
+<h2 id="Shell输出"><a href="#Shell输出" class="headerlink" title="Shell输出"></a><strong>Shell输出</strong></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span></span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="Shell的判断"><a href="#Shell的判断" class="headerlink" title="Shell的判断"></a><strong>Shell的判断</strong></h2><pre><code>
-  a=10
-  b=20
-  if [ $a == $b ]
-  then
-  echo "true"
-  fi
-
-
-  if [ $a == $b ]
-  then
-  echo "true"
-  else
-  echo "false"
-  fi
-
-
-  if [ $a == $b ]
-  then
-  echo "a is equal to b"
-  elif [ $a -gt $b ]
-  then
-  echo "a is greater than b"
-  elif [ $a -lt $b ]
-  then
-  echo "a is less than b"
-  else
-  echo "None of the condition met"
-  fi
-</code></pre>
-
+<h2 id="Shell的判断"><a href="#Shell的判断" class="headerlink" title="Shell的判断"></a><strong>Shell的判断</strong></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">a=10</span><br><span class="line">b=20</span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$a</span> == <span class="variable">$b</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"true"</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$a</span> == <span class="variable">$b</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"true"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"false"</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$a</span> == <span class="variable">$b</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"a is equal to b"</span></span><br><span class="line"><span class="keyword">elif</span> [ <span class="variable">$a</span> -gt <span class="variable">$b</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"a is greater than b"</span></span><br><span class="line"><span class="keyword">elif</span> [ <span class="variable">$a</span> -lt <span class="variable">$b</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"a is less than b"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"None of the condition met"</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="Shell中的test命令"><a href="#Shell中的test命令" class="headerlink" title="Shell中的test命令"></a><strong>Shell中的test命令</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  test $[num1] -eq $[num2]  #判断两个变量是否相等</span><br><span class="line">  test num1=num2  #判断两个数字是否相等</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-e file    文件存在则返回真</span><br><span class="line">-r file    文件存在并且可读则返回真</span><br><span class="line">-w file    文件存在并且可写则返回真</span><br><span class="line">-x file    文件存在并且可执行则返回真</span><br><span class="line">-s file    文件存在并且内容不为空则返回真</span><br><span class="line">-d file    文件目录存在则返回真</span><br></pre></td></tr></table></figure>
+<h2 id="Shell中的test命令"><a href="#Shell中的test命令" class="headerlink" title="Shell中的test命令"></a><strong>Shell中的test命令</strong></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  <span class="built_in">test</span> $[num1] -eq $[num2]  <span class="comment">#判断两个变量是否相等</span></span><br><span class="line">  <span class="built_in">test</span> num1=num2  <span class="comment">#判断两个数字是否相等</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-e file    文件存在则返回真</span><br><span class="line">-r file    文件存在并且可读则返回真</span><br><span class="line">-w file    文件存在并且可写则返回真</span><br><span class="line">-x file    文件存在并且可执行则返回真</span><br><span class="line">-s file    文件存在并且内容不为空则返回真</span><br><span class="line">-d file    文件目录存在则返回真</span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="Shell中的循环"><a href="#Shell中的循环" class="headerlink" title="Shell中的循环"></a><strong>Shell中的循环</strong></h2><h3 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h3><pre><code>
-  for ((i=1;i<=10;i++)) 5="" 6="" 7="" 8="" 9="" do="" echo="" $i="" done="" for="" i="" in="" {1..5}="" file="" $home="" .bash*="" $file="" <="" code=""></=10;i++))></code></pre>
-
-<h3 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h3><pre><code>
-  while [ $COUNTER -lt 5 ]
-  do
-  COUNTER=`expr $COUNTER + 1`
-  echo $COUNTER
-  done
-
-  echo '请输入。。。'
-  echo 'ctrl + d 即可停止该程序'
-  while read FILM
-  do
-  echo "Yeah! great film the $FILM"
-  done
-</code></pre>
-
-<h3 id="跳出循环"><a href="#跳出循环" class="headerlink" title="跳出循环"></a>跳出循环</h3><pre><code>
-  break  #跳出所有循环
-  break n  #跳出第n层f循环
-  continue  #跳出当前循环
-</code></pre>
-
+<h2 id="Shell中的循环"><a href="#Shell中的循环" class="headerlink" title="Shell中的循环"></a><strong>Shell中的循环</strong></h2><h3 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> ((i=1;i&lt;=10;i++))</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$i</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> &#123;1..5&#125;</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$i</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> 5 6 7 8 9</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$i</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> FILE <span class="keyword">in</span> <span class="variable">$HOME</span>/.bash*</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$FILE</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h3 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> [ <span class="variable">$COUNTER</span> -lt 5 ]</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">COUNTER=`expr <span class="variable">$COUNTER</span> + 1`</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$COUNTER</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'请输入。。。'</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'ctrl + d 即可停止该程序'</span></span><br><span class="line"><span class="keyword">while</span> <span class="built_in">read</span> FILM</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Yeah! great film the <span class="variable">$FILM</span>"</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h3 id="跳出循环"><a href="#跳出循环" class="headerlink" title="跳出循环"></a>跳出循环</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">break</span>  <span class="comment">#跳出所有循环</span></span><br><span class="line"><span class="built_in">break</span> n  <span class="comment">#跳出第n层f循环</span></span><br><span class="line"><span class="built_in">continue</span>  <span class="comment">#跳出当前循环</span></span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="Shell中的函数"><a href="#Shell中的函数" class="headerlink" title="Shell中的函数"></a><strong>Shell中的函数</strong></h2><blockquote>
 <p>无参数无返回值</p>
 </blockquote>
-<pre><code>
-  sysout(){
-  echo "hello world"
-  }
-
-  sysout    
-</code></pre>
-> 无参数有返回值
-
-<pre><code>
-  test(){
-
-  aNum=3
-  anotherNum=5
-  return $(($aNum+$anotherNum))
-  }
-  test
-  result=$?
-  echo $result
-</code></pre>
-> 有参数有返回值
-
-<pre><code>
-  test(){
-  echo $1  #接收第一个参数
-  echo $2  #接收第二个参数
-  echo $3  #接收第三个参数
-  echo $#  #接收到参数的个数
-  echo $*  #接收到的所有参数
-  }
-
-  test aa bb cc    
-</code></pre>
-
-<h2 id="Shell中的重定向"><a href="#Shell中的重定向" class="headerlink" title="Shell中的重定向"></a><strong>Shell中的重定向</strong></h2><pre><code>
-  $echo result > file  #将结果写入文件，结果不会在控制台展示，而是在文件中，覆盖写
-  $echo result >> file  #将结果写入文件，结果不会在控制台展示，而是在文件中，追加写
-  echo input < file  #获取输入流
-</code></pre>
-
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">  <span class="function"><span class="title">sysout</span></span>()&#123;</span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"hello world"</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  sysout    </span><br><span class="line">&lt;/code&gt;&lt;/pre&gt;</span><br><span class="line">&gt; 无参数有返回值</span><br><span class="line"></span><br><span class="line">&lt;pre&gt;&lt;code&gt;</span><br><span class="line">  <span class="function"><span class="title">test</span></span>()&#123;</span><br><span class="line"></span><br><span class="line">  aNum=3</span><br><span class="line">  anotherNum=5</span><br><span class="line">  <span class="built_in">return</span> $((<span class="variable">$aNum</span>+<span class="variable">$anotherNum</span>))</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">test</span></span><br><span class="line">  result=$?</span><br><span class="line">  <span class="built_in">echo</span> <span class="variable">$result</span></span><br><span class="line">&lt;/code&gt;&lt;/pre&gt;</span><br><span class="line">&gt; 有参数有返回值</span><br><span class="line"></span><br><span class="line">&lt;pre&gt;&lt;code&gt;</span><br><span class="line">  <span class="function"><span class="title">test</span></span>()&#123;</span><br><span class="line">  <span class="built_in">echo</span> <span class="variable">$1</span>  <span class="comment">#接收第一个参数</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="variable">$2</span>  <span class="comment">#接收第二个参数</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="variable">$3</span>  <span class="comment">#接收第三个参数</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="variable">$#</span>  <span class="comment">#接收到参数的个数</span></span><br><span class="line">  <span class="built_in">echo</span> $*  <span class="comment">#接收到的所有参数</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">test</span> aa bb cc</span><br></pre></td></tr></table></figure>
+<h2 id="Shell中的重定向"><a href="#Shell中的重定向" class="headerlink" title="Shell中的重定向"></a><strong>Shell中的重定向</strong></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$echo</span> result &gt; file  <span class="comment">#将结果写入文件，结果不会在控制台展示，而是在文件中，覆盖写</span></span><br><span class="line"><span class="variable">$echo</span> result &gt;&gt; file  <span class="comment">#将结果写入文件，结果不会在控制台展示，而是在文件中，追加写</span></span><br><span class="line"><span class="built_in">echo</span> input &lt; file  <span class="comment">#获取输入流</span></span><br></pre></td></tr></table></figure>
 <h2 id="Shell中的变量操作"><a href="#Shell中的变量操作" class="headerlink" title="Shell中的变量操作"></a><strong>Shell中的变量操作</strong></h2><blockquote>
-<p>awk 指令<br>获取指定行数的资源名字<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sourceNameTemp=$(awk &apos;NR==&quot;&apos;$i&apos;&quot; &#123;print;exit&#125;&apos; $OutputFile)</span><br></pre></td></tr></table></figure></p>
+<p>awk 指令<br>获取指定行数的资源名字<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sourceNameTemp=$(awk <span class="string">'NR=="'</span><span class="variable">$i</span><span class="string">'" &#123;print;exit&#125;'</span> <span class="variable">$OutputFile</span>)</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <blockquote>
-<p>获取对应文件名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">temp=$&#123;temp##*/&#125;</span><br></pre></td></tr></table></figure></p>
+<p>获取对应文件名<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">temp=<span class="variable">$&#123;temp##*/&#125;</span></span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <blockquote>
-<p>清空文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">: &gt; &quot;$OutputFile&quot;</span><br></pre></td></tr></table></figure></p>
+<p>清空文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">: &gt; <span class="string">"<span class="variable">$OutputFile</span>"</span></span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <h2 id="常用的Linux命令"><a href="#常用的Linux命令" class="headerlink" title="常用的Linux命令"></a><strong>常用的Linux命令</strong></h2><h3 id="awk命令"><a href="#awk命令" class="headerlink" title="awk命令"></a>awk命令</h3><blockquote>
 <p>awk是一个强大的文本分析工具，相对于grep的查找，sed的编辑，awk在其对数据分析并生成报告时，显得尤为强大。简单来说awk就是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。</p>
 </blockquote>
 <blockquote>
-<p>基本结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk &apos;BEGIN&#123; commands &#125; pattern&#123; commands &#125; END&#123; commands &#125;&apos; file</span><br></pre></td></tr></table></figure></p>
+<p>基本结构<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'BEGIN&#123; commands &#125; pattern&#123; commands &#125; END&#123; commands &#125;'</span> file</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <p>一个awk脚本通常由：BEGIN语句块、能够使用模式匹配的通用语句块、END语句块3部分组成，这三个部分是可选的。任意一个部分都可以不出现在脚本中，脚本通常是被单引号或双引号中</p>
 <p> <strong>工作原理</strong></p>
@@ -661,10 +551,10 @@ echo &quot;Hello World&quot;</code><br>2.保存为 <code>hello world.sh</code>�
 <p><strong>END</strong>语句块在awk从输入流中读取完所有的行之后即被执行，比如打印所有行的分析结果这类信息汇总都是在END语句块中完成，它也是一个可选语句块。</p>
 <p><strong>pattern</strong>语句块中的通用命令是最重要的部分，它也是可选的。如果没有提供pattern语句块，则默认执行{ print }，即打印每一个读取到的行，awk读取的每一行都会执行该语句块。</p>
 <blockquote>
-<p>获取指定行数的文本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk &apos;NR==&quot;&apos;$i&apos;&quot; &#123;print;exit&#125;&apos; file</span><br></pre></td></tr></table></figure></p>
+<p>获取指定行数的文本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'NR=="'</span><span class="variable">$i</span><span class="string">'" &#123;print;exit&#125;'</span> file</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <blockquote>
-<p>获取文件的行数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk &apos;&#123;print NR&#125;&apos; &quot;file&quot;|tail -n1</span><br></pre></td></tr></table></figure></p>
+<p>获取文件的行数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'&#123;print NR&#125;'</span> <span class="string">"file"</span>|tail -n1</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <p>关于awk的详细用法请参考 <a href="http://man.linuxde.net/awk" target="_blank" rel="noopener">awk命令</a></p>
 
@@ -705,8 +595,8 @@ echo &quot;Hello World&quot;</code><br>2.保存为 <code>hello world.sh</code>�
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/23/LLVM/" rel="prev" title="LLVM">
-                LLVM <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/23/LLVM/" rel="prev" title="LLVM是什么( ´ﾟωﾟ)？">
+                LLVM是什么( ´ﾟωﾟ)？ <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -840,7 +730,7 @@ echo &quot;Hello World&quot;</code><br>2.保存为 <code>hello world.sh</code>�
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -851,7 +741,7 @@ echo &quot;Hello World&quot;</code><br>2.保存为 <code>hello world.sh</code>�
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -941,7 +831,7 @@ echo &quot;Hello World&quot;</code><br>2.保存为 <code>hello world.sh</code>�
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">5.8k</span>
+    <span title="Site words total count">11.5k</span>
   
 </div>
 
@@ -955,7 +845,7 @@ echo &quot;Hello World&quot;</code><br>2.保存为 <code>hello world.sh</code>�
 
         
 <div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
     <span class="site-uv">
