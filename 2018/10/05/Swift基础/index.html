@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="LLVM,Clang,GNU,GCC,Xcode," />
+  <meta name="keywords" content="Swift4.2," />
 
 
 
@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="LLVM的logo用的是dragon，为啥？因为dragon象征力量，速度和智慧，同时又带着时尚，优雅和modular（官方error），并且从1977年起，诸多颇具影响力的编译器书籍封面上都有龙">
-<meta name="keywords" content="LLVM,Clang,GNU,GCC,Xcode">
+<meta name="description" content="Swift4.2基础篇摘要ʕ•͡ω•ʔ">
+<meta name="keywords" content="Swift4.2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LLVM是什么( ´ﾟωﾟ)？">
-<meta property="og:url" content="https://hadesxiye.github.io/2018/08/23/LLVM/index.html">
+<meta property="og:title" content="Swift4.2（基础篇要点）">
+<meta property="og:url" content="https://hadesxiye.github.io/2018/10/05/Swift基础/index.html">
 <meta property="og:site_name" content="Fun&amp;Enjoy">
-<meta property="og:description" content="LLVM的logo用的是dragon，为啥？因为dragon象征力量，速度和智慧，同时又带着时尚，优雅和modular（官方error），并且从1977年起，诸多颇具影响力的编译器书籍封面上都有龙">
+<meta property="og:description" content="Swift4.2基础篇摘要ʕ•͡ω•ʔ">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://hadesxiye.github.io/images/LLVM.png">
-<meta property="og:updated_time" content="2018-11-26T09:58:08.686Z">
+<meta property="og:image" content="https://hadesxiye.github.io/images/Swift.png">
+<meta property="og:updated_time" content="2018-11-27T10:29:14.280Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LLVM是什么( ´ﾟωﾟ)？">
-<meta name="twitter:description" content="LLVM的logo用的是dragon，为啥？因为dragon象征力量，速度和智慧，同时又带着时尚，优雅和modular（官方error），并且从1977年起，诸多颇具影响力的编译器书籍封面上都有龙">
-<meta name="twitter:image" content="https://hadesxiye.github.io/images/LLVM.png">
+<meta name="twitter:title" content="Swift4.2（基础篇要点）">
+<meta name="twitter:description" content="Swift4.2基础篇摘要ʕ•͡ω•ʔ">
+<meta name="twitter:image" content="https://hadesxiye.github.io/images/Swift.png">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://hadesxiye.github.io/2018/08/23/LLVM/"/>
+  <link rel="canonical" href="https://hadesxiye.github.io/2018/10/05/Swift基础/"/>
 
 
 
 
 
-  <title>LLVM是什么( ´ﾟωﾟ)？ | Fun&Enjoy</title>
+  <title>Swift4.2（基础篇要点） | Fun&Enjoy</title>
   
 
 
@@ -299,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hadesxiye.github.io/2018/08/23/LLVM/">
+    <link itemprop="mainEntityOfPage" href="https://hadesxiye.github.io/2018/10/05/Swift基础/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hades">
@@ -316,7 +316,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">LLVM是什么( ´ﾟωﾟ)？</h2>
+          <h2 class="post-title" itemprop="name headline">Swift4.2（基础篇要点）</h2>
         
 
         <div class="post-meta">
@@ -328,8 +328,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-23T18:54:52+08:00">
-                2018-08-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-05T10:55:28+08:00">
+                2018-10-05
               </time>
             
 
@@ -351,8 +351,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编译相关/" itemprop="url" rel="index">
-                    <span itemprop="name">编译相关</span>
+                  <a href="/categories/Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift</span>
                   </a>
                 </span>
 
@@ -369,8 +369,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/23/LLVM/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/08/23/LLVM/" itemprop="commentCount"></span>
+                <a href="/2018/10/05/Swift基础/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/10/05/Swift基础/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -378,7 +378,7 @@
 
           
           
-             <span id="/2018/08/23/LLVM/" class="leancloud_visitors" data-flag-title="LLVM是什么( ´ﾟωﾟ)？">
+             <span id="/2018/10/05/Swift基础/" class="leancloud_visitors" data-flag-title="Swift4.2（基础篇要点）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,739
+                  3,919
                 </span>
               
 
@@ -424,7 +424,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  14
+                  15
                 </span>
               
             </div>
@@ -448,9 +448,9 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="/images/LLVM.png" rel="gallery_cjozloxrv0008kiy7sqcpapy3"
+                 href="/images/Swift.png" rel="gallery_cjozloxrr0006kiy7da9ogg8u"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
-                <img src="/images/LLVM.png" itemprop="contentUrl"/>
+                <img src="/images/Swift.png" itemprop="contentUrl"/>
               </a>
             
           
@@ -461,90 +461,72 @@
       
 
       
-        <p><center>LLVM的logo用的是dragon，为啥？因为dragon象征力量，速度和智慧，同时又带着时尚，优雅和modular（官方error），并且从1977年起，诸多颇具影响力的编译器书籍封面上都有龙</center><br><a id="more"></a></p>
-<h1 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h1><h2 id="LLVM"><a href="#LLVM" class="headerlink" title="LLVM"></a><strong><font color="#FF8C00">LLVM</font></strong></h2><blockquote>
-<p>一个开源编译器架构，目前Xcode采用的就是LLVM架构。</p>
-</blockquote>
-<h2 id="Clang"><a href="#Clang" class="headerlink" title="Clang"></a><strong><font color="#FF8C00">Clang</font></strong></h2><blockquote>
-<p>由苹果赞助支持开发的LLVM的编译器前端，目前支持C,C++,Object-C和Object-C++.相对于GCC，Clang快，占用内存小，易于IDE集成，与GCC兼容，诊断可读性强和易拓展等。</p>
-</blockquote>
-<h2 id="GCC"><a href="#GCC" class="headerlink" title="GCC"></a><strong><font color="#FF8C00">GCC</font></strong></h2><blockquote>
-<p>GNU的编译器套装，原本只处理C语言，后来拓展可处理Fortran、Pascal、Objective-C、Java、Ada，Go等。许多操作系统，包括许多类Unix系统，如Linux及BSD家族都采用GCC作为标准编译器。苹果计算机预装的Mac OS X操作系统也采用这个编译器。</p>
-</blockquote>
-<h2 id="GNU"><a href="#GNU" class="headerlink" title="GNU"></a><strong><font color="#FF8C00">GNU</font></strong></h2><blockquote>
-<p>GNU是一个自由的操作系统，但其具有完备功能的内核尚未被开发成功。GNU的内核，称为Hurd，其发展尚未成熟。在实际使用上，多半使用Linux内核、FreeBSD等替代方案，作为系统核心，其中主要的操作系统是Linux的发行版。</p>
-</blockquote>
-<h2 id="在Xcode上使用GCC"><a href="#在Xcode上使用GCC" class="headerlink" title="在Xcode上使用GCC"></a><strong><font color="#FF8C00">在Xcode上使用GCC</font></strong></h2><blockquote>
-<p>Xcode在C和C++上是支持使用GCC的，如下：<br><img src="/2018/08/23/LLVM/XcodeGNU.jpg" title="Xcode9.4上的截图"><br>具体参数的使用请参考：<a href="https://stackoverflow.com/questions/35300064/gnu-gcc-on-xcode" target="_blank" rel="noopener">stackoverflow:Xcode上的GNU GCC</a></p>
-</blockquote>
-<h1 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="LLVM-1"><a href="#LLVM-1" class="headerlink" title="LLVM"></a>LLVM</h3><p>全名：<br>Low Level Virtual Machine  直译：底层虚拟机<br>/loʊ ˈlɛvəl ˈvɜrʧuəl məˈʃin/</p>
-<p>  The LLVM Project is a collection of modular and reusable compiler and toolchain technologies. Despite its name, LLVM has little to do with traditional virtual machines. The name “LLVM” itself is not an acronym; it is the full name of the project.<br>- 来自LLVM官网的介绍 <a href="http://llvm.org/" target="_blank" rel="noopener">LLVM官网</a></p>
-<p>  LLVM项目是模块化和可重用的编译器和工具链技术的集合。尽管名称如此，但LLVM与传统虚拟机几乎没有关系。“LLVM”不是首字母缩略词而是项目的全名。</p>
-<p>  LLVM是一个自由软件项目，它是一种编译器基础设施，以C++写成。它是为了任意一种编程语言而写成的程序，利用虚拟技术创造出编译时期、链接时期、运行时期以及“闲置时期”的最优化。它最早以C/C++为实现对象，而目前它已支持包括ActionScript、Ada、D语言、Fortran、GLSL、Haskell、Java字节码、Objective-C、Swift、Python、Ruby、Rust、Scala以及C#等语言。<br> - 来自维基百科 <a href="https://zh.wikipedia.org/wiki/LLVM" target="_blank" rel="noopener">LLVM on wiki</a></p>
-<p>  简单来说</p>
-<blockquote>
-<p>LLVM是一个开源的编译器架构而不是编译器。是一套用于开发编译器、解释器等程序语言相关工具的库，主要聚焦于编译器后端功能，如代码生成、代码优化、JIT等。<br>编译器是Clang，GCC，ICC，VC++等。</p>
-</blockquote>
-<h4 id="Xcode和LLVM"><a href="#Xcode和LLVM" class="headerlink" title="Xcode和LLVM"></a>Xcode和LLVM</h4><blockquote>
-<p>Xcode3之前，用的是GCC<br>Xcode3,GCC仍然保留，但是也推出了LLVM，苹果推荐LLVM-GCC混合编译器，但还不是默认编译器<br>Xcode4,LLVM-GCC成为默认编译器，但GCC仍保留<br>Xcode4.2,LLVM3.0成为默认编译器,纯用GCC不复可能<br>Xcode4.6,LLVM升级到4.2版本<br>Xcode5,LLVM-GCC被遗弃，新的编译器是LLVM5.0，从GCC过渡到LLVM的时代正式完成</p>
-</blockquote>
-<h3 id="Clang-1"><a href="#Clang-1" class="headerlink" title="Clang"></a>Clang</h3><p>Clang /ˈklæŋ/ 是一个C、C++、Objective-C和Objective-C++编程语言的编译器前端。它采用了底层虚拟机（LLVM）作为其后端，而且由LLVM2.6开始，一起发布新版本。它的目标是提供一个GNU编译器套装（GCC）的替代品，支持了GNU编译器大多数的编译设置以及非官方语言的扩展。作者是克里斯·拉特纳（Chris Lattner），在苹果公司的赞助支持下进行开发，而源代码许可是使用类BSD的伊利诺伊大学厄巴纳-香槟分校开源码许可。<br>Clang项目包括Clang前端和Clang静态分析器等。<br>- 来自维基百科 <a href="https://zh.wikipedia.org/wiki/Clang" target="_blank" rel="noopener">Clang on wiki</a></p>
-<h3 id="GCC-1"><a href="#GCC-1" class="headerlink" title="GCC"></a>GCC</h3><p><a href="http://gcc.gnu.org/" target="_blank" rel="noopener">GCC官网</a><br>GNU编译器套装（英语：GNU Compiler Collection，缩写为GCC），指一套编程语言编译器，以GPL及LGPL许可证所发行的自由软件，也是GNU项目的关键部分，也是GNU工具链的主要组成部分之一。GCC（特别是其中的C语言编译器）也常被认为是跨平台编译器的事实标准。1985年由理查德·马修·斯托曼开始发展，现在由自由软件基金会负责维护工作。</p>
-<p>原名为GNU C语言编译器（GNU C Compiler），因为它原本只能处理C语言。GCC在发布后很快地得到扩展，变得可处理C++。之后也变得可处理Fortran、Pascal、Objective-C、Java、Ada，Go与其他语言。</p>
-<p>许多操作系统，包括许多类Unix系统，如Linux及BSD家族都采用GCC作为标准编译器。苹果计算机预装的Mac OS X操作系统也采用这个编译器。</p>
-<p>GCC原本用C开发，后来因为LLVM、Clang的崛起，它更快地将开发语言转换为C++。许多C的爱好者在对C++一知半解的情况下主观认定C++的性能一定会输给C，但是Ian Lance Taylor给出了不同的意见，并表明C++不但性能不输给C，而且能设计出更好，更容易维护的程序。<br>- 来自维基百科 <a href="https://zh.wikipedia.org/wiki/GCC" target="_blank" rel="noopener">GCC on wiki</a></p>
-<h3 id="GNU-1"><a href="#GNU-1" class="headerlink" title="GNU"></a>GNU</h3><p><a href="https://www.gnu.org/" target="_blank" rel="noopener">GNU官网</a><br>GNU是一个自由的操作系统，其内容软件完全以GPL方式发布。这个操作系统是GNU计划的主要目标，名称来自GNU’s Not Unix!的递归缩写，因为GNU的设计类似Unix，但它不包含具著作权的Unix代码。GNU的创始人，理查德·马修·斯托曼，将GNU视为“达成社会目的技术方法”。</p>
-<p>作为操作系统，GNU的发展仍未完成，其中最大的问题是具有完备功能的内核尚未被开发成功。GNU的内核，称为Hurd，是自由软件基金会发展的重点，但是其发展尚未成熟。在实际使用上，多半使用Linux内核、FreeBSD等替代方案，作为系统核心，其中主要的操作系统是Linux的发行版。Linux操作系统包涵了Linux内核与其他自由软件项目中的GNU组件和软件，可以被称为GNU/Linux。<br>- 来自维基百科 <a href="https://zh.wikipedia.org/zh-cn/GNU" target="_blank" rel="noopener">GNU on wiki</a></p>
-<h3 id="LLDB"><a href="#LLDB" class="headerlink" title="LLDB"></a>LLDB</h3><p>LLDB是一种软件调试器。它构建为一组可重用的组件，被LLVM项目的现有库广泛使用，例如Clang表达式解析器和LLVM 反汇编程序。<br>尽管LLDB处于早期开发阶段，但它已经足够成熟，可以支持用C，Objective-C，C ++和Swift编写的程序的基本调试。<br>LLDB可以在macOS，Linux，FreeBSD和Windows上运行，并支持i386，x86-64和ARM 指令集。它用作Xcode 5及更高版本的默认调试器。</p>
-<h3 id="GDB"><a href="#GDB" class="headerlink" title="GDB"></a>GDB</h3><p>GNU Debugger 顾名思义<br>支持编程语言有C、C++、Pascal以及FORTRAN<br>在许多的类UNIX操作系统上都可以使用</p>
-<h3 id="词法分析"><a href="#词法分析" class="headerlink" title="词法分析"></a>词法分析</h3><p>lexical analysis /ˈlɛksɪkəl/<br>词法分析阶段是编译过程的第一个阶段。这个阶段的任务是从左到右一个字符一个字符地读入源程序，即对构成源程序的字符流进行扫描然后根据构词规则识别单词(也称单词符号或符号)。词法分析程序实现这个任务。词法分析程序可以使用lex等工具自动生成。</p>
-<h3 id="语法分析"><a href="#语法分析" class="headerlink" title="语法分析"></a>语法分析</h3><p>syntactic analysis，也叫 parsing<br>/sɪnˈtæktɪk əˈnæləsəs/  /ˈpɑːzɪŋ/<br>语法分析是编译过程的一个逻辑阶段。语法分析的任务是在词法分析的基础上将单词序列组合成各类语法短语，如“程序”，“语句”，“表达式”等等.语法分析程序判断源程序在结构上是否正确.源程序的结构由上下文无关文法描述.</p>
-<h3 id="语法分析器"><a href="#语法分析器" class="headerlink" title="语法分析器"></a>语法分析器</h3><p>parser<br>通常是作为编译器或解释器的组件出现的，它的作用是进行语法检查、并构建由输入的单词组成的数据结构（一般是语法分析树、抽象语法树等层次化的数据结构）。语法分析器通常使用一个独立的词法分析器从输入字符流中分离出一个个的“单词”，并将单词流作为其输入。实际开发中，语法分析器可以手工编写，也可以使用工具（半）自动生成。</p>
-<h3 id="源语言-amp-源程序"><a href="#源语言-amp-源程序" class="headerlink" title="源语言&amp;源程序"></a>源语言&amp;源程序</h3><p>Source language&amp;Source program<br>被编译程序翻译的程序称为源程序,书写该程序的语言称为源语言。</p>
-<h3 id="目标语言-amp-目标程序"><a href="#目标语言-amp-目标程序" class="headerlink" title="目标语言&amp;目标程序"></a>目标语言&amp;目标程序</h3><p>Object language or Target language &amp; Object program or Target program<br>编译程序翻译源程序而得到的结果程序称为目标程序, 书写该程序的语言称为目标语言。</p>
-<h3 id="中间语言（中间表示）"><a href="#中间语言（中间表示）" class="headerlink" title="中间语言（中间表示）"></a>中间语言（中间表示）</h3><p>Intermediate language（representation）<br>在进行了语法分析和语义分析阶段的工作之后，有的编译程序将源程序变成一种内部表示形式，这种内部表示形式叫做中间语言或中间表示或中间代码。所谓“中间代码”是一种结构简单、含义明确的记号系统，这种记号系统复杂性介于源程序语言和机器语言之间，容易将它翻译成目标代码。另外，还可以在中间代码一级进行与机器无关的优化。</p>
-<h3 id="文法"><a href="#文法" class="headerlink" title="文法"></a>文法</h3><p>Grammars<br>/ˈgræməz/<br>文法是用于描述语言的语法结构的形式规则。</p>
-<h3 id="token"><a href="#token" class="headerlink" title="token"></a>token</h3><p>是一个字符串，是构成源代码的最小单位。从输入字符流中生成标记的过程叫作标记化（tokenization），在这个过程中，词法分析器还会对标记进行分类。<br>词法分析器通常不会关心标记之间的关系（属于语法分析的范畴），举例来说：词法分析器能够将括号识别为标记，但并不保证括号是否匹配。</p>
-<h3 id="抽象语法树"><a href="#抽象语法树" class="headerlink" title="抽象语法树"></a>抽象语法树</h3><p>abstract syntax tree或者缩写为AST<br>/ˈæbstrækt ˈsɪnˌtæks tri/<br>抽象语法树，或者语法树（syntax tree），是源代码的抽象语法结构的树状表现形式，这里特指编程语言的源代码。和抽象语法树相对的是具体语法树（concrete syntaxtree），通常称作分析树（parse tree）。一般的，在源代码的翻译和编译过程中，语法分析器创建出分析树。一旦AST被创建出来，在后续的处理过程中，比如语义分析阶段，会添加一些信息。</p>
-<h2 id="具体"><a href="#具体" class="headerlink" title="具体"></a>具体</h2><h3 id="CMD-B"><a href="#CMD-B" class="headerlink" title="CMD+B"></a>CMD+B</h3><p>Objective-C与swift都采用Clang作为编译器前端，编译器前端主要进行语法分析，语义分析，生成中间代码，在这个过程中，会进行类型检查，如果发现错误或者警告会标注出来在哪一行。<br>编译器后端会进行机器无关的代码优化，生成机器语言，并且进行机器相关的代码优化，根据不同的系统架构生成不同的机器码。<br>C++,Objective C都是编译语言。编译语言在执行的时候，必须先通过编译器生成机器码。</p>
-<p>在使用Xcode按下cmd+B后，会经过以下流程：<br><img src="/2018/08/23/LLVM/02.png" title="Clang/LLVM 编译过程"><br><strong>预处理（Pre-process）</strong>：他的主要工作就是将宏替换，删除注释展开头文件，生成.i文件。</p>
-<p><strong>词法分析 （Lexical Analysis）</strong>：将代码切成一个个 token，比如大小括号，等于号还有字符串等。是计算机科学中将字符序列转换为标记序列的过程。</p>
-<p><strong>语法分析（Semantic Analysis）</strong>：验证语法是否正确，然后将所有节点组成抽象语法树 AST 。由 Clang 中 Parser 和 Sema 配合完成。</p>
-<p><strong>静态分析（Static Analysis）</strong>：使用它来表示用于分析源代码以便自动发现错误。</p>
-<p><strong>中间代码生成（Code Generation）</strong>：开始IR中间代码的生成了，CodeGen 会负责将语法树自顶向下遍历逐步翻译成 LLVM IR，IR 是编译过程的前端的输出后端的输入。</p>
-<p><strong>优化（Optimize）</strong>：LLVM 会去做些优化工作，在 Xcode 的编译设置里也可以设置优化级别-01，-03，-0s，还可以写些自己的 Pass，官方有比较完整的 Pass 教程： Writing an LLVM Pass — LLVM 5 documentation 。如果开启了 bitcode 苹果会做进一步的优化，有新的后端架构还是可以用这份优化过的 bitcode 去生成。</p>
-<p><strong>生成目标文件（Assemble）</strong>：生成Target相关Object(Mach-o) 。</p>
-<p><strong>链接（Link）</strong>：生成 Executable 可执行文件。</p>
-<p>关于此过程的详细测试，参考<a href="https://juejin.im/post/5a30ea0ff265da43094526f9" target="_blank" rel="noopener">掘金</a></p>
-<h3 id="LLVM的具体操作"><a href="#LLVM的具体操作" class="headerlink" title="LLVM的具体操作"></a>LLVM的具体操作</h3><p>请参考<a href="http://www.alonemonkey.com/2016/12/21/learning-llvm/" target="_blank" rel="noopener">关于LLVM，这些东西你必须知道！</a></p>
-<blockquote>
-<p>基于ClangPlugin 可以用来定义一些编码规范，比如代码风格检查，命名检查等等<br>Pass就是LLVM系统转化和优化的工作的一个节点，可以写一个这样的节点去做一些自己的优化工作或者其它的操作，比如 <code>a+b</code> 改为 <code>a-(-b)</code><br>将Pass加入PassManager管理,这样我们就可以直接通过clang的参数去加载我们的Pass了<br>基于Pass，我们可以编写自己的Pass去混淆代码，以增加他人反编译的难度。</p>
-</blockquote>
-<p>所以基于LLVM可以完成：</p>
-<ul>
-<li>做语法树分析，实现语言转换OC转Swift、JS or 其它语言，字符串加密。</li>
-<li>编写ClangPlugin，命名规范，代码规范，扩展功能。</li>
-<li>编写Pass，代码混淆优化。</li>
-</ul>
-<h3 id="使用Clang进行开发"><a href="#使用Clang进行开发" class="headerlink" title="使用Clang进行开发"></a>使用Clang进行开发</h3><p>详细参考<a href="https://www.ibm.com/developerworks/cn/opensource/os-cn-clang/index.html" target="_blank" rel="noopener">IBM developerWorks</a></p>
-<p>Clang的特性<br>相比于 GCC，Clang 具有如下优点：</p>
-<ul>
-<li>编译速度快：在某些平台上，Clang 的编译速度显著的快过 GCC。</li>
-<li>占用内存小：Clang 生成的 AST 所占用的内存是 GCC 的五分之一左右。</li>
-<li>模块化设计：Clang 采用基于库的模块化设计，易于 IDE 集成及其他用途的重用。</li>
-<li>诊断信息可读性强：在编译过程中，Clang 创建并保留了大量详细的元数据 (metadata)，有利于调试和错误报告。</li>
-<li>设计清晰简单，容易理解，易于扩展增强。与代码基础古老的 GCC 相比，学习曲线平缓。</li>
-</ul>
-<p>当前 Clang 还处在不断完善过程中，相比于 GCC, Clang 在以下方面还需要加强：</p>
-<ul>
-<li>支持更多语言：GCC 除了支持 C/C++/Objective-C, 还支持 Fortran/Pascal/Java/Ada/Go 和其他语言。Clang 目前支持的语言有 C/C++/Objective-C/Objective-C++。</li>
-<li>支持更多平台：GCC 流行的时间比较长，已经被广泛使用，对各种平台的支持也很完备。Clang 目前支持的平台有 Linux/Windows/Mac OS。</li>
-</ul>
-<p>以下是目前GCC和Clang对C++支持的情况：<br><img src="/2018/08/23/LLVM/03.png" title="GCC Clang对C++支持对比"></p>
-<p>更多参考<a href="https://zh.cppreference.com/w/cpp/compiler_support" target="_blank" rel="noopener">C++ 编译器支持情况表</a></p>
-<h3 id="使用LLVM创建一个编译器"><a href="#使用LLVM创建一个编译器" class="headerlink" title="使用LLVM创建一个编译器"></a>使用LLVM创建一个编译器</h3><p>首先参考这篇文章来写一个helloworld<br><a href="https://www.ibm.com/developerworks/cn/opensource/os-createcompilerllvm1/" target="_blank" rel="noopener">IBM developerWorks</a></p>
-<p>关于LLVM IR的生成与创建<br><a href="https://www.ibm.com/developerworks/cn/opensource/os-createcompilerllvm2/index.html" target="_blank" rel="noopener">IBM developerWorks</a></p>
+        <p><center>Swift4.2基础篇摘要ʕ•͡ω•ʔ</center><br><a id="more"></a></p>
+<div class="note info"><p>本章节只是简单的摘录文档里的重要内容（或者是没记住的-  -）如果想从头开始看Swift还是直接看官方文档比较好</p></div>
 
+<h2 id="高级类型"><a href="#高级类型" class="headerlink" title="高级类型"></a>高级类型</h2><p>除了属性的类型，Swift引入了Objective-C中没有的高级类型，比如元组。元组可以让你创建与传递值的分组。你可以使用元组将函数中的多个值作为单个复合值返回。</p>
+<h2 id="可选类型"><a href="#可选类型" class="headerlink" title="可选类型"></a>可选类型</h2><p>Swift 还引入了可以处理缺省值的可选类型。可选类型表示<code>「要么 有 值，并且等于 X」</code>，<code>「要么 没有 值」</code> 。使用可选类型与在 Objective-C 中将指针和 nil 一起使用很相似，但是，可选类型适用于任何类型，不仅仅是类。可选类型不仅比 Objective-C 中的 nil 指针更安全，更具表现力，它还是 Swift 众多强大特性中的核心。</p>
+<h2 id="类型安全"><a href="#类型安全" class="headerlink" title="类型安全"></a>类型安全</h2><p>Swift 是一门 <code>类型安全</code> 的语言，这意味着它有助于明确代码中的值的类型。如果代码中需要一个 String，类型安全可以防止你错误地传递给它一个 Int。同样的，类型安全可以防止你意外地将一个可选的 String 传递给一个需要非可选 String 的代码片段。在开发过程中，类型安全可以帮你尽早捕捉并修复错误。</p>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>Swift 中的多行注释可以相互嵌套使用</p>
+<h2 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h2><p>Double 类型可以精确到小数点后15位，而 Float 类型只有6位。<br>如果两种类型都能使用的情况下，优先使用 Double 类型 。</p>
+<h2 id="类型推断"><a href="#类型推断" class="headerlink" title="类型推断"></a>类型推断</h2><p>因为有了类型推断，Swift 和 C 以及 Objective-C 相比，只需要少量的类型声明。其实常量和变量仍然需要明确的类型，但是大部分的声明工作 Swift 会帮你做。<br>Swift 在推断浮点值的时候始终会选择 Double （而不是Float）。</p>
+<h2 id="数值型字面量"><a href="#数值型字面量" class="headerlink" title="数值型字面量"></a>数值型字面量</h2><p>整数型字面量可以写作：</p>
+<ul>
+<li>十进制数，没有前缀</li>
+<li>二进制数，前缀为 0b</li>
+<li>八进制数，前缀为 0o</li>
+<li>十六进制数，前缀为 0x</li>
+</ul>
+<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><p>SomeType(ofInitialValue) 是 Swift 中初始化一个对象的默认方式，在这个过程中需要传入一个初始值。而在底层实现中，UInt16 有一个接收 UInt8 类型的初始化构造器，所以这个构造器是用来转换 UInt8 类型 到 UInt16 类型 的。你不能在这传入 任何 类型，因为必须是 UInt16 初始化构造器允许的类型才可以。扩展现有类型的初始化构造器，让其接收新的类型（包括你自己自定义的类型）的内容在 Extensions 中可以找到。</p>
+<h2 id="类型别名"><a href="#类型别名" class="headerlink" title="类型别名"></a>类型别名</h2><p>类型别名 就是给现有类型定义了一个另外的名字。你可以使用 <code>typealias</code> 关键字来声明类型别名。</p>
+<h2 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h2><p>Swift 有一个基础 布尔 类型 Bool. 布尔值也被称为 逻辑值, 因为它们只能是真或假。 Swift 提供两个布尔常量，<code>true</code> 和 <code>false</code> 。</p>
+<h2 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h2><p>元组 将多个值组合在一起成为一个复合值。元组里面的值可以是任何类型，不需要是相同的类型。<br>你可以将一个元组的内容 分解 为单独的常量或变量，然后你就可以正常使用它们了：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> http404Error = (<span class="number">404</span>, <span class="string">"Not Found"</span>)</span><br><span class="line"><span class="comment">// http404Error 的类型是 (Int, String), 等于 (404, "Not Found")</span></span><br><span class="line"><span class="keyword">let</span> (statusCode, statusMessage) = http404Error</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"The status code is <span class="subst">\(statusCode)</span>"</span>)</span><br><span class="line"><span class="comment">// 打印 "The status code is 404"</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"The status message is <span class="subst">\(statusMessage)</span>"</span>)</span><br><span class="line"><span class="comment">// 打印 "The status message is Not Found"</span></span><br></pre></td></tr></table></figure></p>
+<p>如果你只需要元组里的一部分值的话，分解元组的时候使用一个下划线（_） 来忽略元组里面的值：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> (justTheStatusCode, <span class="number">_</span>) = http404Error</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"The status code is <span class="subst">\(justTheStatusCode)</span>"</span>)</span><br><span class="line"><span class="comment">// 打印 "The status code is 404"</span></span><br></pre></td></tr></table></figure></p>
+<p>此外，使用从零开始的下标来访问元组里单个元素的值：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">"The status code is \(http404Error.0)"</span>)</span></span></span><br><span class="line"><span class="comment">// 打印 "The status code is 404"</span></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">"The status message is \(http404Error.1)"</span>)</span></span></span><br><span class="line"><span class="comment">// 打印 "The status message is Not Found"</span></span><br></pre></td></tr></table></figure></p>
+<p>定义元组时，你可以为元组中的单个元素命名：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let http200Status = (<span class="string">statusCode:</span> <span class="number">200</span>, <span class="string">description:</span> <span class="string">"OK"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>如果你在元组里为元素命名了，那么你就可以通过元素名称去获取元素的值：\<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">"The status code is \(http200Status.statusCode)"</span>)</span></span></span><br><span class="line"><span class="comment">// 打印 "The status code is 200"</span></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">"The status message is \(http200Status.description)"</span>)</span></span></span><br><span class="line"><span class="comment">// 打印 "The status message is OK"</span></span><br></pre></td></tr></table></figure></p>
+<p>元组作为函数的返回值的时候十分有用。一个尝试获取一个网页的函数可能会返回一个 (Int, String) 类型来表示结果的成功或失败。相比于返回一个类型的单个值作为结果，通过返回包含两个不同类型值的一个元组作为返回值，这个函数让自己的返回值提供了更多有用的信息。更多信息，参考 函数参数与返回值</p>
+<div class="note warning"><p><strong>注意</strong><br>元组在临时组织的值的时候很有用。元组并不适合用于创建复杂数据结构。如果你的数据结构<br>比较持久而不是临时使用的话，使用类或者结构体，而不是元组。更多信息，参考 结构体和类.<br></p></div>
+
+<h2 id="可选类型-1"><a href="#可选类型-1" class="headerlink" title="可选类型"></a>可选类型</h2><div class="note warning"><p><strong>注意</strong><br><code>C</code> 和 <code>Objective-C</code> 中没有可选类型的概念。最接近的是<code>Objective-C</code> 中的一个方法除了返回对象之外还会返回<code>nil</code> 的能力，<code>nil</code>表示缺省一个合法的对象。然而，这仅仅对对象起作用 — 对结构体，基本<code>C</code> 类型或者枚举类型并不起作用。对于这些类型，<code>Objective-C</code> 的方法通常会返回一个特殊的值(比如 <code>NSNotFound</code>)来表示值缺省的情况。这种方式假设方法的调用者知道和记得对特殊值进行处理和检查。<code>Swift</code> 的可选类型可以让你表明任何类型的值缺省的情况，而不需要特殊值。<br></p></div>
+
+<p>非可选状态下的常量或变量不能使用 <code>nil</code> 。在某些特定条件下，如果你代码中的常量或变量需要指定为空值，则始终将其声明为适当类型的可选值。</p>
+<p>如果你定义了一个可选变量但没有赋值，变量将自动设置为 <code>nil</code></p>
+<div class="note warning"><p><strong>注意</strong><br>Swift 里的 nil 不同于 Objective-C 里的 nil 。 在 Objective-C 里, nil 是一个指向空对象的指针。在 Swift 里， nil 不是指针，而是某种特定类型值的缺失。  任意 类型都可以设置为 nil, 而不仅仅是对象类型。<br></p></div>
+
+<h2 id="if-语句和强制解析"><a href="#if-语句和强制解析" class="headerlink" title="if 语句和强制解析"></a>if 语句和强制解析</h2><p>你可以在通过一个 <code>if</code> 语句里比较可选项和 <code>nil</code> 的方式来确定其是否包含确定值 。执行比较需要用到“等于”操作符 <code>==</code> ，或者“不等于”操作符<code>!=</code>。</p>
+<p>如果一个可选项包含值，那么它就被认为不等于 <code>nil</code>:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> convertedNumber != <span class="literal">nil</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"convertedNumber contains some integer value."</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印 "convertedNumber 包含整型值."</span></span><br></pre></td></tr></table></figure></p>
+<p>一旦你确认可选项包含值，你就可以通过使用在可选项名称后添加<code>!</code>的方式来访问它的值。感叹号的含义是：“我知道这个可选项绝对有值，请使用它。”这就是对可选项值的强制解析。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> convertedNumber != <span class="literal">nil</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"convertedNumber has an integer value of <span class="subst">\(convertedNumber!)</span>."</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印 "convertedNumber 包含整型值 123."</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="可选绑定"><a href="#可选绑定" class="headerlink" title="可选绑定"></a>可选绑定</h2><p>使用可选绑定 <code>optional binding</code>  来判断一个可选类型是否包含值，如果包含就赋给一个临时的常量或者变量使这个值可用。可选绑定可以被用到<code>if</code>和<code>while</code>语句中，用来检差一个值是否是可选类型， 并且将值提取为一个常量或者变量。<br> <code>if</code> 语句的可选绑定可以写成如下这样：<br><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> constantName = someOptional &#123;</span><br><span class="line">    <span class="built_in">statements</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>你可以使用可选绑定而不是强制解包来重写 可选类型 章节的 possibleNumber 例子：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> actualNumber = <span class="type">Int</span>(possibleNumber) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"\"<span class="subst">\(possibleNumber)</span>\" has an integer value of <span class="subst">\(actualNumber)</span>"</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"\"<span class="subst">\(possibleNumber)</span>\" could not be converted to an integer"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Prints ""123" has an integer value of 123"</span></span><br></pre></td></tr></table></figure></p>
+<p>上面的代码可以被理解为：</p>
+<p>“如果通过 <code>Int(possibleNumber)</code>返回的可选 <code>Int</code> 类型包含一个值，那么就创建一个名为 <code>actualNumber</code> 的新的常量并把可选类型中的值赋给它。”</p>
+<p>如果转换成功，常量 <code>actualNumber</code> 可以被用在 <code>if</code> 语句的第一个分支中。它已经被可选类型 包含的 值初始化，因此不再需要使用后缀 <code>!</code> 来获取它的值。在这个例子中，<code>actualNumber</code> 被简单地用来打印转换的结果。</p>
+<div class="note warning"><p><strong>注意</strong><br>在  <code>if</code> 语句中使用可选绑定的常量和变量仅在 <code>if</code>  语句内可用。相反，在  <code>guard</code> 语句中创建的常量和变量在 <code>guard</code>语句后的代码中也可以使用，如上所述 <code>Early Exit</code>.<br></p></div>
+
+<h2 id="隐式展开可选项"><a href="#隐式展开可选项" class="headerlink" title="隐式展开可选项"></a>隐式展开可选项</h2><p>通过在声明的类型后边添加一个叹号 <code>String!</code> 而非问号 <code>String?</code> 来书写隐式展开可选项。<br>隐式展开可选项是后台中通用的可选项，但是同样也可以像非可选值来使用，每次访问的时候不需要展开。接下来的例子中展示了在访问被明确为 <code>String</code> 的可选项展开值时，可选字符串和隐式展开可选字符串的行为区别：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> possibleString: <span class="type">String</span>? = <span class="string">"An optional string."</span></span><br><span class="line"><span class="keyword">let</span> forcedString: <span class="type">String</span> = possibleString! <span class="comment">//要求使用感叹号</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> assumedString: <span class="type">String</span>! = <span class="string">"An implicitly unwrapped optional string."</span></span><br><span class="line"><span class="keyword">let</span> implicitString: <span class="type">String</span> = assumedString <span class="comment">// 不需要使用感叹号</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>你可以把隐式展开可选项当做在每次访问他的时候被给与了自动进行展开的权限。相比于在每次调用他的时候添加一个叹号，你可以再声明的时候呀添加一个叹号。</p>
+</blockquote>
+<h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><p>相比于可选项的通过值是否缺失来判断程序的执行正确与否，错误处理机制能允许你判断错误的形成原因，如果需要的话，还能将你的代码中的错误传递到程序的其他地方。<br>当一个函数遇到错误情况，他或 抛出 错误。这个函数的访问者会 捕捉 到这个错误并且做出适当的反应。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">canThrowAnError</span><span class="params">()</span></span> <span class="keyword">throws</span> &#123;</span><br><span class="line">    <span class="comment">// 这个函数可能会出错也可能不会出错</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>通过在函数声明过程中加入  <code>throws</code> 关键字来表明这个函数会抛出一个错误。当你调用了一个可以抛出错误的函数时，你需要再表达式前预置 <code>try</code> 关键字。</p>
+<p><code>Swift</code> 会自动将错误传递到他们的生效范围之内，直到他们被 <code>catch</code>  分局处理。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> canThrowAnError()</span><br><span class="line">    <span class="comment">// 无错误抛出</span></span><br><span class="line">&#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">    <span class="comment">// 有错误抛出</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>do</code> 语句创建了一个新的容器范围，可以让错误被传递到不止一个的 <code>catch</code> 分句处理。</p>
+<p>下面的例子演示了如何利用错误处理机制处理不同的错误情况：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">makeASandwich</span><span class="params">()</span></span> <span class="keyword">throws</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> makeASandwich()</span><br><span class="line">    eatASandwich()</span><br><span class="line">&#125; <span class="keyword">catch</span> <span class="type">SandwichError</span>.outOfCleanDishes &#123;</span><br><span class="line">    washDishes()</span><br><span class="line">&#125; <span class="keyword">catch</span> <span class="type">SandwichError</span>.missingIngredients(<span class="keyword">let</span> ingredients) &#123;</span><br><span class="line">    buyGroceries(ingredients)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>本例中，如果没有干净的盘子或某个原料缺失的话，<code>makeASandwich()</code> 函数会抛出一个错误。因为 <code>makeASandwich()</code> 函数抛出了错误，所以对它的调用被包裹在一个 <code>try</code> 表达式里。将函数调用包裹进一个 <code>do</code> 的语句里，任何抛出的错误都会被传播到提供的 <code>catch</code> 从句里。</p>
+<p>如果没有抛出错误，<code>eatASandwich()</code> 方法将会被调用。如果抛出了错误，并且匹配到了 <code>outOfCleanDishes</code> 条件的话，<code>washDishes()</code> 函数就会被调用。如果匹配到了 <code>SandwichError.missingIngredients</code> 条件，<code>buyGroceries(_:)</code> 函数就会被调用，并且使用 <code>catch</code> 捕获的关联 <code>String</code> 值作为参数。</p>
+<h2 id="断言与先决条件"><a href="#断言与先决条件" class="headerlink" title="断言与先决条件"></a>断言与先决条件</h2><p><code>断言</code> 和 <code>先决条件</code> 是程序运行时发生的检查动作。你可以使用它们来检查代码被执行之前的一些必要条件是否被满足。如果断言或先决条件中布尔值的条件等于 <code>true</code>，代码将会像平常一样继续执行下去。如果条件等于 <code>false</code>，当前程序的状态将会是无效的，并且会导致代码执行停止，程序被终止。</p>
+<blockquote>
+<p>断言和先决条件的<strong>不同点</strong>是，他们什么时候进行状态检测：断言仅在调试环境运行，而先决条件则在调试环境和生产环境中运行。在生产环境中，断言的条件将不会进行评估。这个意味着你可以使用很多断言在你的开发阶段，但是这些断言在生产环境中不会产生任何影响。</p>
+</blockquote>
+<h3 id="调试断言"><a href="#调试断言" class="headerlink" title="调试断言"></a>调试断言</h3><p>使用 <code>Swift</code> 标准库中的  <code>assert(_:_:file:line:)</code> 函数来声明一个断言语句。<br>可以向这个函数传入一个值为 <code>true</code> 或 <code>false</code> 的表达式以及如果条件为 <code>false</code> 的情况下的提示性信息。如下所示：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> age = -<span class="number">3</span></span><br><span class="line"><span class="built_in">assert</span>(age &gt;= <span class="number">0</span>, <span class="string">"A person's age can't be less than zero."</span>)</span><br><span class="line"><span class="comment">// 因为 -3 小于 0，所以这个断言失败了</span></span><br></pre></td></tr></table></figure></p>
+<p>上面的例子中，如果 <code>age &gt;= 0</code> 语句结果为 <code>true</code>，代码将继续执行下去，也就是说 <code>age</code> 的值是非负的。如果 <code>age</code> 的值是负数，那么上面的代码中的 <code>age &gt;= 0</code> 语句将返回 <code>false</code>，这将导致断言失败，程序终止。</p>
+<p>你可以省略断言提示信息 — 比如下面的代码，仅仅是单调地重复一下条件语句。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">assert</span>(age &gt;= <span class="number">0</span>)</span><br></pre></td></tr></table></figure></p>
+<p>如果代码中已经检查了条件的话，可以使用  <code>assertionFailure(_:file:line:)</code> 函数来表明断言已经失败。如下所示：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> age &gt; <span class="number">10</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"You can ride the roller-coaster or the ferris wheel."</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> age &gt; <span class="number">0</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"You can ride the ferris wheel."</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">assertionFailure</span>(<span class="string">"A person's age can't be less than zero."</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="强制执行先决条件"><a href="#强制执行先决条件" class="headerlink" title="强制执行先决条件"></a>强制执行先决条件</h3><p>只要条件可能会为 <code>false</code> 的时候，就使用先决条件。但代码必须 肯定 为 <code>true</code> 才能继续执行下去。例如，使用先决条件去检查下标是否越界或检查函数是否传入了合法的参数值。</p>
+<p>通过调用 <code>precondition(_:_:file:line:)</code> 函数来声明一个先决条件。你可以向一个先决条件传入结果为 <code>true</code> 或 <code>false</code> 的表达式和当结果为 <code>false</code> 时的提示信息。例如：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 判断下标...</span></span><br><span class="line"><span class="built_in">precondition</span>(index &gt; <span class="number">0</span>, <span class="string">"Index must be greater than zero."</span>)</span><br></pre></td></tr></table></figure></p>
+<p>你也可以使用 <code>preconditionFailure(_:file:line:)</code>  函数来表明执行的失败 — 例如，如果一个 <code>switch</code> 语句的默认条件命中了，但是所有有效的输入数据只会被其他条件处理。</p>
+<div class="note warning"><p><strong>注意</strong><br>如果你以不检查的编译模式( <code>Ounchecked</code> )模式进行编译，先决条件将不会起作用。编译器会假设先决条件总是为真，并会根据你的代码做相应的优化。然而，无论优化设置如何，<code>fatalError(_:file:line:)</code> 函数总会停止程序的执行。<br><br>你可以在原型设计和开发的早期过程中使用 <code>fatalError(_:file:line:)</code> 函数来创建尚未实现的功能的存根，编写 <code>fatalError(&quot;Unimplemented&quot;)</code> 作为存根的实现。因为 <code>fatal error</code> 永远不会被优化，与断言和先决条件不同的是，你可以确保程序总是在遇到存根实现时停止。<br></p></div>
       
     </div>
     
@@ -561,15 +543,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/LLVM/" rel="tag"># LLVM</a>
-          
-            <a href="/tags/Clang/" rel="tag"># Clang</a>
-          
-            <a href="/tags/GNU/" rel="tag"># GNU</a>
-          
-            <a href="/tags/GCC/" rel="tag"># GCC</a>
-          
-            <a href="/tags/Xcode/" rel="tag"># Xcode</a>
+            <a href="/tags/Swift4-2/" rel="tag"># Swift4.2</a>
           
         </div>
       
@@ -582,8 +556,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/15/Shell脚本的入门（一）/" rel="next" title="Shell脚本的入门（一）">
-                <i class="fa fa-chevron-left"></i> Shell脚本的入门（一）
+              <a href="/2018/10/03/Swift/" rel="next" title="Swift4.2光速入门٩(๑>◡<๑)۶">
+                <i class="fa fa-chevron-left"></i> Swift4.2光速入门٩(๑>◡<๑)۶
               </a>
             
           </div>
@@ -591,10 +565,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/03/Swift/" rel="prev" title="Swift4.2光速入门٩(๑>◡<๑)۶">
-                Swift4.2光速入门٩(๑>◡<๑)۶ <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -787,7 +757,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简述"><span class="nav-number">1.</span> <span class="nav-text">简述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LLVM"><span class="nav-number">1.1.</span> <span class="nav-text">LLVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Clang"><span class="nav-number">1.2.</span> <span class="nav-text">Clang</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GCC"><span class="nav-number">1.3.</span> <span class="nav-text">GCC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GNU"><span class="nav-number">1.4.</span> <span class="nav-text">GNU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在Xcode上使用GCC"><span class="nav-number">1.5.</span> <span class="nav-text">在Xcode上使用GCC</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更多"><span class="nav-number">2.</span> <span class="nav-text">更多</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">2.1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LLVM-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">LLVM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Xcode和LLVM"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">Xcode和LLVM</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Clang-1"><span class="nav-number">2.1.2.</span> <span class="nav-text">Clang</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GCC-1"><span class="nav-number">2.1.3.</span> <span class="nav-text">GCC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GNU-1"><span class="nav-number">2.1.4.</span> <span class="nav-text">GNU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LLDB"><span class="nav-number">2.1.5.</span> <span class="nav-text">LLDB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GDB"><span class="nav-number">2.1.6.</span> <span class="nav-text">GDB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#词法分析"><span class="nav-number">2.1.7.</span> <span class="nav-text">词法分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语法分析"><span class="nav-number">2.1.8.</span> <span class="nav-text">语法分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语法分析器"><span class="nav-number">2.1.9.</span> <span class="nav-text">语法分析器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#源语言-amp-源程序"><span class="nav-number">2.1.10.</span> <span class="nav-text">源语言&amp;源程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目标语言-amp-目标程序"><span class="nav-number">2.1.11.</span> <span class="nav-text">目标语言&amp;目标程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中间语言（中间表示）"><span class="nav-number">2.1.12.</span> <span class="nav-text">中间语言（中间表示）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文法"><span class="nav-number">2.1.13.</span> <span class="nav-text">文法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#token"><span class="nav-number">2.1.14.</span> <span class="nav-text">token</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象语法树"><span class="nav-number">2.1.15.</span> <span class="nav-text">抽象语法树</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#具体"><span class="nav-number">2.2.</span> <span class="nav-text">具体</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CMD-B"><span class="nav-number">2.2.1.</span> <span class="nav-text">CMD+B</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LLVM的具体操作"><span class="nav-number">2.2.2.</span> <span class="nav-text">LLVM的具体操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Clang进行开发"><span class="nav-number">2.2.3.</span> <span class="nav-text">使用Clang进行开发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用LLVM创建一个编译器"><span class="nav-number">2.2.4.</span> <span class="nav-text">使用LLVM创建一个编译器</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#高级类型"><span class="nav-number">1.</span> <span class="nav-text">高级类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可选类型"><span class="nav-number">2.</span> <span class="nav-text">可选类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型安全"><span class="nav-number">3.</span> <span class="nav-text">类型安全</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注释"><span class="nav-number">4.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浮点数"><span class="nav-number">5.</span> <span class="nav-text">浮点数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型推断"><span class="nav-number">6.</span> <span class="nav-text">类型推断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数值型字面量"><span class="nav-number">7.</span> <span class="nav-text">数值型字面量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型转换"><span class="nav-number">8.</span> <span class="nav-text">类型转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型别名"><span class="nav-number">9.</span> <span class="nav-text">类型别名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#布尔值"><span class="nav-number">10.</span> <span class="nav-text">布尔值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元组"><span class="nav-number">11.</span> <span class="nav-text">元组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可选类型-1"><span class="nav-number">12.</span> <span class="nav-text">可选类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#if-语句和强制解析"><span class="nav-number">13.</span> <span class="nav-text">if 语句和强制解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可选绑定"><span class="nav-number">14.</span> <span class="nav-text">可选绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#隐式展开可选项"><span class="nav-number">15.</span> <span class="nav-text">隐式展开可选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误处理"><span class="nav-number">16.</span> <span class="nav-text">错误处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#断言与先决条件"><span class="nav-number">17.</span> <span class="nav-text">断言与先决条件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#调试断言"><span class="nav-number">17.1.</span> <span class="nav-text">调试断言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#强制执行先决条件"><span class="nav-number">17.2.</span> <span class="nav-text">强制执行先决条件</span></a></li></ol></li></ol></div>
             
 
           </div>
