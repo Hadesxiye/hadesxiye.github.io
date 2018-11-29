@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="LLVM,Clang,GNU,GCC,Xcode," />
+  <meta name="keywords" content="Swift4.2," />
 
 
 
@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="LLVM的logo用的是dragon，为啥？因为dragon象征力量，速度和智慧，同时又带着时尚，优雅和modular（官方error），并且从1977年起，诸多颇具影响力的编译器书籍封面上都有龙">
-<meta name="keywords" content="LLVM,Clang,GNU,GCC,Xcode">
+<meta name="description" content="Swift中的字符串都是String类型的，字符是Character类型，看似简单，其中的细节可不少(•́ω•̀ ٥)">
+<meta name="keywords" content="Swift4.2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LLVM是什么( ´ﾟωﾟ)？">
-<meta property="og:url" content="https://hadesxiye.github.io/2018/08/23/LLVM/index.html">
+<meta property="og:title" content="Swift4.2 字符串和字符">
+<meta property="og:url" content="https://hadesxiye.github.io/2018/10/07/Swift字符串/index.html">
 <meta property="og:site_name" content="Fun&amp;Enjoy">
-<meta property="og:description" content="LLVM的logo用的是dragon，为啥？因为dragon象征力量，速度和智慧，同时又带着时尚，优雅和modular（官方error），并且从1977年起，诸多颇具影响力的编译器书籍封面上都有龙">
+<meta property="og:description" content="Swift中的字符串都是String类型的，字符是Character类型，看似简单，其中的细节可不少(•́ω•̀ ٥)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://hadesxiye.github.io/images/LLVM.png">
-<meta property="og:updated_time" content="2018-11-26T09:58:08.686Z">
+<meta property="og:image" content="https://hadesxiye.github.io/images/Swift.png">
+<meta property="og:updated_time" content="2018-11-29T01:47:48.131Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LLVM是什么( ´ﾟωﾟ)？">
-<meta name="twitter:description" content="LLVM的logo用的是dragon，为啥？因为dragon象征力量，速度和智慧，同时又带着时尚，优雅和modular（官方error），并且从1977年起，诸多颇具影响力的编译器书籍封面上都有龙">
-<meta name="twitter:image" content="https://hadesxiye.github.io/images/LLVM.png">
+<meta name="twitter:title" content="Swift4.2 字符串和字符">
+<meta name="twitter:description" content="Swift中的字符串都是String类型的，字符是Character类型，看似简单，其中的细节可不少(•́ω•̀ ٥)">
+<meta name="twitter:image" content="https://hadesxiye.github.io/images/Swift.png">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://hadesxiye.github.io/2018/08/23/LLVM/"/>
+  <link rel="canonical" href="https://hadesxiye.github.io/2018/10/07/Swift字符串/"/>
 
 
 
 
 
-  <title>LLVM是什么( ´ﾟωﾟ)？ | Fun&Enjoy</title>
+  <title>Swift4.2 字符串和字符 | Fun&Enjoy</title>
   
 
 
@@ -299,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hadesxiye.github.io/2018/08/23/LLVM/">
+    <link itemprop="mainEntityOfPage" href="https://hadesxiye.github.io/2018/10/07/Swift字符串/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hades">
@@ -316,7 +316,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">LLVM是什么( ´ﾟωﾟ)？</h2>
+          <h2 class="post-title" itemprop="name headline">Swift4.2 字符串和字符</h2>
         
 
         <div class="post-meta">
@@ -328,8 +328,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-23T18:54:52+08:00">
-                2018-08-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-07T09:31:16+08:00">
+                2018-10-07
               </time>
             
 
@@ -351,8 +351,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编译相关/" itemprop="url" rel="index">
-                    <span itemprop="name">编译相关</span>
+                  <a href="/categories/Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift</span>
                   </a>
                 </span>
 
@@ -369,8 +369,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/23/LLVM/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/08/23/LLVM/" itemprop="commentCount"></span>
+                <a href="/2018/10/07/Swift字符串/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/10/07/Swift字符串/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -378,7 +378,7 @@
 
           
           
-             <span id="/2018/08/23/LLVM/" class="leancloud_visitors" data-flag-title="LLVM是什么( ´ﾟωﾟ)？">
+             <span id="/2018/10/07/Swift字符串/" class="leancloud_visitors" data-flag-title="Swift4.2 字符串和字符">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,739
+                  3,656
                 </span>
               
 
@@ -448,9 +448,9 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="/images/LLVM.png" rel="gallery_cjp1zlymv0002zny7p10dekz2"
+                 href="/images/Swift.png" rel="gallery_cjp1zlyn70007zny7rs4lrldz"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
-                <img src="/images/LLVM.png" itemprop="contentUrl"/>
+                <img src="/images/Swift.png" itemprop="contentUrl"/>
               </a>
             
           
@@ -461,89 +461,78 @@
       
 
       
-        <p><center>LLVM的logo用的是dragon，为啥？因为dragon象征力量，速度和智慧，同时又带着时尚，优雅和modular（官方error），并且从1977年起，诸多颇具影响力的编译器书籍封面上都有龙</center><br><a id="more"></a></p>
-<h1 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h1><h2 id="LLVM"><a href="#LLVM" class="headerlink" title="LLVM"></a><strong><font color="#FF8C00">LLVM</font></strong></h2><blockquote>
-<p>一个开源编译器架构，目前Xcode采用的就是LLVM架构。</p>
-</blockquote>
-<h2 id="Clang"><a href="#Clang" class="headerlink" title="Clang"></a><strong><font color="#FF8C00">Clang</font></strong></h2><blockquote>
-<p>由苹果赞助支持开发的LLVM的编译器前端，目前支持C,C++,Object-C和Object-C++.相对于GCC，Clang快，占用内存小，易于IDE集成，与GCC兼容，诊断可读性强和易拓展等。</p>
-</blockquote>
-<h2 id="GCC"><a href="#GCC" class="headerlink" title="GCC"></a><strong><font color="#FF8C00">GCC</font></strong></h2><blockquote>
-<p>GNU的编译器套装，原本只处理C语言，后来拓展可处理Fortran、Pascal、Objective-C、Java、Ada，Go等。许多操作系统，包括许多类Unix系统，如Linux及BSD家族都采用GCC作为标准编译器。苹果计算机预装的Mac OS X操作系统也采用这个编译器。</p>
-</blockquote>
-<h2 id="GNU"><a href="#GNU" class="headerlink" title="GNU"></a><strong><font color="#FF8C00">GNU</font></strong></h2><blockquote>
-<p>GNU是一个自由的操作系统，但其具有完备功能的内核尚未被开发成功。GNU的内核，称为Hurd，其发展尚未成熟。在实际使用上，多半使用Linux内核、FreeBSD等替代方案，作为系统核心，其中主要的操作系统是Linux的发行版。</p>
-</blockquote>
-<h2 id="在Xcode上使用GCC"><a href="#在Xcode上使用GCC" class="headerlink" title="在Xcode上使用GCC"></a><strong><font color="#FF8C00">在Xcode上使用GCC</font></strong></h2><blockquote>
-<p>Xcode在C和C++上是支持使用GCC的，如下：<br><img src="/2018/08/23/LLVM/XcodeGNU.jpg" title="Xcode9.4上的截图"><br>具体参数的使用请参考：<a href="https://stackoverflow.com/questions/35300064/gnu-gcc-on-xcode" target="_blank" rel="noopener">stackoverflow:Xcode上的GNU GCC</a></p>
-</blockquote>
-<h1 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="LLVM-1"><a href="#LLVM-1" class="headerlink" title="LLVM"></a>LLVM</h3><p>全名：<br>Low Level Virtual Machine  直译：底层虚拟机<br>/loʊ ˈlɛvəl ˈvɜrʧuəl məˈʃin/</p>
-<p>  The LLVM Project is a collection of modular and reusable compiler and toolchain technologies. Despite its name, LLVM has little to do with traditional virtual machines. The name “LLVM” itself is not an acronym; it is the full name of the project.<br>- 来自LLVM官网的介绍 <a href="http://llvm.org/" target="_blank" rel="noopener">LLVM官网</a></p>
-<p>  LLVM项目是模块化和可重用的编译器和工具链技术的集合。尽管名称如此，但LLVM与传统虚拟机几乎没有关系。“LLVM”不是首字母缩略词而是项目的全名。</p>
-<p>  LLVM是一个自由软件项目，它是一种编译器基础设施，以C++写成。它是为了任意一种编程语言而写成的程序，利用虚拟技术创造出编译时期、链接时期、运行时期以及“闲置时期”的最优化。它最早以C/C++为实现对象，而目前它已支持包括ActionScript、Ada、D语言、Fortran、GLSL、Haskell、Java字节码、Objective-C、Swift、Python、Ruby、Rust、Scala以及C#等语言。<br> - 来自维基百科 <a href="https://zh.wikipedia.org/wiki/LLVM" target="_blank" rel="noopener">LLVM on wiki</a></p>
-<p>  简单来说</p>
-<blockquote>
-<p>LLVM是一个开源的编译器架构而不是编译器。是一套用于开发编译器、解释器等程序语言相关工具的库，主要聚焦于编译器后端功能，如代码生成、代码优化、JIT等。<br>编译器是Clang，GCC，ICC，VC++等。</p>
-</blockquote>
-<h4 id="Xcode和LLVM"><a href="#Xcode和LLVM" class="headerlink" title="Xcode和LLVM"></a>Xcode和LLVM</h4><blockquote>
-<p>Xcode3之前，用的是GCC<br>Xcode3,GCC仍然保留，但是也推出了LLVM，苹果推荐LLVM-GCC混合编译器，但还不是默认编译器<br>Xcode4,LLVM-GCC成为默认编译器，但GCC仍保留<br>Xcode4.2,LLVM3.0成为默认编译器,纯用GCC不复可能<br>Xcode4.6,LLVM升级到4.2版本<br>Xcode5,LLVM-GCC被遗弃，新的编译器是LLVM5.0，从GCC过渡到LLVM的时代正式完成</p>
-</blockquote>
-<h3 id="Clang-1"><a href="#Clang-1" class="headerlink" title="Clang"></a>Clang</h3><p>Clang /ˈklæŋ/ 是一个C、C++、Objective-C和Objective-C++编程语言的编译器前端。它采用了底层虚拟机（LLVM）作为其后端，而且由LLVM2.6开始，一起发布新版本。它的目标是提供一个GNU编译器套装（GCC）的替代品，支持了GNU编译器大多数的编译设置以及非官方语言的扩展。作者是克里斯·拉特纳（Chris Lattner），在苹果公司的赞助支持下进行开发，而源代码许可是使用类BSD的伊利诺伊大学厄巴纳-香槟分校开源码许可。<br>Clang项目包括Clang前端和Clang静态分析器等。<br>- 来自维基百科 <a href="https://zh.wikipedia.org/wiki/Clang" target="_blank" rel="noopener">Clang on wiki</a></p>
-<h3 id="GCC-1"><a href="#GCC-1" class="headerlink" title="GCC"></a>GCC</h3><p><a href="http://gcc.gnu.org/" target="_blank" rel="noopener">GCC官网</a><br>GNU编译器套装（英语：GNU Compiler Collection，缩写为GCC），指一套编程语言编译器，以GPL及LGPL许可证所发行的自由软件，也是GNU项目的关键部分，也是GNU工具链的主要组成部分之一。GCC（特别是其中的C语言编译器）也常被认为是跨平台编译器的事实标准。1985年由理查德·马修·斯托曼开始发展，现在由自由软件基金会负责维护工作。</p>
-<p>原名为GNU C语言编译器（GNU C Compiler），因为它原本只能处理C语言。GCC在发布后很快地得到扩展，变得可处理C++。之后也变得可处理Fortran、Pascal、Objective-C、Java、Ada，Go与其他语言。</p>
-<p>许多操作系统，包括许多类Unix系统，如Linux及BSD家族都采用GCC作为标准编译器。苹果计算机预装的Mac OS X操作系统也采用这个编译器。</p>
-<p>GCC原本用C开发，后来因为LLVM、Clang的崛起，它更快地将开发语言转换为C++。许多C的爱好者在对C++一知半解的情况下主观认定C++的性能一定会输给C，但是Ian Lance Taylor给出了不同的意见，并表明C++不但性能不输给C，而且能设计出更好，更容易维护的程序。<br>- 来自维基百科 <a href="https://zh.wikipedia.org/wiki/GCC" target="_blank" rel="noopener">GCC on wiki</a></p>
-<h3 id="GNU-1"><a href="#GNU-1" class="headerlink" title="GNU"></a>GNU</h3><p><a href="https://www.gnu.org/" target="_blank" rel="noopener">GNU官网</a><br>GNU是一个自由的操作系统，其内容软件完全以GPL方式发布。这个操作系统是GNU计划的主要目标，名称来自GNU’s Not Unix!的递归缩写，因为GNU的设计类似Unix，但它不包含具著作权的Unix代码。GNU的创始人，理查德·马修·斯托曼，将GNU视为“达成社会目的技术方法”。</p>
-<p>作为操作系统，GNU的发展仍未完成，其中最大的问题是具有完备功能的内核尚未被开发成功。GNU的内核，称为Hurd，是自由软件基金会发展的重点，但是其发展尚未成熟。在实际使用上，多半使用Linux内核、FreeBSD等替代方案，作为系统核心，其中主要的操作系统是Linux的发行版。Linux操作系统包涵了Linux内核与其他自由软件项目中的GNU组件和软件，可以被称为GNU/Linux。<br>- 来自维基百科 <a href="https://zh.wikipedia.org/zh-cn/GNU" target="_blank" rel="noopener">GNU on wiki</a></p>
-<h3 id="LLDB"><a href="#LLDB" class="headerlink" title="LLDB"></a>LLDB</h3><p>LLDB是一种软件调试器。它构建为一组可重用的组件，被LLVM项目的现有库广泛使用，例如Clang表达式解析器和LLVM 反汇编程序。<br>尽管LLDB处于早期开发阶段，但它已经足够成熟，可以支持用C，Objective-C，C ++和Swift编写的程序的基本调试。<br>LLDB可以在macOS，Linux，FreeBSD和Windows上运行，并支持i386，x86-64和ARM 指令集。它用作Xcode 5及更高版本的默认调试器。</p>
-<h3 id="GDB"><a href="#GDB" class="headerlink" title="GDB"></a>GDB</h3><p>GNU Debugger 顾名思义<br>支持编程语言有C、C++、Pascal以及FORTRAN<br>在许多的类UNIX操作系统上都可以使用</p>
-<h3 id="词法分析"><a href="#词法分析" class="headerlink" title="词法分析"></a>词法分析</h3><p>lexical analysis /ˈlɛksɪkəl/<br>词法分析阶段是编译过程的第一个阶段。这个阶段的任务是从左到右一个字符一个字符地读入源程序，即对构成源程序的字符流进行扫描然后根据构词规则识别单词(也称单词符号或符号)。词法分析程序实现这个任务。词法分析程序可以使用lex等工具自动生成。</p>
-<h3 id="语法分析"><a href="#语法分析" class="headerlink" title="语法分析"></a>语法分析</h3><p>syntactic analysis，也叫 parsing<br>/sɪnˈtæktɪk əˈnæləsəs/  /ˈpɑːzɪŋ/<br>语法分析是编译过程的一个逻辑阶段。语法分析的任务是在词法分析的基础上将单词序列组合成各类语法短语，如“程序”，“语句”，“表达式”等等.语法分析程序判断源程序在结构上是否正确.源程序的结构由上下文无关文法描述.</p>
-<h3 id="语法分析器"><a href="#语法分析器" class="headerlink" title="语法分析器"></a>语法分析器</h3><p>parser<br>通常是作为编译器或解释器的组件出现的，它的作用是进行语法检查、并构建由输入的单词组成的数据结构（一般是语法分析树、抽象语法树等层次化的数据结构）。语法分析器通常使用一个独立的词法分析器从输入字符流中分离出一个个的“单词”，并将单词流作为其输入。实际开发中，语法分析器可以手工编写，也可以使用工具（半）自动生成。</p>
-<h3 id="源语言-amp-源程序"><a href="#源语言-amp-源程序" class="headerlink" title="源语言&amp;源程序"></a>源语言&amp;源程序</h3><p>Source language&amp;Source program<br>被编译程序翻译的程序称为源程序,书写该程序的语言称为源语言。</p>
-<h3 id="目标语言-amp-目标程序"><a href="#目标语言-amp-目标程序" class="headerlink" title="目标语言&amp;目标程序"></a>目标语言&amp;目标程序</h3><p>Object language or Target language &amp; Object program or Target program<br>编译程序翻译源程序而得到的结果程序称为目标程序, 书写该程序的语言称为目标语言。</p>
-<h3 id="中间语言（中间表示）"><a href="#中间语言（中间表示）" class="headerlink" title="中间语言（中间表示）"></a>中间语言（中间表示）</h3><p>Intermediate language（representation）<br>在进行了语法分析和语义分析阶段的工作之后，有的编译程序将源程序变成一种内部表示形式，这种内部表示形式叫做中间语言或中间表示或中间代码。所谓“中间代码”是一种结构简单、含义明确的记号系统，这种记号系统复杂性介于源程序语言和机器语言之间，容易将它翻译成目标代码。另外，还可以在中间代码一级进行与机器无关的优化。</p>
-<h3 id="文法"><a href="#文法" class="headerlink" title="文法"></a>文法</h3><p>Grammars<br>/ˈgræməz/<br>文法是用于描述语言的语法结构的形式规则。</p>
-<h3 id="token"><a href="#token" class="headerlink" title="token"></a>token</h3><p>是一个字符串，是构成源代码的最小单位。从输入字符流中生成标记的过程叫作标记化（tokenization），在这个过程中，词法分析器还会对标记进行分类。<br>词法分析器通常不会关心标记之间的关系（属于语法分析的范畴），举例来说：词法分析器能够将括号识别为标记，但并不保证括号是否匹配。</p>
-<h3 id="抽象语法树"><a href="#抽象语法树" class="headerlink" title="抽象语法树"></a>抽象语法树</h3><p>abstract syntax tree或者缩写为AST<br>/ˈæbstrækt ˈsɪnˌtæks tri/<br>抽象语法树，或者语法树（syntax tree），是源代码的抽象语法结构的树状表现形式，这里特指编程语言的源代码。和抽象语法树相对的是具体语法树（concrete syntaxtree），通常称作分析树（parse tree）。一般的，在源代码的翻译和编译过程中，语法分析器创建出分析树。一旦AST被创建出来，在后续的处理过程中，比如语义分析阶段，会添加一些信息。</p>
-<h2 id="具体"><a href="#具体" class="headerlink" title="具体"></a>具体</h2><h3 id="CMD-B"><a href="#CMD-B" class="headerlink" title="CMD+B"></a>CMD+B</h3><p>Objective-C与swift都采用Clang作为编译器前端，编译器前端主要进行语法分析，语义分析，生成中间代码，在这个过程中，会进行类型检查，如果发现错误或者警告会标注出来在哪一行。<br>编译器后端会进行机器无关的代码优化，生成机器语言，并且进行机器相关的代码优化，根据不同的系统架构生成不同的机器码。<br>C++,Objective C都是编译语言。编译语言在执行的时候，必须先通过编译器生成机器码。</p>
-<p>在使用Xcode按下cmd+B后，会经过以下流程：<br><img src="/2018/08/23/LLVM/02.png" title="Clang/LLVM 编译过程"><br><strong>预处理（Pre-process）</strong>：他的主要工作就是将宏替换，删除注释展开头文件，生成.i文件。</p>
-<p><strong>词法分析 （Lexical Analysis）</strong>：将代码切成一个个 token，比如大小括号，等于号还有字符串等。是计算机科学中将字符序列转换为标记序列的过程。</p>
-<p><strong>语法分析（Semantic Analysis）</strong>：验证语法是否正确，然后将所有节点组成抽象语法树 AST 。由 Clang 中 Parser 和 Sema 配合完成。</p>
-<p><strong>静态分析（Static Analysis）</strong>：使用它来表示用于分析源代码以便自动发现错误。</p>
-<p><strong>中间代码生成（Code Generation）</strong>：开始IR中间代码的生成了，CodeGen 会负责将语法树自顶向下遍历逐步翻译成 LLVM IR，IR 是编译过程的前端的输出后端的输入。</p>
-<p><strong>优化（Optimize）</strong>：LLVM 会去做些优化工作，在 Xcode 的编译设置里也可以设置优化级别-01，-03，-0s，还可以写些自己的 Pass，官方有比较完整的 Pass 教程： Writing an LLVM Pass — LLVM 5 documentation 。如果开启了 bitcode 苹果会做进一步的优化，有新的后端架构还是可以用这份优化过的 bitcode 去生成。</p>
-<p><strong>生成目标文件（Assemble）</strong>：生成Target相关Object(Mach-o) 。</p>
-<p><strong>链接（Link）</strong>：生成 Executable 可执行文件。</p>
-<p>关于此过程的详细测试，参考<a href="https://juejin.im/post/5a30ea0ff265da43094526f9" target="_blank" rel="noopener">掘金</a></p>
-<h3 id="LLVM的具体操作"><a href="#LLVM的具体操作" class="headerlink" title="LLVM的具体操作"></a>LLVM的具体操作</h3><p>请参考<a href="http://www.alonemonkey.com/2016/12/21/learning-llvm/" target="_blank" rel="noopener">关于LLVM，这些东西你必须知道！</a></p>
-<blockquote>
-<p>基于ClangPlugin 可以用来定义一些编码规范，比如代码风格检查，命名检查等等<br>Pass就是LLVM系统转化和优化的工作的一个节点，可以写一个这样的节点去做一些自己的优化工作或者其它的操作，比如 <code>a+b</code> 改为 <code>a-(-b)</code><br>将Pass加入PassManager管理,这样我们就可以直接通过clang的参数去加载我们的Pass了<br>基于Pass，我们可以编写自己的Pass去混淆代码，以增加他人反编译的难度。</p>
-</blockquote>
-<p>所以基于LLVM可以完成：</p>
+        <p><center>Swift中的字符串都是String类型的，字符是Character类型，看似简单，其中的细节可不少(•́ω•̀ ٥)</center><br><a id="more"></a></p>
+<p> Swift 字符串是由 <code>String</code> 类型来表示。 <code>String</code> 的内容可以用多种方式读取，包括作为一个 <code>Character</code> 值的集合。</p>
+<div class="note warning"><p>注意<br>Swift 的字符串类型与 Foundation 的 <code>NSString</code> 类型进行了无缝桥接。 Foundation 也可以对 <code>String</code> 进行扩展，暴露在 <code>NSString</code> 中定义的方法。 这就意味着，你可以不用进行类型转换，就能在 <code>String</code> 中调用 <code>NSString</code> 的这些方法。<br>更多关于在 Foundation 和 Cocoa 中使用 <code>String</code> 的信息，查看  <a href="https://developer.apple.com/documentation/swift/string#2919514" target="_blank" rel="noopener">Bridging Between String and NSString</a> 。</p></div>
+
+<h2 id="初始化一个空字符串"><a href="#初始化一个空字符串" class="headerlink" title="初始化一个空字符串"></a>初始化一个空字符串</h2><p>创建一个空 <code>String</code> 有两种方式，给一个变量赋值一个空字符串或者使用下面的语法初始化一个 <code>String</code> 实例对象：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> emptyString = <span class="string">""</span>               <span class="comment">// 空字符串</span></span><br><span class="line"><span class="keyword">var</span> anotherEmptyString = <span class="type">String</span>()  <span class="comment">// 初始化语法</span></span><br><span class="line"><span class="comment">//这是两个空字符串，他们等价</span></span><br></pre></td></tr></table></figure></p>
+<p>可以通过检查 <code>String</code> 的布尔类型的属性 <code>isEmpty</code> 来判断该字符串的值是否为空：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> emptyString.isEmpty &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Nothing to see here"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印 "Nothing to see here"</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="字符串是值类型"><a href="#字符串是值类型" class="headerlink" title="字符串是值类型"></a>字符串是值类型</h2><p>Swift 中的 <code>String</code>  类型是一种 <code>值类型</code> 。如果你创建了一个新的 <code>String</code> 值， <code>String</code> 值在传递给方法或者函数时会被 拷贝，在给常量或者变量赋值的时候也是一样。在任何情况下，都会对现存的 <code>String</code> 值创建新拷贝，并对新拷贝进行传递或赋值操作。值类型在 结构体和枚举是值类型 中有详细描述。</p>
+<p>Swift 默认 <code>String</code> 拷贝的行为是为了保证在函数或方法中传递的是 <code>String</code> 值，不管该值是从哪里来，你都绝对拥有这个 String  值。你可以确定你传递的这个字符串不会被修改，除非你自己去修改它。</p>
+<p>另一方面，Swift 编译器优化了字符串的使用，实际拷贝只会在需要的时候才进行。这意味着你把字符串当做值类型的同时也能够得到很棒的性能。</p>
+<h2 id="使用字符"><a href="#使用字符" class="headerlink" title="使用字符"></a>使用字符</h2><p>你可以使用 <code>for-in</code> 循环来遍历 <code>String</code> 中每个的 <code>Character</code> 的值：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> character <span class="keyword">in</span> <span class="string">"Dog!🐶"</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(character)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>你可以使用 <code>Character</code> 类型声明，并赋值一个单字符值创建一个独立的字符常量或变量：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> exclamationMark: <span class="type">Character</span> = <span class="string">"!"</span></span><br></pre></td></tr></table></figure></p>
+<p><code>String</code> 的值可以使用一个 <code>Character</code> 值类型的数组作为变量来进行初始化：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> catCharacters: [<span class="type">Character</span>] = [<span class="string">"C"</span>, <span class="string">"a"</span>, <span class="string">"t"</span>, <span class="string">"!"</span>, <span class="string">"🐱"</span>]</span><br><span class="line"><span class="keyword">let</span> catString = <span class="type">String</span>(catCharacters)</span><br><span class="line"><span class="built_in">print</span>(catString)</span><br><span class="line"><span class="comment">// 输出 "Cat!🐱"</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="字符串和字符的拼接"><a href="#字符串和字符的拼接" class="headerlink" title="字符串和字符的拼接"></a>字符串和字符的拼接</h2><p>可以使用加号（ <code>+</code> ）将 <code>String</code> 的值加（或 拼接 ）在一起创造出一个新的值</p>
+<p>你可以使用加等于赋值符号（ <code>+=</code> ）将一个 <code>String</code> 的值追加到一个已经存在的 <code>String</code> 变量中</p>
+<p>你可以使用 <code>String</code> 的 <code>append()</code> 方法将一个 <code>Character</code> 的值追加到一个 <code>String</code> 变量中</p>
+<div class="note warning"><p>注意<br>你不能将字符串 <code>String</code> 或字符 <code>Character</code> 拼接到 <code>Character</code> 变量中，因为 Character 的值只能包含单个字符。<br></p></div>
+
+<h2 id="字符计数"><a href="#字符计数" class="headerlink" title="字符计数"></a>字符计数</h2><p>在一个字符串中使用 count 属性去计算 Character 类型值个数</p>
+<p>注意，Swift 对 Character 类型值使用了拓展字母集，意味着字符串的拼接和修改不一定会持续影响字符串字符个数。</p>
+<p>例如，你初始化一个拥有四个字符的字符串 <code>cafe</code>，然后再追加一个 <code>COMBINING ACUTE ACCENT</code> (<code>U+0301</code>) 字符在末尾 ，最终形成的字符串还是拥有四个字符，并且最后一个字符是 <code>é</code>，而不是 <code>e</code>：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> word = <span class="string">"cafe"</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"the number of characters in <span class="subst">\(word)</span> is <span class="subst">\(word.<span class="built_in">count</span>)</span>"</span>)</span><br><span class="line"><span class="comment">// 打印 "the number of characters in cafe is 4"</span></span><br><span class="line"></span><br><span class="line">word += <span class="string">"\u&#123;301&#125;"</span>    <span class="comment">// 拼接重音符，U+0301</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"the number of characters in <span class="subst">\(word)</span> is <span class="subst">\(word.<span class="built_in">count</span>)</span>"</span>)</span><br><span class="line"><span class="comment">// 打印 "the number of characters in café is 4"</span></span><br></pre></td></tr></table></figure></p>
+<div class="note warning"><p>注意<br>拓展字母集可以由多个不同的 Unicode 标量组成，这就意味着相同字符和相同字符的不同表示需要占据不同的内存空间去存储，因此，在字符串的各种表示中 Swift 字符占据的内存并不一样。造成的结果就是，字符串的字符数量并不能通过遍历该字符串去计算，并用于确定该字符串的拓展字符集边界。如果你正在处理特别长的字符串，要意识到为了确定该字符串的字符个数， <code>count</code> 属性必须要遍历完整个字符串中的全部 Unicode 标量。<br><br> <code>count</code> 属性返回的字符个数不会一直都与包含相同字符的 <code>NSString</code> 的 <code>length</code> 属性返回的字符个数相同。 <code>NSString</code> 的长度是基于 UTF-16 表示的字符串所占据的 16 位代码单元的个数决定，而不是字符串中的拓展字母集个数决定。<br></p></div>
+
+<h2 id="访问和修改字符串"><a href="#访问和修改字符串" class="headerlink" title="访问和修改字符串"></a>访问和修改字符串</h2><p>你可以通过字符串的方法和属性来访问和修改它，或者通过下标语法。</p>
+<h3 id="字符串索引"><a href="#字符串索引" class="headerlink" title="字符串索引"></a>字符串索引</h3><p>每个 <code>String</code> 值都有一个关联的 索引类型， <code>String.Index</code>，对应着字符串中每个 <code>Character</code> 的位置。</p>
+<p>正如上面提到的，不同的字符可能需要不同大小的内存存储，所以为了确定每个 <code>Character</code> 的具体位置，你必须从 <code>String</code> 的开头遍历每个 <code>Unicode</code> 标量到结束。因此，Swift 字符串不能使用整型值索引。</p>
+<p>使用 <code>startIndex</code> 属性可以访问 <code>String</code> 的第一个 <code>Character</code> 的位置。使用 <code>endIndex</code> 属性可以访问 <code>String</code> 的最后一个 <code>Character</code> 的位置。因此， <code>endIndex</code> 属性并不是字符串下标的有效参数。如果 <code>String</code> 是空串， <code>startIndex</code> 和 <code>endIndex</code> 就是相等的。</p>
+<p>你可以通过使用 <code>String</code> 的 <code>index(before:)</code> 和 <code>index(after:)</code> 方法，访问给定索引的前一个和后一个索引。要访问离给定索引偏移较多的索引，你可以使用 <code>index(_:offsetBy:)</code> 方法，避免多次调用 <code>index(before:)</code> 和 <code>index(after:)</code> 方法。</p>
+<p>使用 <code>indices</code> 属性会创建一个包含全部索引的范围，用来在一个字符串中访问单个字符。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> greeting.<span class="built_in">indices</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(greeting[index])</span> "</span>, terminator: <span class="string">""</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印 "G u t e n   T a g ! "</span></span><br></pre></td></tr></table></figure></p>
+<div class="note warning"><p>注意<br>你可以在任意一个遵循  <code>Collection</code> 协议的类型里面，使用 <code>startIndex</code> 和 <code>endIndex</code> 属性或者 <code>index(before:)</code> ， <code>index(after:)</code> 和 <code>index(_:offsetBy:)</code> 方法。如上文所示是使用在  <code>String</code> 中，你也可以使用在 <code>Array</code> 、<code>Dictionary</code> 和 <code>Set</code> 中。</p></div>
+
+<h3 id="插入和删除"><a href="#插入和删除" class="headerlink" title="插入和删除"></a>插入和删除</h3><p>在一个字符串指定位置插入单个字符，使用 <code>insert(:at:)</code> 方法，而要插入另一个字符串的内容时，使用 <code>insert(contentsOf:at:)</code> 方法。</p>
+<p>删除一个字符串指定位置的单个字符，用 <code>remove(at:)</code> 方法，而要删除指定范围的子字符串时，用 <code>removeSubrange(_:)</code></p>
+<div class="note warning"><p>注意<br>你可以在任何遵循 RangeReplaceableCollection 协议的类型上使用  <code>insert(_:at:)</code>， <code>insert(contentsOf:at:)</code>，<code>remove(at:)</code>，和 <code>removeSubrange(_:)</code> 方法。除了这里说到的 <code>String</code>，还包括 <code>Array</code>，<code>Dictionary</code>，和  <code>Set</code> 等集合类型。</p></div>
+
+<h3 id="子字符串"><a href="#子字符串" class="headerlink" title="子字符串"></a>子字符串</h3><p>当你从字符串中获取一个子字符串 —— 例如使用下标或者  <code>prefix(_:)</code> 之类的方法 —— 就可以得到一个 <code>Substring</code> 的 实例 ，而非另外一个 <code>String</code> 。Swift 里的 <code>Substring</code> 的绝大部分函数都跟 <code>String</code> 一样，意味着你可以使用同样的方式去操作 <code>Substring</code> 和 <code>String</code> 。然而，跟  <code>String</code> 不同的是，你只有在短时间内需要操作字符串时，才会使用 <code>Substring</code> 。当你需要长时间保存结果时，就把 <code>Substring</code> 转化为 <code>String</code> 的实例：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> greeting = <span class="string">"Hello, world!"</span></span><br><span class="line"><span class="keyword">let</span> index = greeting.firstIndex(of: <span class="string">","</span>) ?? greeting.endIndex</span><br><span class="line"><span class="keyword">let</span> beginning = greeting[..&lt;index]</span><br><span class="line"><span class="comment">// beginning 的值是 "Hello"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 把结果转化为 String 以便长期存储。</span></span><br><span class="line"><span class="keyword">let</span> newString = <span class="type">String</span>(beginning)</span><br></pre></td></tr></table></figure></p>
+<p>就像 <code>String</code> ，每一个 <code>Substring</code> 都会在内存里保存字符集。而 <code>String</code> 和 <code>SubString</code> 的区别在于性能优化上，<code>Substring</code> 可以重用原 <code>String</code> 的内存空间，或者另一个 <code>Substring</code> 的内存空间（<code>String</code> 也有同样的优化，但如果两个 <code>String</code> 共享内存的话，它们就会相等）。这一优化意味着你在修改 <code>String</code> 和 <code>Substring</code> 之前都不需要消耗性能在内存复制。就像前面说的那样，<code>Substring</code> 不适合长期存储 —— 因为它重用了原 <code>String</code> 的内存空间，原 <code>String</code> 的内存空间必须保留直到它的 <code>Substring</code> 不再被使用为止。</p>
+<p>上面的例子， <code>greeting</code> 是一个 <code>String</code>，意味着它在内存里有一片空间保存字符集。而由于 <code>beginning</code> 是 <code>greeting</code> 的 <code>Substring</code>，它重用了  <code>greeting</code> 的内存空间。相反，<code>newString</code> 是一个 <code>String</code> —— 它是使用 <code>Substring</code> 创建的，拥有一片自己的内存空间。下面的图展示了他们之间的关系：<br><img src="/2018/10/07/Swift字符串/swift_string.png"></p>
+<div class="note warning"><p>注意<br> <code>String</code> 和 <code>Substring</code> 都遵循  <code>StringProtocol</code>协议，  这意味着操作字符串的函数使用 <code>StringProtocol</code> 会更加方便。你可以传入 <code>String</code> 或 <code>Substring</code> 去调用函数。<br></p></div>
+
+<h2 id="比较字符串"><a href="#比较字符串" class="headerlink" title="比较字符串"></a>比较字符串</h2><p>Swift 提供了三种方式来比较文本值: 字符串和字符相等、前缀相等、后缀相等。</p>
+<h3 id="字符串和字符相等"><a href="#字符串和字符相等" class="headerlink" title="字符串和字符相等"></a>字符串和字符相等</h3><p>如果他们的扩展字形集是 统一码等价，则这两个 <code>String</code> 值 (或者两个 <code>Character</code> 值) 被认为是等同的。如果它们具有相同的语言含义和外观，即使它们是由不同语义的 Unicode 标量组成，扩展字形集也是等同的。</p>
+<p>例如，<code>LATIN SMALL LETTER E WITH ACUTE</code> (<code>U+00E9</code>) 在规范上等同于 <code>LATIN SMALL LETTER E</code> (<code>U+0065</code>) 加上 <code>COMBINING ACUTE ACCENT</code> (<code>U+0301</code>)。这两个扩展字形簇都是表示字符 <code>é</code> 的有效方法，因此它们被认为是规范等价的</p>
+<p>相反，英文中的 <code>LATIN CAPITAL LETTER A</code> (<code>U+0041</code>，或 <code>「A」</code>)，和俄文中的 <code>CYRILLIC CAPITAL LETTER A</code> (<code>U+0410</code>, 或 <code>「А」</code>) 不相等。这两个字符在视觉上相似，但具有不同的语言含义</p>
+<div class="note warning"><p>注意<br>Swift 中的字符串和字符比较不是区域敏感的。</p></div>
+
+<h3 id="前缀和后缀比较"><a href="#前缀和后缀比较" class="headerlink" title="前缀和后缀比较"></a>前缀和后缀比较</h3><p>可以使用字符串的 <code>hasPrefix(_:)</code> 和 <code>hasSuffix(_:)</code> 方法来检查一个字符串是否有特定的前缀、后缀。这两个方法接收一个 <code>String</code> 类型的参数返回一个布尔值。</p>
+<div class="note warning"><p>注意<br> <code>hasPrefix(_:)</code> 和 <code>hasSuffix(_:)</code> 方法都是在每个字符串的扩展字符集中逐个字符进行比较， 如本文所述  字符串和字符的比较。</p></div>
+
+<h2 id="字符串的-Unicode-表示形式"><a href="#字符串的-Unicode-表示形式" class="headerlink" title="字符串的 Unicode 表示形式"></a>字符串的 <code>Unicode</code> 表示形式</h2><p>当一个 <code>Unicode</code> 字符串被写入文本文件或者一些其他存储时，字符串中的 <code>Unicode</code> 标量会用 <code>Unicode</code> 定义的几种 <code>编码格式</code> 编码。每一个字符串中的小块编码都叫做 <code>代码单元</code>。这些包括 <code>UTF-8</code> 编码格式 (编码字符串为 8 位的代码单元），<code>UTF-16</code> 编码格式 (编码字符串为16位的代码单元) ， 以及 <code>UTF-32</code> 编码格式 (编码字符串32位的代码单元) 。</p>
+<p>Swift 提供几种不同的方式来访问字符串的 <code>Unicode</code> 表现形式。 你可以使用 <code>for - in</code> 对字符串进行便利， 进而访问其中单个 <code>Character</code> 字符值作为 <code>Unicode</code> 扩展的字符群集。 这个过程描述在 使用字符。</p>
+<p>另外，也可以通过其他三种 <code>Unicode</code> 兼容的方式访问字符串的值：</p>
 <ul>
-<li>做语法树分析，实现语言转换OC转Swift、JS or 其它语言，字符串加密。</li>
-<li>编写ClangPlugin，命名规范，代码规范，扩展功能。</li>
-<li>编写Pass，代码混淆优化。</li>
+<li>UTF-8 代码单元集合（利用字符串的 <code>utf8</code> 属性进行访问）</li>
+<li>UTF-16 代码单元集合 （利用字符串的 <code>utf16</code> 属性进行访问）</li>
+<li>21 位的 Unicode 标量值集合，也就是字符串的 UTF-32 编码格式（利用字符串的 <code>unicodeScalars</code> 属性进行访问）<br>下面有 <code>D</code> ，<code>o</code> ，<code>g</code> , <code>!!</code> （<code>DOUBLE EXCLAMATION MARK</code> ，或Unicode 标量 <code>U+203C</code> ）和 <code>🐶</code>（<code>DOG FACE</code>，Unicode 标量为 <code>U+1F436</code>）组成的字符串中的每一个字符代表着一种不同的表示：<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> dogString = <span class="string">"Dog‼🐶"</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h3 id="使用Clang进行开发"><a href="#使用Clang进行开发" class="headerlink" title="使用Clang进行开发"></a>使用Clang进行开发</h3><p>详细参考<a href="https://www.ibm.com/developerworks/cn/opensource/os-cn-clang/index.html" target="_blank" rel="noopener">IBM developerWorks</a></p>
-<p>Clang的特性<br>相比于 GCC，Clang 具有如下优点：</p>
-<ul>
-<li>编译速度快：在某些平台上，Clang 的编译速度显著的快过 GCC。</li>
-<li>占用内存小：Clang 生成的 AST 所占用的内存是 GCC 的五分之一左右。</li>
-<li>模块化设计：Clang 采用基于库的模块化设计，易于 IDE 集成及其他用途的重用。</li>
-<li>诊断信息可读性强：在编译过程中，Clang 创建并保留了大量详细的元数据 (metadata)，有利于调试和错误报告。</li>
-<li>设计清晰简单，容易理解，易于扩展增强。与代码基础古老的 GCC 相比，学习曲线平缓。</li>
-</ul>
-<p>当前 Clang 还处在不断完善过程中，相比于 GCC, Clang 在以下方面还需要加强：</p>
-<ul>
-<li>支持更多语言：GCC 除了支持 C/C++/Objective-C, 还支持 Fortran/Pascal/Java/Ada/Go 和其他语言。Clang 目前支持的语言有 C/C++/Objective-C/Objective-C++。</li>
-<li>支持更多平台：GCC 流行的时间比较长，已经被广泛使用，对各种平台的支持也很完备。Clang 目前支持的平台有 Linux/Windows/Mac OS。</li>
-</ul>
-<p>以下是目前GCC和Clang对C++支持的情况：<br><img src="/2018/08/23/LLVM/03.png" title="GCC Clang对C++支持对比"></p>
-<p>更多参考<a href="https://zh.cppreference.com/w/cpp/compiler_support" target="_blank" rel="noopener">C++ 编译器支持情况表</a></p>
-<h3 id="使用LLVM创建一个编译器"><a href="#使用LLVM创建一个编译器" class="headerlink" title="使用LLVM创建一个编译器"></a>使用LLVM创建一个编译器</h3><p>首先参考这篇文章来写一个helloworld<br><a href="https://www.ibm.com/developerworks/cn/opensource/os-createcompilerllvm1/" target="_blank" rel="noopener">IBM developerWorks</a></p>
-<p>关于LLVM IR的生成与创建<br><a href="https://www.ibm.com/developerworks/cn/opensource/os-createcompilerllvm2/index.html" target="_blank" rel="noopener">IBM developerWorks</a></p>
+<h3 id="UTF-8-表示形式"><a href="#UTF-8-表示形式" class="headerlink" title="UTF-8 表示形式"></a>UTF-8 表示形式</h3><p>你可以通过遍历 <code>String</code> 的 <code>utf8</code> 属性来访问他的 UTF-8 表示。这个属性是 <code>string.UTF8View</code> 类型的，<code>UTF8View</code> 是无符号 8 位（ <code>UInt8</code> ）值得集合，每一个字节都对应一个字符串的 UTF-8 的表现形式：<br><img src="/2018/10/07/Swift字符串/swift_string_utf8.png"></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> codeUnit <span class="keyword">in</span> dogString.utf8 &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(codeUnit)</span> "</span>, terminator: <span class="string">""</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">print</span>(<span class="string">""</span>)</span><br><span class="line"><span class="comment">// 打印 "68 111 103 226 128 188 240 159 144 182 "</span></span><br></pre></td></tr></table></figure>
+<p>上面的例子中，前三个 10 进制 <code>codeUnit</code> 值（<code>68</code>，<code>111</code>，<code>103</code>）代表了字符 <code>D</code> <code>o</code> 和 <code>g</code> ，他们的 UTF-8 表示和 ASCII 表示相同。接下来的三个 10 进制 <code>codeUnit</code> 值（<code>226</code>，<code>128</code>, <code>188</code>）是 <code>DOUBLE EXCLAMATION MARK</code> 的 3 字节 UTF-8 表示形式。 最后四个 <code>codeUnit</code> 值 (<code>240</code>, <code>159</code>, <code>144</code>, <code>182</code>) 是 <code>DOG FACE</code> 的 4 字节 UTF-8 表示形式。</p>
+<h3 id="UTF-16-表示形式"><a href="#UTF-16-表示形式" class="headerlink" title="UTF-16 表示形式"></a>UTF-16 表示形式</h3><p>你可以通过遍历 <code>String</code> 的 <code>utf16</code> 属性来访问它的 <code>UTF-16</code> 表示形式。它是 <code>String.UTF16View</code> 类型的属性, 它是一个无符号 16 位 (<code>UInt16</code>) 值的集合，每一个 <code>UInt16</code> 都是一个字符的 UTF-16 表示形式:<br><img src="/2018/10/07/Swift字符串/swift_string_utf8.png"></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> codeUnit <span class="keyword">in</span> dogString.utf16 &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(codeUnit)</span> "</span>, terminator: <span class="string">""</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">print</span>(<span class="string">""</span>)</span><br><span class="line"><span class="comment">// 打印 "68 111 103 8252 55357 56374 "</span></span><br></pre></td></tr></table></figure>
+<p>同样，前三个 <code>codeUnit</code> 值 (<code>68</code>, <code>111</code>, <code>103</code>) 代表了字符 <code>D</code>, <code>o</code>, 和 <code>g</code>, 他们的 UTF-16 代码单元和 UTF-8 完全相同 (因为这些 Unicode 标量表示 ASCII 字符)。</p>
+<p>第四个 <code>codeUnit</code> 值 (<code>8252</code>) 是一个等于十六进制 <code>203C</code> 的十进制值，<br>这代表了 <code>DOUBLE EXCLAMATION MARK</code> 字符的 Unicode 标量值 <code>U+203C</code> 。这个字符在 UTF-16 中可以用一个代码单元表示。</p>
+<p>第五个和第六个 <code>codeUnit</code> 值 (<code>55357</code> 和 <code>56374</code>) 是 <code>DOG FACE</code> 字符的 UTF-16 表示形式。 第一个值为 <code>U+D83D</code> (十进制值为 <code>55357</code> ) 第二个值为 <code>U+DC36</code> (十进制值为 <code>56374</code> )。</p>
+<h3 id="Unicode-标量表示形式"><a href="#Unicode-标量表示形式" class="headerlink" title="Unicode 标量表示形式"></a>Unicode 标量表示形式</h3><p>你可以通过遍历 <code>String</code> 值的 <code>unicodeScalars</code> 属性来访问它的 <code>Unicode</code> 标量表示。 它是一个 <code>UnicodeScalarView</code> 类型的属性, <code>UnicodeScalarView</code> 是 <code>UnicodeScalar</code> 类型的值得集合。</p>
+<p>每一个 <code>UnicodeScalar</code>都有一个 <code>value</code>属性，可以返回对应的 21 位数值，用 <code>UInt32</code> 值来表示:<br><img src="/2018/10/07/Swift字符串/swift_string_unicode.png"></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> scalar <span class="keyword">in</span> dogString.unicodeScalars &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(scalar.value)</span> "</span>, terminator: <span class="string">""</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">print</span>(<span class="string">""</span>)</span><br><span class="line"><span class="comment">// 打印 "68 111 103 8252 128054 "</span></span><br></pre></td></tr></table></figure>
+<p>前三个 <code>UnicodeScalar</code> 值 (<code>68</code>, <code>111</code>, <code>103</code>) 的 <code>Value</code> 属性依旧代表着字符 <code>D</code>, <code>o</code>, and <code>g</code>。</p>
+<p>第四个 <code>codeUnit</code> 值 (<code>8252</code>) 依旧是一个等于十六进制 <code>203C</code> 的十进制值, 这代表了 <code>DOUBLE EXCLAMATION MARK</code>字符的 Unicode 标量 <code>U+203C</code>。</p>
+<p>第五个 <code>UnicodeScalar</code> 值的 <code>Value</code> 属性, <code>128054</code>, 是一个十六进制 <code>1F436</code> 的十进制表现, 它代表 <code>DOG FACE</code> 字符的 Unicode 标量 <code>U+1F436</code>。</p>
+<p>作为查询他们的 <code>value</code>属性的一种替代方法, 每一个 <code>UnicodeScalar</code> 值也可以用来构建一个新的 <code>String</code> 值, 比如在字符串插值中使用:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> scalar <span class="keyword">in</span> dogString.unicodeScalars &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(scalar)</span> "</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// D</span></span><br><span class="line"><span class="comment">// o</span></span><br><span class="line"><span class="comment">// g</span></span><br><span class="line"><span class="comment">// ‼</span></span><br><span class="line"><span class="comment">// 🐶</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -561,15 +550,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/LLVM/" rel="tag"># LLVM</a>
-          
-            <a href="/tags/Clang/" rel="tag"># Clang</a>
-          
-            <a href="/tags/GNU/" rel="tag"># GNU</a>
-          
-            <a href="/tags/GCC/" rel="tag"># GCC</a>
-          
-            <a href="/tags/Xcode/" rel="tag"># Xcode</a>
+            <a href="/tags/Swift4-2/" rel="tag"># Swift4.2</a>
           
         </div>
       
@@ -582,8 +563,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/15/Shell脚本的入门（一）/" rel="next" title="Shell脚本的入门（一）">
-                <i class="fa fa-chevron-left"></i> Shell脚本的入门（一）
+              <a href="/2018/10/06/Swift基本运算符/" rel="next" title="Swift4.2 基本运算符">
+                <i class="fa fa-chevron-left"></i> Swift4.2 基本运算符
               </a>
             
           </div>
@@ -591,10 +572,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/03/Swift/" rel="prev" title="Swift4.2光速入门٩(๑>◡<๑)۶">
-                Swift4.2光速入门٩(๑>◡<๑)۶ <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -787,7 +764,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简述"><span class="nav-number">1.</span> <span class="nav-text">简述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LLVM"><span class="nav-number">1.1.</span> <span class="nav-text">LLVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Clang"><span class="nav-number">1.2.</span> <span class="nav-text">Clang</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GCC"><span class="nav-number">1.3.</span> <span class="nav-text">GCC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GNU"><span class="nav-number">1.4.</span> <span class="nav-text">GNU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在Xcode上使用GCC"><span class="nav-number">1.5.</span> <span class="nav-text">在Xcode上使用GCC</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更多"><span class="nav-number">2.</span> <span class="nav-text">更多</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">2.1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LLVM-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">LLVM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Xcode和LLVM"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">Xcode和LLVM</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Clang-1"><span class="nav-number">2.1.2.</span> <span class="nav-text">Clang</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GCC-1"><span class="nav-number">2.1.3.</span> <span class="nav-text">GCC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GNU-1"><span class="nav-number">2.1.4.</span> <span class="nav-text">GNU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LLDB"><span class="nav-number">2.1.5.</span> <span class="nav-text">LLDB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GDB"><span class="nav-number">2.1.6.</span> <span class="nav-text">GDB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#词法分析"><span class="nav-number">2.1.7.</span> <span class="nav-text">词法分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语法分析"><span class="nav-number">2.1.8.</span> <span class="nav-text">语法分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语法分析器"><span class="nav-number">2.1.9.</span> <span class="nav-text">语法分析器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#源语言-amp-源程序"><span class="nav-number">2.1.10.</span> <span class="nav-text">源语言&amp;源程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目标语言-amp-目标程序"><span class="nav-number">2.1.11.</span> <span class="nav-text">目标语言&amp;目标程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中间语言（中间表示）"><span class="nav-number">2.1.12.</span> <span class="nav-text">中间语言（中间表示）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文法"><span class="nav-number">2.1.13.</span> <span class="nav-text">文法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#token"><span class="nav-number">2.1.14.</span> <span class="nav-text">token</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象语法树"><span class="nav-number">2.1.15.</span> <span class="nav-text">抽象语法树</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#具体"><span class="nav-number">2.2.</span> <span class="nav-text">具体</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CMD-B"><span class="nav-number">2.2.1.</span> <span class="nav-text">CMD+B</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LLVM的具体操作"><span class="nav-number">2.2.2.</span> <span class="nav-text">LLVM的具体操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Clang进行开发"><span class="nav-number">2.2.3.</span> <span class="nav-text">使用Clang进行开发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用LLVM创建一个编译器"><span class="nav-number">2.2.4.</span> <span class="nav-text">使用LLVM创建一个编译器</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化一个空字符串"><span class="nav-number">1.</span> <span class="nav-text">初始化一个空字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串是值类型"><span class="nav-number">2.</span> <span class="nav-text">字符串是值类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用字符"><span class="nav-number">3.</span> <span class="nav-text">使用字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串和字符的拼接"><span class="nav-number">4.</span> <span class="nav-text">字符串和字符的拼接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符计数"><span class="nav-number">5.</span> <span class="nav-text">字符计数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问和修改字符串"><span class="nav-number">6.</span> <span class="nav-text">访问和修改字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串索引"><span class="nav-number">6.1.</span> <span class="nav-text">字符串索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入和删除"><span class="nav-number">6.2.</span> <span class="nav-text">插入和删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子字符串"><span class="nav-number">6.3.</span> <span class="nav-text">子字符串</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较字符串"><span class="nav-number">7.</span> <span class="nav-text">比较字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串和字符相等"><span class="nav-number">7.1.</span> <span class="nav-text">字符串和字符相等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前缀和后缀比较"><span class="nav-number">7.2.</span> <span class="nav-text">前缀和后缀比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串的-Unicode-表示形式"><span class="nav-number">8.</span> <span class="nav-text">字符串的 Unicode 表示形式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UTF-8-表示形式"><span class="nav-number">8.1.</span> <span class="nav-text">UTF-8 表示形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UTF-16-表示形式"><span class="nav-number">8.2.</span> <span class="nav-text">UTF-16 表示形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unicode-标量表示形式"><span class="nav-number">8.3.</span> <span class="nav-text">Unicode 标量表示形式</span></a></li></ol></li></ol></div>
             
 
           </div>
