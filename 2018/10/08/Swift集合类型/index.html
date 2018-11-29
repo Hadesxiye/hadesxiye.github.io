@@ -83,12 +83,12 @@
 <meta name="keywords" content="Swift4.2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Swift 集合类型">
-<meta property="og:url" content="https://hadesxiye.github.io/2018/11/29/Swift集合类型/index.html">
+<meta property="og:url" content="https://hadesxiye.github.io/2018/10/08/Swift集合类型/index.html">
 <meta property="og:site_name" content="Fun&amp;Enjoy">
 <meta property="og:description" content="Swift 语言提供 Arrays、Sets 和 Dictionaries 三种基本的集合类型用来存储集合数据。数组（Arrays）是有序数据的集。集合（Sets）是无序无重复数据的集。字典（Dictionaries）是无序的键值对的集。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://hadesxiye.github.io/images/Swift.png">
-<meta property="og:updated_time" content="2018-11-29T12:03:39.704Z">
+<meta property="og:updated_time" content="2018-11-29T12:05:48.386Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift 集合类型">
 <meta name="twitter:description" content="Swift 语言提供 Arrays、Sets 和 Dictionaries 三种基本的集合类型用来存储集合数据。数组（Arrays）是有序数据的集。集合（Sets）是无序无重复数据的集。字典（Dictionaries）是无序的键值对的集。">
@@ -122,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="https://hadesxiye.github.io/2018/11/29/Swift集合类型/"/>
+  <link rel="canonical" href="https://hadesxiye.github.io/2018/10/08/Swift集合类型/"/>
 
 
 
@@ -299,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hadesxiye.github.io/2018/11/29/Swift集合类型/">
+    <link itemprop="mainEntityOfPage" href="https://hadesxiye.github.io/2018/10/08/Swift集合类型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hades">
@@ -328,8 +328,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-29T19:59:57+08:00">
-                2018-11-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-08T19:59:57+08:00">
+                2018-10-08
               </time>
             
 
@@ -369,8 +369,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/11/29/Swift集合类型/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/29/Swift集合类型/" itemprop="commentCount"></span>
+                <a href="/2018/10/08/Swift集合类型/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/10/08/Swift集合类型/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -378,7 +378,7 @@
 
           
           
-             <span id="/2018/11/29/Swift集合类型/" class="leancloud_visitors" data-flag-title="Swift 集合类型">
+             <span id="/2018/10/08/Swift集合类型/" class="leancloud_visitors" data-flag-title="Swift 集合类型">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -448,7 +448,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="/images/Swift.png" rel="gallery_cjp2jxaju000a3uy78pkv70lt"
+                 href="/images/Swift.png" rel="gallery_cjp2jz16h000c5ly7eltntmah"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="/images/Swift.png" itemprop="contentUrl"/>
               </a>
@@ -513,7 +513,7 @@
 <p>Swift 的 <code>Set</code> 类型没有确定的顺序，为了按照特定顺序来遍历一个 <code>Set</code>  中的值可以使用 <code>sorted()</code> 方法，它将返回一个有序数组，这个数组的元素排列顺序由操作符<code>&lt;</code>对元素进行比较的结果来确定。</p>
 <h3 id="集合操作"><a href="#集合操作" class="headerlink" title="集合操作"></a>集合操作</h3><p>你可以高效地完成 Set 的一些基本操作，比如把两个集合组合到一起，判断两个集合共有元素，或者判断两个集合是否全包含，部分包含或者不相交。</p>
 <h4 id="基本集合操作"><a href="#基本集合操作" class="headerlink" title="基本集合操作"></a>基本集合操作</h4><p>下面的插图描述了两个集合<code>a</code>和<code>b</code>以及通过阴影部分的区域显示集合各种操作的结果。</p>
-<img src="/2018/11/29/Swift集合类型/set_01.png">
+<img src="/2018/10/08/Swift集合类型/set_01.png">
 <ul>
 <li>使用 <code>intersection(_:)</code> 方法根据两个集合中都包含的值创建的一个新的集合。</li>
 <li>使用 <code>symmetricDifference(_:)</code>  方法根据在一个集合中但不在两个集合中的值创建一个新的集合。</li>
@@ -522,7 +522,7 @@
 </li>
 </ul>
 <h4 id="集合成员关系和相等"><a href="#集合成员关系和相等" class="headerlink" title="集合成员关系和相等"></a>集合成员关系和相等</h4><p>下面的插图描述了三个集合 <code>a</code> 、 <code>b</code> 和 <code>c</code> ,以及通过重叠区域表述集合间共享的元素。集合 <code>a</code> 是集合 <code>b</code> 的父集合，因为 <code>a</code> 包含了 <code>b</code> 中所有的元素，相反的，集合 <code>b</code> 是集合 <code>a</code> 的子集合，因为属于 <code>b</code> 的元素也被 <code>a</code> 包含。集合 <code>b</code> 和集合 <code>c</code> 彼此不关联，因为它们之间没有共同的元素。</p>
-<img src="/2018/11/29/Swift集合类型/set_02.png">
+<img src="/2018/10/08/Swift集合类型/set_02.png">
 <ul>
 <li>使用是否相等运算符（<code>==</code>）来判断两个集合是否包含全部相同的值。</li>
 <li>使用 <code>isSubset(of:)</code> 方法来判断一个集合中的值是否也被包含在另外一个集合中。</li>
