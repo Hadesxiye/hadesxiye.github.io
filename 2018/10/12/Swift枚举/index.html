@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Swift4.2,枚举," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="枚举 为一组相互关联的值定义一种通用类型，它能确保我们在代码中类型安全地使用这些值。">
+<meta name="keywords" content="Swift4.2,枚举">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift4.2 枚举">
+<meta property="og:url" content="https://hadesxiye.github.io/2018/10/12/Swift枚举/index.html">
+<meta property="og:site_name" content="Fun&amp;Enjoy">
+<meta property="og:description" content="枚举 为一组相互关联的值定义一种通用类型，它能确保我们在代码中类型安全地使用这些值。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://hadesxiye.github.io/images/Swift.png">
+<meta property="og:updated_time" content="2018-12-04T11:57:26.691Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Swift4.2 枚举">
+<meta name="twitter:description" content="枚举 为一组相互关联的值定义一种通用类型，它能确保我们在代码中类型安全地使用这些值。">
+<meta name="twitter:image" content="https://hadesxiye.github.io/images/Swift.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://hadesxiye.github.io/2018/10/12/Swift枚举/"/>
+
+
+
+
+
+  <title>Swift4.2 枚举 | Fun&Enjoy</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fun&Enjoy</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">this is Hades's blogs</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-fire"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hadesxiye.github.io/2018/10/12/Swift枚举/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hades">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fun&Enjoy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Swift4.2 枚举</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-12T10:37:44+08:00">
+                2018-10-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/12/Swift枚举/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/10/12/Swift枚举/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/10/12/Swift枚举/" class="leancloud_visitors" data-flag-title="Swift4.2 枚举">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,713
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  14
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="/images/Swift.png" rel="gallery_cjpb41a90000hiky79msny8c0"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="/images/Swift.png" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
+
+      
+        <p><center><strong>枚举</strong> 为一组相互关联的值定义一种通用类型，它能确保我们在代码中类型安全地使用这些值。 </center><br><a id="more"></a><br>假如你熟悉 C 语言，你应该知道 C 语言中的枚举会为一系列整形值分配相关联的名称。Swift 中的枚举更加灵活，我们不必给每个 case 都提供一个值。如果给枚举的每个 case 分配一个值（被称作“原始”值），这个值可以是字符串或字符类型，也可以是整形或者浮点数。</p>
+<p>此外，枚举中的 case 能够被指定为 任意 不同类型的<strong>关联值</strong>，类似于其它语言中的关联体（unions）和变形体（variants）。我们用枚举定义了一系列相关的情形值时，每个情况的关联值都可以是不同类型。</p>
+<p>枚举在 Swift 中是一等类型，它采用了许多传统语言中只能被类支持的特性，例如计算属性（用来提供枚举值的附加信息）和实例方法（用来提供与枚举值相关联的一些方法）。枚举也可以定义构造函数，用来提供初始值；可以在原有实现的基础上进行功能上的扩展；还可以通过遵守协议来提供标准功能。</p>
+<h2 id="枚举语法"><a href="#枚举语法" class="headerlink" title="枚举语法"></a>枚举语法</h2><p>使用 <code>enum</code> 关键词来声明枚举并把它们的全部定义放在一对大括号内：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">SomeEnumeration</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 枚举的定义放在这里</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>下面的例子是使用枚举表示指南针的四个方向：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">CompassPoint</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> north</span><br><span class="line">    <span class="keyword">case</span> south</span><br><span class="line">    <span class="keyword">case</span> east</span><br><span class="line">    <span class="keyword">case</span> west</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>枚举中定义的值 (比如 <code>north</code>, <code>south</code>, <code>east</code>, 和 <code>west</code>) 是枚举的成员。使用  case关键字来定义一个新的枚举成员。</p>
+<div class="note warning"><p>注意<br>不像 <code>C</code> 和 <code>Objective-C</code>，<code>Swift</code> 的枚举成员在创建时不会被赋予一个默认的整型值。在上述<code>CompassPoint</code> 一例中，<code>north</code>, <code>south</code>, <code>east</code> 和 <code>west</code> 不会被隐式赋值为 <code>0</code>, <code>1</code>, <code>2</code> 和 <code>3</code>。相反，这些不同的枚举成员本身就是完备的值，并且是明确定义的<code>CompassPoint</code>类型。</p></div>
+
+<p>多个成员可以出现在同一行，并以逗号来隔开：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Planet</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> mercury, venus, earth, mars, jupiter, saturn, uranus, neptune</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>每个枚举都定义了一个全新的类型。像 Swift 中其他的类型一样，它们的名字（例如 <code>CompassPoint</code> 和 <code>Planet</code> ）应该以大写字母开头。为了阅读起来更简洁明了，以单数形式命名枚举，而不是复数形式：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> directionToHead = <span class="type">CompassPoint</span>.west</span><br></pre></td></tr></table></figure></p>
+<p> <code>directionToHead</code> 的类型在被 <code>CompassPoint</code> 的一个值初始化时可以推断出来。一旦 <code>directionToHead</code> 被声明为 <code>CompassPoint</code>类型，你可以使用更简短的点语法来设置其为一个不同的 <code>CompassPoint</code> 值：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">directionToHead = .east</span><br></pre></td></tr></table></figure></p>
+<p>因为 <code>directionToHead</code> 的类型已知，所以你可以在赋值阶段省略类型名。在使用显示类型的枚举值时，这种写法让代码具有更高的可读性。</p>
+<h2 id="用-Switch-语句来匹配枚举值"><a href="#用-Switch-语句来匹配枚举值" class="headerlink" title="用 Switch 语句来匹配枚举值"></a>用 Switch 语句来匹配枚举值</h2><p>在 <code>switch</code> 语句中你可以对每个枚举值进行匹配:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">directionToHead = .south</span><br><span class="line"><span class="keyword">switch</span> directionToHead &#123;</span><br><span class="line"><span class="keyword">case</span> .north:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Lots of planets have a north"</span>)</span><br><span class="line"><span class="keyword">case</span> .south:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Watch out for penguins"</span>)</span><br><span class="line"><span class="keyword">case</span> .east:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Where the sun rises"</span>)</span><br><span class="line"><span class="keyword">case</span> .west:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Where the skies are blue"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印 "Watch out for penguins"</span></span><br></pre></td></tr></table></figure></p>
+<p>这段代码可以理解为:</p>
+<blockquote>
+<p>「就 <code>directionToHead</code> 这个值而言，当它等于 <code>.north</code> 时，输出 <code>Lots of planets have a north</code>，当它是 <code>.south</code> 时则会输出 <code>Watch out for penguins</code>」。</p>
+</blockquote>
+<p>以此类推。<br>在 控制流 中提到, 一个 <code>switch</code> 语句必须列举出枚举中的所有值。 如果漏掉了 <code>.west</code> 这个 <code>case</code>，这段代码就会因为没有考虑到 <code>CompassPoint</code> 这个枚举中的所有情况而不会被编译。 需要穷举所有的情况来确保不会有遗漏。</p>
+<p>当不需要给每一个枚举中的情况都写一个 <code>case</code> 时，你可以用 <code>default</code> 来代替其他所有没有被声明的情况：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> somePlanet = <span class="type">Planet</span>.earth</span><br><span class="line"><span class="keyword">switch</span> somePlanet &#123;</span><br><span class="line"><span class="keyword">case</span> .earth:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Mostly harmless"</span>)</span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Not a safe place for humans"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印 "Mostly harmless"</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="遍历枚举的情况"><a href="#遍历枚举的情况" class="headerlink" title="遍历枚举的情况"></a>遍历枚举的情况</h2><p>定义一个所有枚举情况的集合在某些枚举中是很有用的。你通过在枚举的名字后面写 : <code>CaseIterable</code>  来使用它。<code>Swift</code> 用 <code>allCases</code> 这个属性来暴露出这个枚举中所有 <code>case</code> 的集合。例子如下：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Beverage</span>: <span class="title">CaseIterable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> coffee, tea, juice</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> numberOfChoices = <span class="type">Beverage</span>.allCases.<span class="built_in">count</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"<span class="subst">\(numberOfChoices)</span> beverages available"</span>)</span><br><span class="line"><span class="comment">// 打印 "3 beverages available"</span></span><br></pre></td></tr></table></figure></p>
+<p>在上面的例子中，通过 <code>Beverage.allCases</code> 可以得到 <code>Beverage</code> 这个枚举包含的所有 <code>case</code> 的集合。你可以想其他集合一样使用 <code>allCases</code> – 集合中的元素为这个枚举的值，在这个例子中也就是 <code>Beverage</code> 的值。上面的例子中得到了枚举中 <code>case</code> 的个数，而下面的例子中则用 <code>for</code> 循环遍历了所有的 <code>case</code>。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> beverage <span class="keyword">in</span> <span class="type">Beverage</span>.allCases &#123;</span><br><span class="line">    <span class="built_in">print</span>(beverage)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// coffee</span></span><br><span class="line"><span class="comment">// tea</span></span><br><span class="line"><span class="comment">// juice</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="关联值"><a href="#关联值" class="headerlink" title="关联值"></a>关联值</h2><p>上一节的示例演示了枚举本身是如何被定义（和分类）的。你可以为 <code>Planet.earth</code> 设置一个常量或变量，并在稍后查看此值。但是，如果能够在这些成员值旁边存储其他类型的 关联值 就更方便了。这能让你存储成员值之外的其他自定义信息，并且每次在代码中使用该成员值时允许这个信息发生变化。</p>
+<p>你可以定义 Swift 枚举以存储任何给定类型的关联值，并且如果需要，每种枚举的值类型可以不同。这种枚举在其他编程语言中称为 区分联合 ， 标记的联合 或 变体。</p>
+<p>例如，假设库存跟踪系统需要通过两种不同类型的条形码跟踪产品。有些产品使用标有数字 <code>0</code> 到 <code>9</code> 的 <code>UPC</code> 格式的 1D 条形码。每个条形码都有一个「数字系统」码，后面跟着五个「制造商代码」码和五个「产品代码」码。然后是「检查」码，以验证条形码是否被正确扫描：</p>
+<img src="/2018/10/12/Swift枚举/枚举01.png">
+<p>其他产品使用 QR 格式的二维条码进行标记，可以使用任何ISO 8859-1字符，并且可以编码长达 2953 个字符的字符串：</p>
+<img src="/2018/10/12/Swift枚举/枚举02.png">
+<p>对于库存跟踪系统来说，如果能将 UPC 条形码存储为四个整数的元组，同时将 QR 条形码存储为任意长度的字符串，会是最方便的。</p>
+<p>在 Swift 中，定义这两种类型的产品条形码的枚举如下所示：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Barcode</span></span>&#123;</span><br><span class="line">    <span class="keyword">case</span> upc(<span class="type">Int</span>, <span class="type">Int</span>, <span class="type">Int</span>, <span class="type">Int</span>)</span><br><span class="line">    <span class="keyword">case</span> qrCode(<span class="type">String</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这可以理解为：<br>「定义一个名为 <code>Barcode</code> 的枚举类型，它可以是一个 <code>upc</code> 的值，带有（ <code>Int</code> ， <code>Int</code> ， <code>Int</code> ， <code>Int</code> ）类型的关联值，或者是一个 <code>qrCode</code>的值，带有 <code>String</code> 类型的关联值。」</p>
+<p>这个定义没有提供任何实际的 <code>Int</code> 或 <code>String</code> 值 — 它只定义了，当一个 <code>Barcode</code> 类型的常量或变量在等于 <code>Barcode.upc</code> 或 <code>Barcode.qrCode</code> 时，可以存储的相关值的 类型 。</p>
+<p>可以使用以下任一类型创建新的条形码：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> productBarcode = <span class="type">Barcode</span>.upc(<span class="number">8</span>, <span class="number">85909</span>, <span class="number">51226</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure></p>
+<p>这个例子创建了一个名为 <code>productBarcode</code> 的新变量，并为它赋值 <code>Barcode.upc</code> ，其关联值为 <code>(8, 85909, 51226, 3)</code> 。</p>
+<p>可以为同一产品分配不同类型的条形码：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">productBarcode = .qrCode(<span class="string">"ABCDEFGHIJKLMNOP"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>这时，原始的 <code>Barcode.upc</code> 和其整形数值被新的 <code>Barcode.qrCode</code> 和其字符串值所替代。条形码的常量和变量可以存储为一个 <code>.upc</code> 或者一个 <code>.qrCode</code> （连同它的关联值），但是在任何指定时间只能存储其中之一。</p>
+<p>像以前一样，不同的条形码可以使用一个 <code>switch</code> 语句来检查。然而这次关联值可以被提取作为 <code>switch</code> 语句的一部分。你可以在 <code>switch</code> 的<code>case</code> 分支代码中提取每个关联值作为一个常量（用 <code>let</code> 前缀）或者一个变量（用 <code>var</code> 前缀）来使用：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> productBarcode &#123;</span><br><span class="line"><span class="keyword">case</span> .upc(<span class="keyword">let</span> numberSystem, <span class="keyword">let</span> manufacturer, <span class="keyword">let</span> product, <span class="keyword">let</span> check):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"UPC: <span class="subst">\(numberSystem)</span>, <span class="subst">\(manufacturer)</span>, <span class="subst">\(product)</span>, <span class="subst">\(check)</span>."</span>)</span><br><span class="line"><span class="keyword">case</span> .qrCode(<span class="keyword">let</span> productCode):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"QR code: <span class="subst">\(productCode)</span>."</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印 "QR code: ABCDEFGHIJKLMNOP."</span></span><br></pre></td></tr></table></figure></p>
+<p>如果一个枚举成员的所有关联值都被提取作为常量，或者全被提取作为变量，为了简洁，你可以放置一个 <code>var</code> 或者 <code>let</code> 标注在成员名称的前面：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> productBarcode &#123;</span><br><span class="line"><span class="keyword">case</span> <span class="keyword">let</span> .upc(numberSystem, manufacturer, product, check):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"UPC : <span class="subst">\(numberSystem)</span>, <span class="subst">\(manufacturer)</span>, <span class="subst">\(product)</span>, <span class="subst">\(check)</span>."</span>)</span><br><span class="line"><span class="keyword">case</span> <span class="keyword">let</span> .qrCode(productCode):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"QR code: <span class="subst">\(productCode)</span>."</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印 "QR code: ABCDEFGHIJKLMNOP."</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="原始值"><a href="#原始值" class="headerlink" title="原始值"></a>原始值</h2><p>在 关联值 小节的条形码例子中演示了一个枚举成员如何声明它们存储着不同类型的关联值。作为关联值的替代，枚举成员可以被默认值（称为 原始值 ）预先填充，其中这些原始值具有相同的类型。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">ASCIIControlCharacter</span>: <span class="title">Character</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> tab = <span class="string">"\t"</span></span><br><span class="line">    <span class="keyword">case</span> lineFeed = <span class="string">"\n"</span></span><br><span class="line">    <span class="keyword">case</span> carriageReturn = <span class="string">"\r"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在这里，称为 <code>ASCIIControlCharacter</code> 的枚举的原始值被定义为字符型 <code>Character</code> ，并被设置了一些比较常见的 ASCII 控制字符。字符 值的描述请详见 字符串和字符。</p>
+<p>原始值可以是字符串，字符，或者任意整型值或浮点型值。每个原始值在枚举声明中必须是唯一的。</p>
+<div class="note warning"><p>注意<br>原始值和关联值是 不相同 的。当你开始在你的代码中定义枚举的时候原始值是被预先填充的值，向上述的三个 ASCII 值。对于一个特定的枚举成员，它的原始值始终是相同的。关联值是你在创建一个基于枚举成员的新常量或者变量时才会被设置的，并且每次当你这么做的时候，它的值可以不同。</p></div>
+
+<h3 id="原始值的隐形赋值"><a href="#原始值的隐形赋值" class="headerlink" title="原始值的隐形赋值"></a>原始值的隐形赋值</h3><p>在使用原始值为整型值或者字符串类型的枚举时，不需要显式的给每一个枚举成员设置原始值，Swift 会自动赋值。</p>
+<p>例如，如果使用整型值作为原始值，隐式赋值的值会依次递增1.如果第一个枚举成员没有设置原始值，那么它的原始值就是 <code>0</code>。</p>
+<p>下面的枚举是对之前的 Planet 这个枚举的一个细化，利用原始整型值来代表每个 <code>planet</code> 在太阳系中的顺序：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Planet</span>: <span class="title">Int</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> mercury = <span class="number">1</span>, venus, earth, mars, jupiter, saturn, uranus, neptune</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在上述例子中, <code>Planet.mercury</code> 有一个显式值  <code>1</code> , <code>Planet.venus</code> 有一个隐式值 <code>2</code> , 依次类推。</p>
+<p>当使用字符串作为原始值时，每个枚举成员的隐式初值是该成员的名称。</p>
+<p>下面的枚举是对之前 <code>CompassPoint</code> 枚举的改进，其中使用字符串原始值表示每个方向的名称：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">CompassPoint</span>: <span class="title">String</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> north, south, east, west</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在上面的例子中， <code>CompassPoint.south</code> 有一个隐含的原始值 <code>「south」</code> ，依此类推。</p>
+<p>你可以使用其 <code>rawValue</code> 属性访问枚举的原始值：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> earthsOrder = <span class="type">Planet</span>.earth.rawValue</span><br><span class="line"><span class="comment">// earthsOrder 的值为 3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> sunsetDirection = <span class="type">CompassPoint</span>.west.rawValue</span><br><span class="line"><span class="comment">// sunsetDirection 的值为 "west"</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="使用原始值初始化"><a href="#使用原始值初始化" class="headerlink" title="使用原始值初始化"></a>使用原始值初始化</h3><p>如果使用原始值类型定义枚举，该枚举会自动获得一个初始化方法，该初始化方法接受原始值类型的值（作为名为 <code>rawValue</code> 的参数）并返回枚举成员或 <code>nil</code> 。你可以使用此初始化方法尝试创建枚举的新实例。</p>
+<p>这个例子从原始值 7 中识别出天王星：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> possiblePlanet = <span class="type">Planet</span>(rawValue: <span class="number">7</span>)</span><br><span class="line"><span class="comment">// possiblePlanet 是 Planet? 类型，并且等于 Planet.uranus</span></span><br></pre></td></tr></table></figure></p>
+<p>然而，并非所有 <code>Int</code> 值都会找到匹配的行星。因此，原始值初始化方法始终返回 可选 枚举成员。在上面的例子中， <code>possiblePlanet</code> 的类型是 <code>Planet?</code> ，或<code>「可选的 Planet 」</code>。</p>
+<div class="note warning"><p>注意<br>原始值构造器是一个可失败构造器，因为并非每个原始值都能返回对应的枚举成员。有关更多信息，请参阅 <a href="https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID376" target="_blank" rel="noopener">可失败构造器</a> 。</p></div>
+
+<p>如果你试图找到一个位置为 <code>11</code> 的行星，那么原始值初始化方法返回的可选 <code>Planet</code> 值将为 <code>nil</code> ：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> positionToFind = <span class="number">11</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> somePlanet = <span class="type">Planet</span>(rawValue: positionToFind) &#123;</span><br><span class="line">    <span class="keyword">switch</span> somePlanet &#123;</span><br><span class="line">    <span class="keyword">case</span> .earth:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Mostly harmless"</span>)</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Not a safe place for humans"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"There isn't a planet at position <span class="subst">\(positionToFind)</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印 "There isn't a planet at position 11"</span></span><br></pre></td></tr></table></figure></p>
+<p>此示例使用可选绑定来尝试访问原始值为 <code>11</code> 的行星。 语句 <code>if let somePlanet = Planet(rawValue: 11)</code> 创建了一个可选的 <code>Planet</code> ，并且当可选 <code>Planet</code> 有返回值时，将 <code>Planet</code> 的值赋给 <code>somePlanet</code> 。 在这个例子中，不可能找到位置为 <code>11</code> 的行星，因此执行 <code>else</code> 分支。</p>
+<h2 id="递归枚举"><a href="#递归枚举" class="headerlink" title="递归枚举"></a>递归枚举</h2><p><strong>递归枚举</strong> 是枚举的一种，它允许将该枚举的其他实例，作为自己一个或多个枚举成员的关联值。 你可以通过在枚举成员之前加上 indirect 来表示枚举成员是递归的，它将告诉编译器插入必要的间接层。</p>
+<p>例如，这是一个存储简单算术表达式的枚举：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">ArithmeticExpression</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> number(<span class="type">Int</span>)</span><br><span class="line">    <span class="keyword">indirect</span> <span class="keyword">case</span> addition(<span class="type">ArithmeticExpression</span>, <span class="type">ArithmeticExpression</span>)</span><br><span class="line">    <span class="keyword">indirect</span> <span class="keyword">case</span> multiplication(<span class="type">ArithmeticExpression</span>, <span class="type">ArithmeticExpression</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>你还可以在枚举的开头加入 <code>indirect</code> ，以将所有具有关联值的枚举成员标示为可递归的：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">indirect</span> <span class="class"><span class="keyword">enum</span> <span class="title">ArithmeticExpression</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> number(<span class="type">Int</span>)</span><br><span class="line">    <span class="keyword">case</span> addition(<span class="type">ArithmeticExpression</span>, <span class="type">ArithmeticExpression</span>)</span><br><span class="line">    <span class="keyword">case</span> multiplication(<span class="type">ArithmeticExpression</span>, <span class="type">ArithmeticExpression</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>此枚举可以存储三种算术表达式：普通数字、两个表达式的相加以及两个表达式的相乘。 <code>addition</code> 和 <code>multiplication</code> 枚举成员的相关值同时也是算术表达式 — 这使得嵌套表达式成为可能。 例如，表达式 <code>(5 + 4) * 2</code> 在乘法的右侧有一个数字，在乘法的左侧有另一个表达式。 因为数据是嵌套的，用于存储数据的枚举也需要支持嵌套 — 这意味着枚举需要是可递归的。 下面的代码展示了为 <code>(5 + 4) * 2</code> 创建的 <code>ArithmeticExpression</code> 递归枚举：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> five = <span class="type">ArithmeticExpression</span>.number(<span class="number">5</span>)</span><br><span class="line"><span class="keyword">let</span> four = <span class="type">ArithmeticExpression</span>.number(<span class="number">4</span>)</span><br><span class="line"><span class="keyword">let</span> sum = <span class="type">ArithmeticExpression</span>.addition(five, four)</span><br><span class="line"><span class="keyword">let</span> product = <span class="type">ArithmeticExpression</span>.multiplication(sum, <span class="type">ArithmeticExpression</span>.number(<span class="number">2</span>))</span><br></pre></td></tr></table></figure></p>
+<p>递归函数是一种处理递归结构数据的简单方法。 例如，这是一个计算算术表达式的函数：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">evaluate</span><span class="params">(<span class="number">_</span> expression: ArithmeticExpression)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> expression &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="keyword">let</span> .number(value):</span><br><span class="line">        <span class="keyword">return</span> value</span><br><span class="line">    <span class="keyword">case</span> <span class="keyword">let</span> .addition(<span class="keyword">left</span>, <span class="keyword">right</span>):</span><br><span class="line">        <span class="keyword">return</span> evaluate(<span class="keyword">left</span>) + evaluate(<span class="keyword">right</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="keyword">let</span> .multiplication(<span class="keyword">left</span>, <span class="keyword">right</span>):</span><br><span class="line">        <span class="keyword">return</span> evaluate(<span class="keyword">left</span>) * evaluate(<span class="keyword">right</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(evaluate(product))</span><br></pre></td></tr></table></figure></p>
+<p>当此函数遇到纯数字，直接返回相关值即可。 当此函数遇到加法或乘法，则分别计算符号左侧和右侧的表达式，然后将它们相加或相乘。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Swift4-2/" rel="tag"># Swift4.2</a>
+          
+            <a href="/tags/枚举/" rel="tag"># 枚举</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/11/Swift闭包/" rel="next" title="Swift4.2 闭包">
+                <i class="fa fa-chevron-left"></i> Swift4.2 闭包
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/13/Swift类和结构体/" rel="prev" title="Swift4.2 类和结构体">
+                Swift4.2 类和结构体 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/tx.jpg"
+                alt="Hades" />
+            
+              <p class="site-author-name" itemprop="name">Hades</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Hadesxiye" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://steamcommunity.com/id/471692847" target="_blank" title="Steam">
+                      
+                        <i class="fa fa-fw fa-steam"></i>Steam</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=536622304&auto=1&height=66"></iframe>
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#枚举语法"><span class="nav-number">1.</span> <span class="nav-text">枚举语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用-Switch-语句来匹配枚举值"><span class="nav-number">2.</span> <span class="nav-text">用 Switch 语句来匹配枚举值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遍历枚举的情况"><span class="nav-number">3.</span> <span class="nav-text">遍历枚举的情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关联值"><span class="nav-number">4.</span> <span class="nav-text">关联值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原始值"><span class="nav-number">5.</span> <span class="nav-text">原始值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原始值的隐形赋值"><span class="nav-number">5.1.</span> <span class="nav-text">原始值的隐形赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用原始值初始化"><span class="nav-number">5.2.</span> <span class="nav-text">使用原始值初始化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归枚举"><span class="nav-number">6.</span> <span class="nav-text">递归枚举</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-/images/favicon.ico"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hades</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">58.6k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 访问总量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'CdORfQYjINDVtBIz1id4GeyF-gzGzoHsz',
+        appKey: 'Idy9vRmyA06TcOjV6umrd5PB',
+        placeholder: 'ヾ(･ε･｀*)嗯。。写的勉勉强强吧 (评论支持Markdown哦)',
+        avatar:'/images/tx.jpg',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("CdORfQYjINDVtBIz1id4GeyF-gzGzoHsz", "Idy9vRmyA06TcOjV6umrd5PB");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/00.PVPSerie.model.json"},"display":{"position":"right","width":200,"height":200},"mobile":{"position":"right","width":30,"height":30,"show":true},"log":false});</script></body>
+</html>

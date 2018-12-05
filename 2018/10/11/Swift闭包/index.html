@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Swift4.2,闭包," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="『闭包』是独立的代码块, 可以在你代码中随意传递和使用 。Swift 中的闭包与 Objective-C/C 中的 Block、其他编程语言中的匿名函数相似。">
+<meta name="keywords" content="Swift4.2,闭包">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift4.2 闭包">
+<meta property="og:url" content="https://hadesxiye.github.io/2018/10/11/Swift闭包/index.html">
+<meta property="og:site_name" content="Fun&amp;Enjoy">
+<meta property="og:description" content="『闭包』是独立的代码块, 可以在你代码中随意传递和使用 。Swift 中的闭包与 Objective-C/C 中的 Block、其他编程语言中的匿名函数相似。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://hadesxiye.github.io/images/Swift.png">
+<meta property="og:updated_time" content="2018-12-04T02:35:36.287Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Swift4.2 闭包">
+<meta name="twitter:description" content="『闭包』是独立的代码块, 可以在你代码中随意传递和使用 。Swift 中的闭包与 Objective-C/C 中的 Block、其他编程语言中的匿名函数相似。">
+<meta name="twitter:image" content="https://hadesxiye.github.io/images/Swift.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://hadesxiye.github.io/2018/10/11/Swift闭包/"/>
+
+
+
+
+
+  <title>Swift4.2 闭包 | Fun&Enjoy</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fun&Enjoy</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">this is Hades's blogs</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-fire"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hadesxiye.github.io/2018/10/11/Swift闭包/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hades">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fun&Enjoy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Swift4.2 闭包</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-11T16:54:24+08:00">
+                2018-10-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/11/Swift闭包/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/10/11/Swift闭包/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/10/11/Swift闭包/" class="leancloud_visitors" data-flag-title="Swift4.2 闭包">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  5,744
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  21
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="/images/Swift.png" rel="gallery_cjpb41a95000miky7hi75d38i"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="/images/Swift.png" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
+
+      
+        <p><center>『闭包』是独立的代码块, 可以在你代码中随意传递和使用 。Swift 中的闭包与 Objective-C/C 中的 Block、其他编程语言中的匿名函数相似。</center><br><a id="more"></a></p>
+<p>闭包可以从定义它们的代码的上下文中捕获和存储任何变量。这也被称为这些变量和常量被暂时关闭使用。并且 Swift 负责处理你所捕获的内存进行管理。</p>
+<p>闭包采取如下三种形式之一：</p>
+<ul>
+<li>全局函数是一个有名字但不会捕获任何值的闭包。</li>
+<li>嵌套函数是一个有名字并且可以捕获其封闭函数域内值的闭包。</li>
+<li>闭包表达式是一个用轻量语法所写的可以捕获其上下文中变量或常量值的匿名闭包。</li>
+</ul>
+<p>Swift 的闭包表达式具有干净、清晰的风格，并鼓励在常见场景中进行语法优化使其简明、不杂乱。这些优化主要包括：</p>
+<ul>
+<li>利用上下文推断参数和返回值类型</li>
+<li>单语句表达式的闭包可以隐式返回结果</li>
+<li>参数名称缩写</li>
+<li>尾随闭包语法</li>
+</ul>
+<h2 id="闭包表达式"><a href="#闭包表达式" class="headerlink" title="闭包表达式"></a>闭包表达式</h2><p>闭包表达式 是一种用简短、集中的语法构建内联闭包的方式。闭包表达式提供了几种语法优化的方式，使其能够写出简短的闭包而又不失去闭包函数的可读性。下面的闭包表达式示例，通过在几次迭代中不断改善 <code>sorted(by:)</code> 方法的方式来说明这些优化，每一次迭代都用更简洁的方式描述了相同的功能。</p>
+<h3 id="方法排序"><a href="#方法排序" class="headerlink" title="方法排序"></a>方法排序</h3><p>Swift的基础库提供了一个名字叫做 <code>sorted(by:)</code> API，它通过你编写的一个闭包来进行对数组进行排序。 当完成所有排序代码,  <code>sorted(by:)</code> 方法会返回一个与旧数组相同规格和相同类型的新数组, 并且每个元素都会在正确的位置。 最开始的数组也不会通过 <code>sorted(by:)</code> 被修改。</p>
+<p>下面的闭包示例使用了 <code>sorted(by:)</code> 方法进行了对于 <code>String</code> 类型进行反向排序。这是最开始将要被排序的数组：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> names = [<span class="string">"Chris"</span>, <span class="string">"Alex"</span>, <span class="string">"Ewa"</span>, <span class="string">"Barry"</span>, <span class="string">"Daniella"</span>]</span><br></pre></td></tr></table></figure></p>
+<p><code>sorted(by:)</code> 方法接受一个闭包表达式，闭包表达式接受两个相同类型的数组元素，并且返回 <code>Bool</code> 布尔值来告诉是否第一个值应该在第二个值的前面还是后面。如果这个第一个值应该在第二个值 前面 则返回 <code>true</code>, 反之返回 <code>false</code>。</p>
+<p>这个例子是对 <code>String</code> 类型的数组进行排序，因此这个闭包需要是  <code>(String, String) -&gt; Bool</code> 类型的函数。</p>
+<p>提供该排序闭包的一种方法是写正确类型的函数，并且作为参数传入 <code>sorted(by:)</code> 方法中。 如下：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">backward</span><span class="params">(<span class="number">_</span> s1: String, <span class="number">_</span> s2: String)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> s1 &gt; s2</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> reversedNames = names.sorted(by: backward)</span><br><span class="line"><span class="comment">// reversedNames 会等于 ["Ewa", "Daniella", "Chris", "Barry", "Alex"]</span></span><br></pre></td></tr></table></figure></p>
+<p>如果第一个字符串「s1」大与第二个字符串「s2」，<code>backward(_:_:)</code> 函数将返回 <code>true</code> ，指示 <code>s1</code> 在这个排序数组中位置应该在 <code>s2</code> 的前面。对于字符串来说，“大于”的意思就是“在字母表中出现较后”。这意思是说字母 <code>&quot;B&quot;</code> 是大于字母 <code>&quot;A&quot;</code> 的，也就是说字符串 <code>&quot;Tom&quot;</code> 是大于 <code>&quot;Tim&quot;</code> 的。这是一个反向排序的例子  <code>&quot;Barry&quot;</code> 将出现在 <code>&quot;Alex&quot;</code> 前面，依此类推。</p>
+<p>然而，使用单一表达式的函数「a&gt;b」是一种相当冗长的方式。在本例中最好写法是使用闭包表达式内联的方式编写一个排序闭包。</p>
+<h2 id="闭包表达式语法"><a href="#闭包表达式语法" class="headerlink" title="闭包表达式语法"></a>闭包表达式语法</h2><p>闭包表达式语法基本组成如下:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; (parameters) -&gt; <span class="keyword">return</span> type <span class="keyword">in</span></span><br><span class="line">    statements</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>parameters</code> 在闭包表达式中当作入参，但它们没有默认值。如果你参数类型为入参，则可以在闭包中使用可变类型的方法。元组也可以当做参数和返回值。</p>
+<p>下面的例子展示了上面  <code>backward(_:_:)</code> 函数的闭包表达式版本：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reversedNames = names.sorted(by: &#123; (s1: <span class="type">String</span>, s2: <span class="type">String</span>) -&gt; <span class="type">Bool</span> <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">return</span> s1 &gt; s2</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>注意这个内联闭包与  <code>backward(_:_:)</code> 函数的入参和返回值是相同的。在这两种情况下，它被写成  <code>(s1: String, s2: String) -&gt; Bool</code> 。然而，对于内联闭包表达式，参数和返回值被写在花括号‘内部’，而不是外部。</p>
+<p>闭包表达式主体部分开始于关键字 <code>in</code> 。这个关键字也代表这个闭包的入参和返回值已经声明结束，主体部分将要开始。</p>
+<p>因为上面闭包表达式的主体部分比较短，甚至可以写成一行。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reversedNames = names.sorted(by: &#123; (s1: <span class="type">String</span>, s2: <span class="type">String</span>) -&gt; <span class="type">Bool</span> <span class="keyword">in</span> <span class="keyword">return</span> s1 &gt; s2 &#125; )</span><br></pre></td></tr></table></figure></p>
+<p>这也说明了 <code>sorted(by:)</code> 方法总体调用保持不变。一对括号仍然包含该方法的入参。然而，现在参数却是一个内联闭包了。</p>
+<h3 id="通过上下文推测类型"><a href="#通过上下文推测类型" class="headerlink" title="通过上下文推测类型"></a>通过上下文推测类型</h3><p>因为这个排序闭包是作为一个方法的参数，Swift 能够推断出这个闭包的参数和返回值。 <code>sorted(by:)</code> 方法将被一个字符串数组调用，以至于方法参数的函数的类型一定是 <code>(String, String) -&gt; Bool</code> 。这也意味  <code>(String, String)</code> 和  <code>Bool</code>类型可以不需要作为闭包定义的一部分。也正因为推断出了所有入参和返回值，返回的符号 (<code>-&gt;</code>) 和入参周围的括号也可以被省略。简写后如下：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reversedNames = names.sorted(by: &#123; s1, s2 <span class="keyword">in</span> <span class="keyword">return</span> s1 &gt; s2 &#125; )</span><br></pre></td></tr></table></figure></p>
+<p>当闭包以内联的形式作为一个函数或者方法的参数传入时，始终可以被推断出入参和返回值的类型。因此，当内联闭包被方法或函数当作参数使用时，你也不需要以完整形式去写这个内联闭包。</p>
+<p>尽管如此，你也按照个人意愿将参数类型显示出来。如果这样的做法可以让你的读者对你的代码不保持模凌两可，显示参数类型也是被鼓励使用的。在 sorted(by:) 方法的调用情况下，闭包的目的是帮助一个数组进行排序，也正因为这个闭包在字符串数组中被使用，可以让读者轻松推断出这个闭包正在使用 <code>String</code> 类型的值。</p>
+<h3 id="单一闭包表达式隐式返回"><a href="#单一闭包表达式隐式返回" class="headerlink" title="单一闭包表达式隐式返回"></a>单一闭包表达式隐式返回</h3><p>单一闭包表达式可以省略声明 <code>return</code> 关键字来返回单一表达式的结果，上一个事例省略后如下：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reversedNames = names.sorted(by: &#123; s1, s2 <span class="keyword">in</span> s1 &gt; s2 &#125; )</span><br></pre></td></tr></table></figure></p>
+<p>这里，这个 <code>sorted(by:)</code> 方法函数类型清晰的表明闭包必须返回一个 <code>Bool</code> 类型的值。也因为这个闭包内部包含一个单一表达式 (<code>s1 &gt; s2</code>) 并且返回一个明确的 <code>Bool</code> 类型的值，因此关键字 <code>return</code> 可以被省略。</p>
+<h3 id="缩写参数名"><a href="#缩写参数名" class="headerlink" title="缩写参数名"></a>缩写参数名</h3><p>Swift 自动为内联闭包提供了参数名缩写写法，这里可以使用<code>$0</code>, <code>$1</code>, <code>$2</code> 等来代替闭包的参数。</p>
+<p>如果你在闭包表达式中使用了缩写写法，你就可以省略闭包中的参数声明部分，并且这个缩写参数的值和类型也会通过函数预期类型推断出来。<code>in</code> 关键字也可以被省略，因为这个闭包表达式已经通过主体完全构建出来了。缩写后如下：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reversedNames = names.sorted(by: &#123; $<span class="number">0</span> &gt; $<span class="number">1</span> &#125; )</span><br></pre></td></tr></table></figure></p>
+<p>这里，<code>$0</code> 和 <code>$1</code> 的值指的是第一个和第二个 <code>String</code> 的参数</p>
+<h3 id="运算符方法"><a href="#运算符方法" class="headerlink" title="运算符方法"></a>运算符方法</h3><p>实际上还有一种 更简短 的方式来编写上面例子中的闭包表达式。Swift 的 <code>String</code> 类型将其大于运算符（<code>&gt;</code>）的字符串特定实现为具有两个 <code>String</code> 类型参数的方法，并返回一个 <code>Bool</code> 类型的值。而这正好与 <code>sorted(by: )</code> 方法的参数需要的函数类型相符合。因此，你可以简单地传递一个大于运算符，Swift 可以自动推断出你想使用其特定于字符串的实现：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reversedNames = names.sorted(by: &gt;)</span><br></pre></td></tr></table></figure></p>
+<h3 id="尾随闭包"><a href="#尾随闭包" class="headerlink" title="尾随闭包"></a>尾随闭包</h3><p>如果你需要将闭包表达式作为函数的最后一个参数传入函数，并且这个闭包非常长，这样的情况下使用 “尾随闭包” 这种写法会很有效。尾随闭包通常在函数调用的括号之后，即使他仍是一个参数。当你使用尾随闭包语法，你可以不用填写函数入参为闭包那部分的参数。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">someFunctionThatTakesAClosure</span><span class="params">(closure: <span class="params">()</span></span></span> -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">    <span class="comment">// 函数主体部分</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这里被调用函数没用后置闭包的写法:</span></span><br><span class="line"></span><br><span class="line">someFunctionThatTakesAClosure(closure: &#123;</span><br><span class="line">    <span class="comment">// 闭包主体部分</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这里被调用函数使用后置闭包的写法:</span></span><br><span class="line"></span><br><span class="line">someFunctionThatTakesAClosure() &#123;</span><br><span class="line">    <span class="comment">// 尾随闭包主体部分</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面的字符串排序闭包 闭包表达式语法 作为尾随闭包被写在 <code>sorted(by:)</code>  方法的括号外部，如下：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reversedNames = names.sorted() &#123; $<span class="number">0</span> &gt; $<span class="number">1</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果函数只有一个闭包类型入参，并且使用了尾随闭包的写法，当你调用这个函数的时候可以省略函数名称后面写 <code>()</code> ，写法如下：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reversedNames = names.sorted &#123; $<span class="number">0</span> &gt; $<span class="number">1</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果一个闭包代码很长以至于不能把它写在同一行上，这时使用后置闭包写法就比较有用了。例如，Swift 的 <code>Array</code> 类型的 <code>map(_:)</code> 方法就把闭包表达式作为唯一的参数传入。对数组中每个元素调用一次闭包，并为该元素返回一个映射值（可能是其他类型）。映射的值和类型由调用的闭包制定。</p>
+<p>将提供的闭包应用到数组中的每个元素之后，<code>map(_:)</code> 方法会返回一个包含所有新映射值的新数组，并与原数组保持相同顺序。</p>
+<p>下面介绍如何调用 <code>map(_:)</code> 方法并使用后置闭包的写法，来对一个 <code>Int</code> 类型的数组转换成 String 类型的数组。<code>[16, 58, 510]</code> 数组用于创建新数组 <code>[&quot;OneSix&quot;, &quot;FiveEight&quot;, &quot;FiveOneZero&quot;]</code>:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> digitNames = [</span><br><span class="line">    <span class="number">0</span>: <span class="string">"Zero"</span>, <span class="number">1</span>: <span class="string">"One"</span>, <span class="number">2</span>: <span class="string">"Two"</span>,   <span class="number">3</span>: <span class="string">"Three"</span>, <span class="number">4</span>: <span class="string">"Four"</span>,</span><br><span class="line">    <span class="number">5</span>: <span class="string">"Five"</span>, <span class="number">6</span>: <span class="string">"Six"</span>, <span class="number">7</span>: <span class="string">"Seven"</span>, <span class="number">8</span>: <span class="string">"Eight"</span>, <span class="number">9</span>: <span class="string">"Nine"</span></span><br><span class="line">]</span><br><span class="line"><span class="keyword">let</span> numbers = [<span class="number">16</span>, <span class="number">58</span>, <span class="number">510</span>]</span><br></pre></td></tr></table></figure></p>
+<p>这段代码上边创建了一个映射字典，整数数字作为键，以整数数字转换的英文作为值。并定义了一个整形数组，准备去转换成字符串数组。</p>
+<p>你可以调用数组的  <code>map(_:)</code> 方法并传入一个后置闭包表达式，将 <code>numbers</code> 类型的数组转换为一个 <code>String</code> 类型的数组：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> strings = numbers.<span class="built_in">map</span> &#123; (numbers) -&gt; <span class="type">String</span> <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">var</span> number = numbers</span><br><span class="line">    <span class="keyword">var</span> output = <span class="string">""</span></span><br><span class="line">    <span class="keyword">repeat</span> &#123;</span><br><span class="line">        output = digitNames[number % <span class="number">10</span>]! + output</span><br><span class="line">        number /= <span class="number">10</span></span><br><span class="line">    &#125; <span class="keyword">while</span> number &gt; <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> output</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// strings 被推测成 [String] 类型的数组</span></span><br><span class="line"><span class="comment">// 它的值为 ["OneSix", "FiveEight", "FiveOneZero"]</span></span><br></pre></td></tr></table></figure></p>
+<p> <code>map(_:)</code> 方法传入的闭包表达式会调用数组中每一个元素。你将不需要指定闭包的入参 <code>number</code> 类型，因为这个类型在数组映射的时候可以被推断出来。</p>
+<p>这个例子中，局部变量 <code>number</code> 是在闭包主体中初始化并赋予闭包入参  <code>number</code> 的值，因此可以在闭包体内修改它的值。(函数或闭包的参数是常量)。闭包表达式也指定了一个 <code>String</code> 类型的返回值，指明了映射数组的返回值类型。</p>
+<p>闭包表达式每次被调用时都会构建一个名为 <code>output</code> 的字符串。它通过取余操作 <code>(number % 10)</code> 获取 <code>number</code> 最末位数字并通过这个数组去字典  <code>digitNames</code>  找到对应的字符串。闭包可以使用字典找到所有大于等于 <code>0</code> 的字符串。</p>
+<div class="note warning"><p>注意<br>字典 <code>digitNames</code> 下标形式的调用之后是感叹号 (<code>!</code>) ，因为字典下标形式调用返回一个可选类型的值，表示对应键值不存可能查找失败的情况。上边的例子中 <code>number % 10</code> 获得的值一定作为  <code>digitNames</code> 字典的有效下标，因此使用感叹号强制解包字典索引下的 <code>String</code> 类型的值。 </p></div>
+
+<p>通过  <code>digitNames</code>  字典检索出得字符串会被存储在 <code>output</code> 字符串的前面，通过这种反向操作有效的构建了一个与原始值每个数字位置相同的字符串。( 取余表达式  <code>number % 10</code> ,在 <code>16</code> 值是 <code>6</code> ，在 <code>58</code> 值是<code>8</code> ，在 <code>510</code> 值是 <code>0</code> ) 。</p>
+<p>然后这个 <code>number</code> 的值除以 <code>10</code> 。因为是整形在除法时会被四舍五入，然后 <code>16</code> 变成 <code>1</code> , <code>58</code> 变成 <code>5</code> , <code>510</code> 变成 <code>51</code>。</p>
+<p>这个过程被一直被重复直到 <code>number</code> 值为 <code>0</code> 。 <code>output</code> 字符串在闭包中被返回，并且添加到了 <code>map(_:)</code> 方法的输出数组中。</p>
+<p>上边的例子中使用了后置闭包的写法让这个闭包被调用后代码立即巧妙的封装函数的功能，不需要在 <code>map(_:)</code> 方法的括号里包装闭包体。</p>
+<h2 id="值捕获"><a href="#值捕获" class="headerlink" title="值捕获"></a>值捕获</h2><p>闭包可以 捕获 它所定义的上下文环境中的常量和变量。在闭包体内可以使用和修改这些常量和变量的值， 即使这些常量、变量的作用域已经不存在了。</p>
+<p>在 Swift 中，闭包捕获值的最简单的形式是嵌套函数–写在另一个函数的函数体内。嵌套函数可以捕获外部函数中的任意参数，也可以捕获定义在函数外部的任意常量、变量。</p>
+<p>这是一个例子，一个叫做 <code>makeIncrementer</code> 的函数内部包含了一个嵌套函数 <code>incrementer</code> 。嵌套函数  <code>incrementer()</code> 从它所在的上下文环境中，捕获了两个值，<code>runningTotal</code> 和 <code>amount</code> 。捕获这些值之后 <code>incrementer</code> 作为一个每调用一次就会让 <code>runningTotal</code> 和 <code>amount</code> 的值进行相加的闭包被 <code>makeIncrementer</code> 函数返回。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">makeIncrementer</span><span class="params">(forIncrement amount: Int)</span></span> -&gt; () -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> runningTotal = <span class="number">0</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">incrementer</span><span class="params">()</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        runningTotal += amount</span><br><span class="line">        <span class="keyword">return</span> runningTotal</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> incrementer</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>makeIncrementer</code> 的返回值类型是  <code>() -&gt; Int</code>。这意味着它返回的是一个 函数，而不是一个简单的值。 这个函数没有参数，每次被调用后会返回一个 <code>Int</code> 类型的值。想了解一个函数如何返回其他函数，请参考 函数类型和返回值类型.</p>
+<p><code>makeIncrementer(forIncrement:)</code> 这个函数定义了一个整型变量 <code>runningTotal</code>，用来存储将被返回的计算后的总和。这个变量的初始值是 <code>0</code> 。</p>
+<p><code>makeIncrementer(forIncrement:)</code>  函数有一个 <code>Int</code> 型的参数，参数标签是 <code>forIncrement</code> ，参数名是 <code>amount</code> 。传递给这个参数的参数值用来指定每一次增加函数被调用后  <code>runningTotal</code> 的值增加多少。 <code>makeIncrementer</code> 函数定义了一个名为 <code>incrementer</code> 的嵌套函数，这个函数用来执行具体的增加操作。这个函数只进行简单的相加，并将结果返回。</p>
+<p>当单独来看 <code>incrementer()</code> 这个嵌套函数时，会觉得有点不可思议：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">incrementer</span><span class="params">()</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">    runningTotal += amount</span><br><span class="line">    <span class="keyword">return</span> runningTotal</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>incrementer()</code>  是一个无参数的函数，但是在它的函数体内却使用了  <code>runningTotal</code> 和 <code>amount</code> 这两个变量。<br>通过从它周围的函数中将 <code>runningTotal</code>、 <code>amount</code> 这两个变量进行捕获，并在自己的函数内使用。 通过引用进行捕获来确保 <code>makeIncrementer</code> 函数调用结束后 <code>runningTotal</code> 和 <code>amount</code> 这两个变量不消失，同时也可以确保在下一次调用 <code>incrementer</code> 函数时 <code>runningTotal</code> 是可用的。</p>
+<div class="note warning"><p>注意<br>作为优化，如果一个值在闭包内没被修改，或闭包创建后该值没被修改，Swift 可能会替换捕获而是存储这个值的一个 拷贝。<br>Swift 还会处理所有不再被使用的变量的内存管理问题。</p></div>
+
+<p>这是一个 <code>makeIncrementer</code> 的例子：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> incrementByTen = makeIncrementer(forIncrement: <span class="number">10</span>)</span><br></pre></td></tr></table></figure></p>
+<p>这里定义了一个常量 <code>incrementByTen</code>，每次调用加数器函数都会将 <code>10</code> 和 <code>runningTotal</code> 变量的值相加，最后将函数的返回值赋值给常量 <code>incrementByTen</code>。多次调用这个函数的打印结果如下：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">incrementByTen()</span><br><span class="line"><span class="comment">// 返回值是 10</span></span><br><span class="line">incrementByTen()</span><br><span class="line"><span class="comment">// 返回值是 20</span></span><br><span class="line">incrementByTen()</span><br><span class="line"><span class="comment">// 返回值是 30</span></span><br></pre></td></tr></table></figure></p>
+<p>如果你创建第二个加数器，它会存储一个新的、单独的 <code>runningTotal</code> 变量：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> incrementBySeven = makeIncrementer(forIncrement: <span class="number">7</span>)</span><br><span class="line">incrementBySeven()</span><br><span class="line"><span class="comment">// 返回值是  7</span></span><br></pre></td></tr></table></figure></p>
+<p>继续调用原来的加数器（<code>incrementByTen</code>）会继续让它自己的 <code>runningTotal</code> 变量增加，不会影响到 <code>incrementBySeven</code> 捕获到的变量：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">incrementByTen()</span><br><span class="line"><span class="comment">// 返回值是 40</span></span><br></pre></td></tr></table></figure></p>
+<div class="note warning"><p>注意<br>如果你将闭包作为一个类实例的属性，闭包通过引用该实例或其他成员来捕获该实例，在闭包和实例之间可能会导致循环引用。Swift 使用 捕获列表 来打断循环引用。更多信息请参考 <a href="https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html#ID56" target="_blank" rel="noopener">闭包的循环引用</a> 。</p></div>
+
+<h2 id="闭包引用类型"><a href="#闭包引用类型" class="headerlink" title="闭包引用类型"></a>闭包引用类型</h2><p>在上面的例子中，<code>incrementBySeven</code>  和 <code>incrementByTen</code> 是常量，但是这些常量闭包仍然能够增加它们捕获到的 <code>runningTotal</code> 变量。这因为闭包和函数是 引用类型。</p>
+<p>无论你分配变量还是常量给函数或闭包，实际上你是设置闭包或者函数引用该常量或变量。在上面的例子中，闭包 <code>incrementByTen</code> 选择 引用 的是常量，而不是闭包本身内容。</p>
+<p>这也意味这如果你分配一个闭包两个不同的变量或常量, 这些常量和变量引用相同的闭包：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> alsoIncrementByTen = incrementByTen</span><br><span class="line">alsoIncrementByTen()</span><br><span class="line"><span class="comment">// 返回值为 50</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="逃逸闭包"><a href="#逃逸闭包" class="headerlink" title="逃逸闭包"></a>逃逸闭包</h2><p>当一个闭包作为参数传递给函数时，闭包被称为 逃逸 了函数，但是会在函数返回后才调用。当您声明将闭包作为参数之一的函数时，可以在参数的类型之前写入 <code>@ escape</code>，用来表示允许闭包逃逸。</p>
+<p>有一种闭包可以逃逸的方式是存储在函数外定义的变量中。比如，许多有异步操作的函数以闭包参数作为 <code>completion handler</code>。函数在启动操作之后就已经返回，但在操作完成之后才调用闭包——这种闭包就需要需要逃逸，以便函数返回后调用。例如:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> completionHandlers: [() -&gt; <span class="type">Void</span>] = []</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">someFunctionWithEscapingClosure</span><span class="params">(completionHandler: @escaping <span class="params">()</span></span></span> -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">    completionHandlers.append(completionHandler)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p> <code>someFunctionWithEscapingClosure(_:)</code> 函数将闭包作为它的参数，并且添加到函数之外的数组中。如果你不将函数中的这个参数标记为 <code>@escaping</code>，将为得到一个编译时的错误。<br> 用 <code>@escaping</code> 标记闭包意味着你会在闭包中显式地使用 <code>self</code>。在刚才的例子中，传递给 <code>someFunctionWithEscapingClosure(_:)</code> 的是一个逃逸闭包，意味着需要显式地使用 <code>self</code>。相对来说，传给 <code>someFunctionWithNonescapingClosure(_:)</code> 的是一个非逃逸闭包，就意味着可以隐式地使用 <code>self</code>。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">someFunctionWithNonescapingClosure</span><span class="params">(closure: <span class="params">()</span></span></span> -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">    closure()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">10</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">doSomething</span><span class="params">()</span></span> &#123;</span><br><span class="line">        someFunctionWithEscapingClosure &#123; <span class="keyword">self</span>.x = <span class="number">100</span> &#125;</span><br><span class="line">        someFunctionWithNonescapingClosure &#123; x = <span class="number">200</span> &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> instance = <span class="type">SomeClass</span>()</span><br><span class="line">instance.doSomething()</span><br><span class="line"><span class="built_in">print</span>(instance.x)</span><br><span class="line"><span class="comment">// 打印 "200"</span></span><br><span class="line"></span><br><span class="line">completionHandlers.first?()</span><br><span class="line"><span class="built_in">print</span>(instance.x)</span><br><span class="line"><span class="comment">// 打印 "100"</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="自动闭包"><a href="#自动闭包" class="headerlink" title="自动闭包"></a>自动闭包</h2><p><strong>自动闭包</strong> 自动包装书写的表达式，并将表达式作为一个闭包传入的函数。自动闭包不包含任何参数，当它被调用时会返回一个内部表达式包装的值。这种写法让你使用正常表达式而不是闭包的语法使你可以省略函数旁边的大括号。</p>
+<p>调用 类型函数采用自动闭包是常见的，实现 该类型的函数并不常见。例如， <code>assert(condition:message:file:line:)</code> 方法为 <code>condition</code> 和 <code>message</code> 参数采用了自动闭包的写法，参数  <code>condition</code> 只在编译时取值，并且 <code>message</code> 参数只在 <code>condition</code> 参数为 <code>false</code> 时取值。</p>
+<p>一个自动闭包能让我们延时取值，因为内部代码没有运行，直到你调用这个闭包。延时取值对于较大计算量和具有副作用的代码是非常有效的，因为这样能够让你去控制何时计算该代码，下面的代码展示了闭包如何延时计算：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> customersInLine = [<span class="string">"Chris"</span>, <span class="string">"Alex"</span>, <span class="string">"Ewa"</span>, <span class="string">"Barry"</span>, <span class="string">"Daniella"</span>]</span><br><span class="line"><span class="built_in">print</span>(customersInLine.<span class="built_in">count</span>)</span><br><span class="line"><span class="comment">// 打印 "5"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> customerProvider = &#123; customersInLine.remove(at: <span class="number">0</span>) &#125;</span><br><span class="line"><span class="built_in">print</span>(customersInLine.<span class="built_in">count</span>)</span><br><span class="line"><span class="comment">// 打印 "5"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Now serving <span class="subst">\(customerProvider()</span>)!"</span>)</span><br><span class="line"><span class="comment">// 打印 "Now serving Chris!"</span></span><br><span class="line"><span class="built_in">print</span>(customersInLine.<span class="built_in">count</span>)</span><br><span class="line"><span class="comment">// 打印 "4"</span></span><br></pre></td></tr></table></figure></p>
+<p>尽管在闭包内部 <code>customersInLine</code> 的第一个元素被移除了，但是在闭包被调用之前，该元素是不会被移除。如果这个闭包永远不会被调用，那么这个闭包内部的表达式将永远不会执行，这意味着这个数组中的元素永远不会被移除。注意 <code>customerProvider</code> 不是一个 字符串 类型而是 <code>() -&gt; String</code> — 一个没有参数且返回值是字符串的函数。</p>
+<p>当你将闭包作为参数传递给函数时，你能获得同样的延时求值行为：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// customersInLine 数组是 ["Alex", "Ewa", "Barry", "Daniella"]</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">serve</span><span class="params">(customer customerProvider: <span class="params">()</span></span></span> -&gt; <span class="type">String</span>) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Now serving <span class="subst">\(customerProvider()</span>)!"</span>)</span><br><span class="line">&#125;</span><br><span class="line">serve(customer: &#123; customersInLine.remove(at: <span class="number">0</span>) &#125; )</span><br><span class="line"><span class="comment">// 输出 "Now serving Alex!"</span></span><br></pre></td></tr></table></figure></p>
+<p>上面代码中的 <code>serve(customer:)</code> 函数接受一个返回顾客姓名的显示闭包。下面这个版本的 <code>serve(customer:)</code> 完成同样的功能，不过它并没有接受一个显示闭包，而是接受一个自动闭包，使用 <code>@autoclosure</code> 关键字标记参数。现在你可以将这个函数当作一个接受 <code>String</code> 类型的参数的函数而不是一个闭包一样调用。这个参数会自动转换成一个闭包，因为参数 <code>customerProvider</code> 的类型被标记成 <code>@autoclosure</code> 属性。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  customersInLine 数组是 ["Ewa", "Barry", "Daniella"]</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">serve</span><span class="params">(customer customerProvider: @autoclosure <span class="params">()</span></span></span> -&gt; <span class="type">String</span>) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Now serving <span class="subst">\(customerProvider()</span>)!"</span>)</span><br><span class="line">&#125;</span><br><span class="line">serve(customer: customersInLine.remove(at: <span class="number">0</span>))</span><br><span class="line"><span class="comment">// 输出 "Now serving Ewa!"</span></span><br></pre></td></tr></table></figure></p>
+<div class="note warning"><p>注意<br>自动闭包使用过多会让你的代码很难阅读。 函数和上下文应该明确表明代码被延迟执行。</p></div>
+
+<p>如果你想一个自动闭包也允许逃逸闭包的功能，你需要同时标记 <code>@autoclosure</code> 和 <code>@escaping</code> 关键字。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// customersInLine 数组值为 ["Barry", "Daniella"]</span></span><br><span class="line"><span class="keyword">var</span> customerProviders: [() -&gt; <span class="type">String</span>] = []</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">collectCustomerProviders</span><span class="params">(<span class="number">_</span> customerProvider: @autoclosure @escaping <span class="params">()</span></span></span> -&gt; <span class="type">String</span>) &#123;</span><br><span class="line">    customerProviders.append(customerProvider)</span><br><span class="line">&#125;</span><br><span class="line">collectCustomerProviders(customersInLine.remove(at: <span class="number">0</span>))</span><br><span class="line">collectCustomerProviders(customersInLine.remove(at: <span class="number">0</span>))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Collected <span class="subst">\(customerProviders.<span class="built_in">count</span>)</span> closures."</span>)</span><br><span class="line"><span class="comment">// 打印 "Collected 2 closures."</span></span><br><span class="line"><span class="keyword">for</span> customerProvider <span class="keyword">in</span> customerProviders &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Now serving <span class="subst">\(customerProvider()</span>)!"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印 "Now serving Barry!"</span></span><br><span class="line"><span class="comment">// 打印 "Now serving Daniella!"</span></span><br></pre></td></tr></table></figure></p>
+<p>在上边代码中，闭包作为 <code>customerProvider</code> 参数传入方法， <code>collectCustomerProviders(_:)</code> 函数为 <code>customerProviders</code> 数组拼接传入的闭包。数组 <code>customerProviders</code> 在函数外部定义，这意味着数组中的闭包允许在函数返回之后执行。综上所述，函数使用范围内必须允许 <code>customerProvider</code> 参数逃逸。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Swift4-2/" rel="tag"># Swift4.2</a>
+          
+            <a href="/tags/闭包/" rel="tag"># 闭包</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/10/Swift函数/" rel="next" title="Swift4.2 函数">
+                <i class="fa fa-chevron-left"></i> Swift4.2 函数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/12/Swift枚举/" rel="prev" title="Swift4.2 枚举">
+                Swift4.2 枚举 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/tx.jpg"
+                alt="Hades" />
+            
+              <p class="site-author-name" itemprop="name">Hades</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Hadesxiye" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://steamcommunity.com/id/471692847" target="_blank" title="Steam">
+                      
+                        <i class="fa fa-fw fa-steam"></i>Steam</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=536622304&auto=1&height=66"></iframe>
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包表达式"><span class="nav-number">1.</span> <span class="nav-text">闭包表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法排序"><span class="nav-number">1.1.</span> <span class="nav-text">方法排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包表达式语法"><span class="nav-number">2.</span> <span class="nav-text">闭包表达式语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通过上下文推测类型"><span class="nav-number">2.1.</span> <span class="nav-text">通过上下文推测类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单一闭包表达式隐式返回"><span class="nav-number">2.2.</span> <span class="nav-text">单一闭包表达式隐式返回</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缩写参数名"><span class="nav-number">2.3.</span> <span class="nav-text">缩写参数名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运算符方法"><span class="nav-number">2.4.</span> <span class="nav-text">运算符方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#尾随闭包"><span class="nav-number">2.5.</span> <span class="nav-text">尾随闭包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#值捕获"><span class="nav-number">3.</span> <span class="nav-text">值捕获</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包引用类型"><span class="nav-number">4.</span> <span class="nav-text">闭包引用类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逃逸闭包"><span class="nav-number">5.</span> <span class="nav-text">逃逸闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动闭包"><span class="nav-number">6.</span> <span class="nav-text">自动闭包</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-/images/favicon.ico"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hades</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">58.6k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 访问总量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'CdORfQYjINDVtBIz1id4GeyF-gzGzoHsz',
+        appKey: 'Idy9vRmyA06TcOjV6umrd5PB',
+        placeholder: 'ヾ(･ε･｀*)嗯。。写的勉勉强强吧 (评论支持Markdown哦)',
+        avatar:'/images/tx.jpg',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("CdORfQYjINDVtBIz1id4GeyF-gzGzoHsz", "Idy9vRmyA06TcOjV6umrd5PB");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/00.PVPSerie.model.json"},"display":{"position":"right","width":200,"height":200},"mobile":{"position":"right","width":30,"height":30,"show":true},"log":false});</script></body>
+</html>

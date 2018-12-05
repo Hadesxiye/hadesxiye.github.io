@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Swift4.2,方法," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="方法 是与特定类型相关联的函数。类、结构体和枚举都可以定义实例方法，这些方法会封装特定的任务和功能用于处理给定类型的实例。类、结构体和枚举还可以定义类型方法。类型方法类似于 Objective-C 中的类方法。">
+<meta name="keywords" content="Swift4.2,方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift4.2 方法">
+<meta property="og:url" content="https://hadesxiye.github.io/2018/10/15/Swift方法/index.html">
+<meta property="og:site_name" content="Fun&amp;Enjoy">
+<meta property="og:description" content="方法 是与特定类型相关联的函数。类、结构体和枚举都可以定义实例方法，这些方法会封装特定的任务和功能用于处理给定类型的实例。类、结构体和枚举还可以定义类型方法。类型方法类似于 Objective-C 中的类方法。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://hadesxiye.github.io/images/Swift.png">
+<meta property="og:updated_time" content="2018-12-05T11:25:53.227Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Swift4.2 方法">
+<meta name="twitter:description" content="方法 是与特定类型相关联的函数。类、结构体和枚举都可以定义实例方法，这些方法会封装特定的任务和功能用于处理给定类型的实例。类、结构体和枚举还可以定义类型方法。类型方法类似于 Objective-C 中的类方法。">
+<meta name="twitter:image" content="https://hadesxiye.github.io/images/Swift.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://hadesxiye.github.io/2018/10/15/Swift方法/"/>
+
+
+
+
+
+  <title>Swift4.2 方法 | Fun&Enjoy</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fun&Enjoy</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">this is Hades's blogs</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-fire"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hadesxiye.github.io/2018/10/15/Swift方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hades">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fun&Enjoy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Swift4.2 方法</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-15T18:45:59+08:00">
+                2018-10-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/15/Swift方法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/10/15/Swift方法/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/10/15/Swift方法/" class="leancloud_visitors" data-flag-title="Swift4.2 方法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,141
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  12
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="/images/Swift.png" rel="gallery_cjpb41a94000liky77klr20fp"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="/images/Swift.png" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
+
+      
+        <p><center><strong>方法</strong> 是与特定类型相关联的函数。类、结构体和枚举都可以定义实例方法，这些方法会封装特定的任务和功能用于处理给定类型的实例。类、结构体和枚举还可以定义类型方法。类型方法类似于 Objective-C 中的类方法。</center><br><a id="more"></a></p>
+<p><strong>可以在结构体和枚举中定义方法，是 Swift 与 C 和 Objective-C 的主要区别。在 Objective-C 中，类是唯一可以定义方法的类型。但在 Swift 中，由于类、结构体和枚举都支持定义方法，所以在选择定义类型时你有更多的选择。</strong></p>
+<h2 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h2><p><strong>实例方法</strong> 是属于特定类、结构或枚举实例的函数。它们的功能是提供访问和修改实例属性的方法，或提供与实例目的相关的功能。实例方法与函数具有完全相同的语法，如 函数 中所述。</p>
+<p>你在其所属类型的开始和结束括号内编写实例方法。实例方法可以隐式访问该类型的所有其它实例方法和属性。实例方法只能被它所属类型的实例调用。如果没有实例，不能单独调用它。</p>
+<p>下面是一个简单 <code>Counter</code> 类的示例，可用于计算操作发生的次数：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="built_in">count</span> = <span class="number">0</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">increment</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">count</span> += <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">increment</span><span class="params">(by amount: Int)</span></span> &#123;</span><br><span class="line">        <span class="built_in">count</span> += amount</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">reset</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">count</span> = <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p> <code>Counter</code> 类中定义了三个实例方法</p>
+<p><code>increment()</code> 将计数器增加 <code>1</code> 。<br><code>increment(by: Int)</code> 将计数器增加指定的值。<br><code>reset()</code> 将计数器重置为 <code>0</code>。<br> <code>Counter</code> 类中还声明了一个可变的属性  <code>count</code> ，用来记录计数器当前的值。</p>
+<p>和调用属性一样，你可以使用点语法来调用实例方法：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> counter = <span class="type">Counter</span>()</span><br><span class="line"><span class="comment">// 计数器初始值为 0</span></span><br><span class="line">counter.increment()</span><br><span class="line"><span class="comment">// 计数器的值现在为 1</span></span><br><span class="line">counter.increment(by: <span class="number">5</span>)</span><br><span class="line"><span class="comment">// 计数器的值现在为 6</span></span><br><span class="line">counter.reset()</span><br><span class="line"><span class="comment">// 计数器的值现在为 0</span></span><br></pre></td></tr></table></figure></p>
+<p>方法的参数可以同时拥有一个参数名称（在方法内使用）和一个参数标签（在调用方法时使用），和 函数的参数标签和参数名 中描述的一样。方法的参数也是如此，因为方法也是函数只不过它和类相关联。</p>
+<h2 id="self-属性"><a href="#self-属性" class="headerlink" title="self 属性"></a>self 属性</h2><p>类型的每个实例都有一个名为 <code>self</code> 的隐式属性，它与实例本身完全等效。你可以使用 <code>self</code> 属性来调用自己的实例方法。</p>
+<p>上面例子中的 <code>increment()</code> 方法也可以这样实现的：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">increment</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">self</span>.<span class="built_in">count</span> += <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>实际上，你并不需要经常在代码中书写 <code>self</code> 。如果没有显式地书写 <code>self</code> ，那么只要在方法中使用了该类的属性或方法名称，Swift 就会假定你调用了当前实例的属性或方法。在 <code>Counter</code> 的三个实例方法中使用 <code>count</code> （而不是 <code>self.count</code> ）证明了这个假设。</p>
+<p>当实例方法的参数名称与该实例的属性名称相同时，这时候就会发生命名冲突问题。在这种情况下，会使用参数名称优先原则，这时候你就需要以更严格的方式调用属性。即你需要用书写 <code>self</code> 的方式来调用属性以区分参数名称和属性名称。</p>
+<p>这里， <code>self</code> 消除了一个名为 <code>x</code> 的方法参数和一个也被称为 <code>x</code> 的实例属性之间名称相同的歧义：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">0.0</span>, y = <span class="number">0.0</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">isToTheRightOf</span><span class="params">(x: Double)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span>.x &gt; x</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> somePoint = <span class="type">Point</span>(x: <span class="number">4.0</span>, y: <span class="number">5.0</span>)</span><br><span class="line"><span class="keyword">if</span> somePoint.isToTheRightOf(x: <span class="number">1.0</span>) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"This point is to the right of the line where x == 1.0"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印 "This point is to the right of the line where x == 1.0"</span></span><br></pre></td></tr></table></figure></p>
+<p>如果没有 <code>self</code> 前缀，Swift 会假设 <code>x</code> 的两个用法都调用了名为 <code>x</code> 的方法参数。</p>
+<h2 id="在实例方法中修改值类型"><a href="#在实例方法中修改值类型" class="headerlink" title="在实例方法中修改值类型"></a>在实例方法中修改值类型</h2><p>结构体和枚举是 值类型 。默认情况下，无法在其实例方法中修改值类型的属性。</p>
+<p>但是，如果需要在特定方法中修改结构体或枚举的属性，可以选择将这个方法 <strong>异变</strong> 。然后，该方法就可以异变（即更改）其属性，并且当方法结束时，它所做的任何更改都将写回原始的结构体中。该方法还可以为隐式的 <code>self</code> 属性分配一个全新的实例，并且该新实例将在方法结束时替换现有实例。</p>
+<p>你可以通过在方法的 <code>func</code> 关键字前放置 <code>mutating</code> 关键字来选择开启此行为：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">0.0</span>, y = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">moveBy</span><span class="params">(x deltaX: Double, y deltaY: Double)</span></span> &#123;</span><br><span class="line">        x += deltaX</span><br><span class="line">        y += deltaY</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> somePoint = <span class="type">Point</span>(x: <span class="number">1.0</span>, y: <span class="number">1.0</span>)</span><br><span class="line">somePoint.moveBy(x: <span class="number">2.0</span>, y: <span class="number">3.0</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"The point is now at (<span class="subst">\(somePoint.x)</span>, <span class="subst">\(somePoint.y)</span>)"</span>)</span><br><span class="line"><span class="comment">// 打印 "The point is now at (3.0, 4.0)"</span></span><br></pre></td></tr></table></figure></p>
+<p>上面的 <code>Point</code> 结构体定义了一个异变方法 <code>moveBy(x:y:)</code> ，它会基于特定的数值移动 <code>Point</code> 实例。此方法实际上修改了调用它的那个点，而不是返回一个新点。 <code>mutating</code> 关键字被添加到其定义中，以使其能够修改其属性。</p>
+<p>请注意，你不能在常量结构体类型上调用异变方法，因为它的属性不能更改，即使它们是变量属性，如 常量结构体实例的存储属性 中所述：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fixedPoint = <span class="type">Point</span>(x: <span class="number">3.0</span>, y: <span class="number">3.0</span>)</span><br><span class="line">fixedPoint.moveBy(x: <span class="number">2.0</span>, y: <span class="number">3.0</span>)</span><br><span class="line"><span class="comment">// 编译器会报错</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="在可变方法中给-self-赋值"><a href="#在可变方法中给-self-赋值" class="headerlink" title="在可变方法中给 self 赋值"></a>在可变方法中给 self 赋值</h2><p>可变方法能给隐性的 <code>self</code> 属性赋以一个全新的实例。上面以 <code>Point</code> 为例的代码也可以用下面这种方式来实现：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">0.0</span>, y = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">moveBy</span><span class="params">(x deltaX: Double, y deltaY: Double)</span></span> &#123;</span><br><span class="line">        <span class="keyword">self</span> = <span class="type">Point</span>(x: x + deltaX, y: y + deltaY)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这个版本的可变方法 <code>moveBy(x:y:)</code> 创建了一个新的结构体，且该结构体的 <code>x</code> 与 <code>y</code> 值都被设定为目标位置。调用这个可变版本的方法与上个版本的方法最终结果一样。</p>
+<p>枚举的可变方法可以将隐性的 <code>self</code> 参数设置成同一枚举类型中的不同成员。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">TriStateSwitch</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> off, low, high</span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">next</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">        <span class="keyword">case</span> .off:</span><br><span class="line">            <span class="keyword">self</span> = .low</span><br><span class="line">        <span class="keyword">case</span> .low:</span><br><span class="line">            <span class="keyword">self</span> = .high</span><br><span class="line">        <span class="keyword">case</span> .high:</span><br><span class="line">            <span class="keyword">self</span> = .off</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> ovenLight = <span class="type">TriStateSwitch</span>.low</span><br><span class="line">ovenLight.next()</span><br><span class="line"><span class="comment">// ovenLight 现在等于 .high</span></span><br><span class="line">ovenLight.next()</span><br><span class="line"><span class="comment">// ovenLight 现在等于 .off</span></span><br></pre></td></tr></table></figure></p>
+<p>在这个例子中，我们定义了一个枚举，它拥有三种状态的开关。当 <code>next()</code> 方法被调用时，这个开关将在三种不同的电源状态（<code>off</code>，<code>low</code> 和 <code>high</code>）之间循环切换。</p>
+<h2 id="类型方法"><a href="#类型方法" class="headerlink" title="类型方法"></a>类型方法</h2><p>就像上面所描述的，实例方法是在类型的实例上被调用的方法。你也可以直接在类型本身上定义方法，这样的方法被称作 类型方法 。为了明确一个方法是类型方法，你可以在这个方法的 <code>func</code> 关键词前加上 <code>static</code> 关键词。在类中，也可以使用 <code>class</code> 关键词来声明一个类型方法。与 <code>static</code> 关键词不同的是，<strong>用 <code>class</code> 关键词声明的类型方法允许它的子类重写其父类对类型方法的实现</strong>。</p>
+<div class="note warning"><p>注意<br>在 Objective-C 中，你只能为 Objective-C 的类定义类型方法。而在 Swift 中，你可以为所有的类、结构体或枚举定义类型方法。每一个类型方法可被调用的作用域都被其所支持的类型明确划分。</p></div>
+
+<p>就像实例方法那样，类型方法可以通过点语法来调用。不同的是，你将直接在类上调用类型方法，而不是在类型的实例上调用。你可以像下面这样在一个被叫做 <code>SomeClass</code> 的类上调用其类型方法：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">someTypeMethod</span>() </span>&#123;</span><br><span class="line">            <span class="comment">// 这里是类型方法的实现细节</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">SomeClass</span>.someTypeMethod()</span><br></pre></td></tr></table></figure></p>
+<p>在一个方法的函数体中，隐性属性 <code>self</code> 指代其类型本身，而非指代类型的实例。就像你对实例属性与实例方法的参数之间做的那样，这意味着你可以使用 <code>self</code> 来消除类属性与类型方法的参数之间的歧义。</p>
+<p>一般来说，你在类型方法函数体内使用的任何非完全标准的方法和属性名称将会引用对应的类型级别的方法和属性。类型方法可以直接使用方法的名称来调用另一个类型方法，而无需使用类型名称作为前缀。同样的，结构体和枚举上的类型方法可以通过使用不带类型名称前缀的类型属性名称来访问该类型属性。</p>
+<p>下面的示例定义了一个名为 <code>LevelTracker</code> 的结构体，它用来追踪玩家在游戏的不同级别或阶段的进度。这是一款单人游戏，但可以在一台设备上存储多个玩家的信息。</p>
+<p>首次玩游戏时，所有的游戏等级（除了第一级）都会被锁定。每当玩家完成一个等级时，该等级就会被设备上的所有玩家解锁。 <code>LevelTracker</code> 结构体使用类型属性和方法来追踪游戏的哪些级别已被解锁。它还追踪单个玩家的当前级别。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">LevelTracker</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> highestUnlockedLevel = <span class="number">1</span></span><br><span class="line">    <span class="keyword">var</span> currentLevel = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">unlock</span><span class="params">(<span class="number">_</span> level: Int)</span></span> &#123;</span><br><span class="line">        <span class="keyword">if</span> level &gt; highestUnlockedLevel &#123; highestUnlockedLevel = level &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">isUnlocked</span><span class="params">(<span class="number">_</span> level: Int)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> level &lt;= highestUnlockedLevel</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @discardableResult</span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">advance</span><span class="params">(to level: Int)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="type">LevelTracker</span>.isUnlocked(level) &#123;</span><br><span class="line">            currentLevel = level</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>LevelTracker</code> 结构体追踪任何玩家解锁的最高级别。该值存储在名为 <code>highestUnlockedLevel</code> 的类型属性中。</p>
+<p><code>LevelTracker</code> 还定义了两个类型函数来处理 <code>highestUnlockedLevel</code> 属性。第一个是名为 <code>unlock(_:)</code> 的类型函数，每当解锁一个新级别时它会更新 <code>highestUnlockedLevel</code> 的值。第二个是一个名为 <code>isUnlocked(_:)</code> 的便捷类型函数，如果某个特定的级别号已被解锁，则返回 <code>true</code> 。（请注意，这些类型方法可以直接使用 <code>highestUnlockedLevel</code> 类型属性，而无需将其写为 <code>LevelTracker.highestUnlockedLevel</code> 。）</p>
+<p>除了类型属性和类型方法之外，<code>LevelTracker</code> 还追踪单个玩家在游戏中的进度。它使用一个名为 <code>currentLevel</code> 的实例属性来跟踪玩家当前的游戏等级。</p>
+<p>为了帮助管理 <code>currentLevel</code> 属性， <code>LevelTracker</code> 定义了一个名为 <code>advance(to:)</code> 的实例方法。在更新 <code>currentLevel</code> 之前，此方法先检查所请求的新级别是否已解锁。 <code>advance(to:)</code> 方法返回一个布尔值，表示它是否实际上能够设置 <code>currentLevel</code> 。因为调用 <code>advance(to:)</code> 方法时我们有时候可能会需要忽略返回值，所以这个函数用 <code>@ discardableResult</code> 特性标记。</p>
+<p><code>@ discardableResult</code>表示取消不使用返回值的警告</p>
+<p><code>LevelTracker</code> 结构体与 <code>Player</code> 类一起使用，如下所示，用于追踪和更新单个玩家的进度：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Player</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> tracker = <span class="type">LevelTracker</span>()</span><br><span class="line">    <span class="keyword">let</span> playerName: <span class="type">String</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">complete</span><span class="params">(level: Int)</span></span> &#123;</span><br><span class="line">        <span class="type">LevelTracker</span>.unlock(level + <span class="number">1</span>)</span><br><span class="line">        tracker.<span class="built_in">advance</span>(to: level + <span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>) &#123;</span><br><span class="line">        playerName = name</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>Player</code> 类创建一个 <code>LevelTracker</code> 实例来跟追踪该玩家的进度。它还提供了一个名为 <code>complete(level:)</code> 的方法，只要玩家完成特定级别就会调用它。此方法会为所有玩家解锁下一关，并更新当前玩家的进度到下一关。（忽略 <code>advance(to:)</code> 的布尔性返回值，是因为已经知道通过调用前一行的 <code>LevelTracker.unlock(_:)</code> 来解锁该级别。）</p>
+<p>你可以为新玩家创建一个 <code>Player</code> 类的实例，看看当玩家完成第一级时会发生什么：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> player = <span class="type">Player</span>(name: <span class="string">"Argyrios"</span>)</span><br><span class="line">player.complete(level: <span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"highest unlocked level is now <span class="subst">\(LevelTracker.highestUnlockedLevel)</span>"</span>)</span><br><span class="line"><span class="comment">// 打印 "highest unlocked level is now 2"</span></span><br></pre></td></tr></table></figure></p>
+<p>如果你创建了第二个玩家，并尝试将其移动到游戏中任何玩家都尚未解锁的等级，则设置玩家当前等级的尝试会失败：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">player = <span class="type">Player</span>(name: <span class="string">"Beto"</span>)</span><br><span class="line"><span class="keyword">if</span> player.tracker.<span class="built_in">advance</span>(to: <span class="number">6</span>) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"player is now on level 6"</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"level 6 has not yet been unlocked"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印 "level 6 has not yet been unlocked"</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Swift4-2/" rel="tag"># Swift4.2</a>
+          
+            <a href="/tags/方法/" rel="tag"># 方法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/14/Swift属性/" rel="next" title="Swift4.2 属性">
+                <i class="fa fa-chevron-left"></i> Swift4.2 属性
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/16/Swift下标/" rel="prev" title="Swift4.2 下标">
+                Swift4.2 下标 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/tx.jpg"
+                alt="Hades" />
+            
+              <p class="site-author-name" itemprop="name">Hades</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Hadesxiye" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://steamcommunity.com/id/471692847" target="_blank" title="Steam">
+                      
+                        <i class="fa fa-fw fa-steam"></i>Steam</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=536622304&auto=1&height=66"></iframe>
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实例方法"><span class="nav-number">1.</span> <span class="nav-text">实例方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#self-属性"><span class="nav-number">2.</span> <span class="nav-text">self 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在实例方法中修改值类型"><span class="nav-number">3.</span> <span class="nav-text">在实例方法中修改值类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在可变方法中给-self-赋值"><span class="nav-number">4.</span> <span class="nav-text">在可变方法中给 self 赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型方法"><span class="nav-number">5.</span> <span class="nav-text">类型方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-/images/favicon.ico"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hades</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">58.6k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 访问总量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'CdORfQYjINDVtBIz1id4GeyF-gzGzoHsz',
+        appKey: 'Idy9vRmyA06TcOjV6umrd5PB',
+        placeholder: 'ヾ(･ε･｀*)嗯。。写的勉勉强强吧 (评论支持Markdown哦)',
+        avatar:'/images/tx.jpg',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("CdORfQYjINDVtBIz1id4GeyF-gzGzoHsz", "Idy9vRmyA06TcOjV6umrd5PB");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/00.PVPSerie.model.json"},"display":{"position":"right","width":200,"height":200},"mobile":{"position":"right","width":30,"height":30,"show":true},"log":false});</script></body>
+</html>
