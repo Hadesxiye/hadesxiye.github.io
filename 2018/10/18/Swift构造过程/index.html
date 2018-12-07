@@ -448,7 +448,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="/images/Swift.png" rel="gallery_cjpc9uqb1000kmiy7d5t1r133"
+                 href="/images/Swift.png" rel="gallery_cjpdrir9z000xdty7njw2prt5"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="/images/Swift.png" itemprop="contentUrl"/>
               </a>
@@ -541,11 +541,11 @@
 <li>指定构造器必须 向上 代理。</li>
 <li>便利构造器必须 横向 代理。</li>
 </ul>
-<p>下图解释了这些规则<br><br>父类有一个指定构造器和两个便利构造器。一个便利构造器调用另一个便利构造器，后者又调用指定构造器。这符合上述规则 2 和规则 3。 父类本身并没有父类，所以规则 1 不适用。</p>
+<p>下图解释了这些规则<br><img src="/2018/10/18/Swift构造过程/构造过程01.png"><br>父类有一个指定构造器和两个便利构造器。一个便利构造器调用另一个便利构造器，后者又调用指定构造器。这符合上述规则 2 和规则 3。 父类本身并没有父类，所以规则 1 不适用。</p>
 <p>该图中的派生类有两个指定构造器和一个便利构造器。便利构造器必须调用两个指定构造器中的一个，因为它只能调用同一类中的其他构造器。这符合上述规则 2 和规则 3。两个指定构造器必须调用父类中唯一的指定构造器，所以也符合上述规则 1。</p>
 <div class="note warning"><p>注意<br>这些规则并不影响每个类 创建 实例。上图中的任何构造器都可以用于为其所属类创建完全初始化的实例。这些规则只会影响类的构造器实现。</p></div>
 
-<p>下图展示了一个关于四个类之间更复杂的层级结构。它解释了这个层级结构中的指定构造器如何在类的构造过程中饰演『 漏斗（<code>funnel</code>）』点，并简化了构造链中类之间的关系：<br></p>
+<p>下图展示了一个关于四个类之间更复杂的层级结构。它解释了这个层级结构中的指定构造器如何在类的构造过程中饰演『 漏斗（<code>funnel</code>）』点，并简化了构造链中类之间的关系：<br><img src="/2018/10/18/Swift构造过程/构造过程02.png"></p>
 <h2 id="两段式构造器过程"><a href="#两段式构造器过程" class="headerlink" title="两段式构造器过程"></a>两段式构造器过程</h2><p>Swift 中类的构造过程是两段式处理。第一阶段，为类引入的每个存储属性赋一个初始值。一旦确定了所有存储属性的初始状态，第二阶段开始，在新的实例被认为可以使用前，每个类都有机会进一步定制其存储属性。</p>
 <p>两段式构造过程的使用让构造过程更安全，同时对于类层级结构中的每个类仍然给予完全的灵活性。两段式构造过程防止了属性在初始化前访问其值，并防止其他构造器意外给属性赋予不同的值。</p>
 <div class="note warning"><p>注意<br>Swift 的两段式构造过程类似于 <code>Objective-C</code> 的构造过程。主要区别就是在第一阶段期间，<code>Objective-C</code> 对每个属性赋值为 <code>0</code> 或空（例如 <code>0</code> 或 <code>nil</code>），Swift 的构造过程的流程就更灵活，允许设置自定义初始值，并能应付一些 <code>0</code> 或 <code>nil</code> 不能作为有效默认值的类型。</p></div>
@@ -577,11 +577,11 @@
 <li>从链顶端往下，链中每个指定构造器都可以选择进一步定制实例，构造器现在可以访问 self 并修改它的属性，调用实例方法，等等。</li>
 <li>最终，在链中的任何便利构造器也都可以选择定制实例以及使用 self 。</li>
 </ul>
-<p>以下展示了假设的派生类和父类之间的构造过程阶段 1：<br><br>在这个例子中，构造过程开始于在派生类上调用一个便利构造器。便利构造器还不能修改任何属性。它横向代理了同一类中的指定构造器。</p>
+<p>以下展示了假设的派生类和父类之间的构造过程阶段 1：<br><img src="/2018/10/18/Swift构造过程/构造过程03.png"><br>在这个例子中，构造过程开始于在派生类上调用一个便利构造器。便利构造器还不能修改任何属性。它横向代理了同一类中的指定构造器。</p>
 <p>根据安全检查 1，指定构造器确保派生类的所有属性都有值，然后在它的父类上调用指定构造器以持续链上的构造过程。</p>
 <p>父类的指定构造器确保父类所有属性都有值。这里没有父类要初始化，所以所无需进一步代理。</p>
 <p>一旦父类的所有属性都有了初始值，就认为其内存完全初始化，此时阶段 1 完成。</p>
-<p>以下展示了同一构造过程 阶段 2 ：<br><br>父类的指定构造器现在有机会进一步定制实例了（尽管不做也可以）。</p>
+<p>以下展示了同一构造过程 阶段 2 ：<br><img src="/2018/10/18/Swift构造过程/构造过程04.png"><br>父类的指定构造器现在有机会进一步定制实例了（尽管不做也可以）。</p>
 <p>一旦父类的指定构造器调用结束，派生类的指定构造器就可以执行额外的自定义设置（尽管这也可不做）。</p>
 <p>最终，派生类的指定构造器调用结束，最初调用的便利构造器可执行额外的自定义设置。</p>
 <h2 id="构造器的继承和重写"><a href="#构造器的继承和重写" class="headerlink" title="构造器的继承和重写"></a>构造器的继承和重写</h2><p>与 Objective-C 的派生类不同，Swift 的派生类默认不继承其父类构造器。Swift 这种机制防止了更定制化的派生类继承父类的简单构造器，也防止将简单构造器用于创建不完全初始化或是错误初始化的派生类实例。</p>
@@ -612,11 +612,11 @@
 
 <h2 id="实践指定构造器和便利构造器"><a href="#实践指定构造器和便利构造器" class="headerlink" title="实践指定构造器和便利构造器"></a>实践指定构造器和便利构造器</h2><p>下例在实践中展示了指定构造器，便利构造器和自动构造器的继承。该例定义了关于 <code>Food</code>，<code>RecipeIngredient</code> 和 <code>ShoppingListItem</code> 的层级关系，并演示了它们的构造器是如何相互作用的。</p>
 <p>层级结构中的基类名为 <code>Food</code>，它是一个包装食品名称的简单类。<code>Food</code> 引入了一个名为 <code>name</code> 的 <code>String</code> 类型属性，并且提供了两个构造器以创建 <code>Food</code> 实例：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Food</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.name = name</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">convenience</span> <span class="keyword">init</span>() &#123;</span><br><span class="line">        <span class="keyword">self</span>.<span class="keyword">init</span>(name: <span class="string">"[Unnamed]"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>下图展示了构造链中的 <code>Food</code> 类：<br><br>类没有默认成员构造器，所以 <code>Food</code> 类提供了一个带有单个参数  <code>name</code> 的指定构造器。这个构造器可以使用一个指定的 <code>name</code> 属性值创建新的 <code>Food</code> 实例。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> namedMeat = <span class="type">Food</span>(name: <span class="string">"Bacon"</span>)</span><br><span class="line"><span class="comment">// namedMeat 的 name 是 "Bacon"</span></span><br></pre></td></tr></table></figure></p>
+<p>下图展示了构造链中的 <code>Food</code> 类：<br><img src="/2018/10/18/Swift构造过程/构造过程05.png"><br>类没有默认成员构造器，所以 <code>Food</code> 类提供了一个带有单个参数  <code>name</code> 的指定构造器。这个构造器可以使用一个指定的 <code>name</code> 属性值创建新的 <code>Food</code> 实例。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> namedMeat = <span class="type">Food</span>(name: <span class="string">"Bacon"</span>)</span><br><span class="line"><span class="comment">// namedMeat 的 name 是 "Bacon"</span></span><br></pre></td></tr></table></figure></p>
 <p><code>Food</code> 类的构造器 <code>init(name: String)</code> 是一个 指定 构造器，因为它确保了 <code>Food</code> 实例的所有存储属性被完全初始化。<code>Food</code> 类没有父类，所以构造器 <code>init(name: String)</code> 不需要调用 <code>super.init()</code> 完成其构造过程。</p>
 <p><code>Food</code> 类也提供了一个没有参数的 便利 构造器 <code>init()</code>。便利构造器 <code>init()</code> 横向代理 <code>Food</code> 类的指定构造器 <code>init(name: String)</code>，并为其构造参数 <code>name</code> 传值 <code>[Unnamed]</code> 以为新食物提供一个默认占位名。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> mysteryMeat = <span class="type">Food</span>()</span><br><span class="line"><span class="comment">// mysteryMeat 的 name 是 "[Unnamed]"</span></span><br></pre></td></tr></table></figure></p>
 <p>层级结构中的第二个类是 <code>Food</code> 的派生类 <code>RecipeIngredient</code>。<code>RecipeIngredient</code> 类模型是食谱中的一种配料。它引入了一个 <code>Int</code> 类型的属性 <code>quantity</code>（以及从父类 <code>Food</code> 继承而来的 <code>name</code> 属性）并定义了两个创建 <code>RecipeIngredient</code> 实例的构造器：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RecipeIngredient</span>: <span class="title">Food</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> quantity: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>, quantity: <span class="type">Int</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.quantity = quantity</span><br><span class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>(name: name)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">convenience</span> <span class="keyword">init</span>(name: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.<span class="keyword">init</span>(name: name, quantity: <span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>下面展示了构造链中的 <code>RecipeIngredient</code> 类：<br><br><code>RecipeIngredient</code> 类有一个指定构造器，<code>init(name: String, quantity: Int)</code>，用于填充 <code>RecipeIngredient</code> 实例的所有属性。该构造器首先将传递而来的构造参数 <code>quantity</code> 的值赋给<code>RecipeIngredient</code> 唯一引入的新属性 <code>quantity</code>。然后，构造器向上代理 <code>Food</code>类的构造器 <code>init(name: String)</code>。这个过程符合上述 两段式构造过程 中的安全检查 1。</p>
+<p>下面展示了构造链中的 <code>RecipeIngredient</code> 类：<br><img src="/2018/10/18/Swift构造过程/构造过程06.png"><br><code>RecipeIngredient</code> 类有一个指定构造器，<code>init(name: String, quantity: Int)</code>，用于填充 <code>RecipeIngredient</code> 实例的所有属性。该构造器首先将传递而来的构造参数 <code>quantity</code> 的值赋给<code>RecipeIngredient</code> 唯一引入的新属性 <code>quantity</code>。然后，构造器向上代理 <code>Food</code>类的构造器 <code>init(name: String)</code>。这个过程符合上述 两段式构造过程 中的安全检查 1。</p>
 <p><code>RecipeIngredient</code> 也定义了一个便利构造器，<code>init(name: String)</code>，用于单独使用 <code>name</code> 来创建一个 <code>RecipeIngredient</code> 实例。这个便利构造器假设任何 <code>RecipeIngredient</code>实例的 <code>quantity</code> 为 1，所以不需要显示指定 <code>quantity</code>  即可创建实例。便利构造器的定义可以更快捷，方便的创建 <code>RecipeIngredient</code> 实例，并在创建多个 <code>quantity</code> 为 1 的 <code>RecipeIngredient</code> 实例时避免重复代码。这个便利构造器只是简单的横向代理了类的指定构造器，并为 <code>quantity</code> 传值 1。</p>
 <p><code>RecipeIngredient</code> 类的便利构造器 <code>init(name: String)</code> 使用与 <code>Food</code> 类的 指定 构造器 <code>init(name: String)</code> 相同的参数。因为这个便利构造器就是重写了父类的指定构造器，所以必须使用修饰符 <code>override</code> 标记（详情请见 构造器的继承与重写）。</p>
 <p>即使 <code>RecipeIngredient</code> 提供了一个便利构造器 <code>init(name: String)</code>，但是由于 <code>RecipeIngredient</code> 为父类所有指定构造器提供了实现。因此，<code>RecipeIngredient</code> 也自动继承了父类的所有便利构造器。</p>
@@ -627,7 +627,7 @@
 <div class="note warning"><p>注意<br><code>ShoppingListItem</code> 没有定义为 <code>purchased</code> 提供初始值的构造器，因为添加到购物清单中的物品（如同模型中那样）总是未购买的。</p></div>
 
 <p>因为它为所有属性提供了一个默认值并且没有定义任何构造器，所以<code>ShoppingListItem</code> 自动继承了它父类的 所有 指定构造器和便利构造器。</p>
-<p>下图展示了三个类的整体构造链：<br></p>
+<p>下图展示了三个类的整体构造链：<br><img src="/2018/10/18/Swift构造过程/构造过程07.png"></p>
 <p>三个继承构造器都可以用于创建新的 <code>ShoppingListItem</code> 实例：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> breakfastList = [</span><br><span class="line">    <span class="type">ShoppingListItem</span>(),</span><br><span class="line">    <span class="type">ShoppingListItem</span>(name: <span class="string">"Bacon"</span>),</span><br><span class="line">    <span class="type">ShoppingListItem</span>(name: <span class="string">"Eggs"</span>, quantity: <span class="number">6</span>),</span><br><span class="line">]</span><br><span class="line">breakfastList[<span class="number">0</span>].name = <span class="string">"Orange juice"</span></span><br><span class="line">breakfastList[<span class="number">0</span>].purchased = <span class="literal">true</span></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> breakfastList &#123;</span><br><span class="line">    <span class="built_in">print</span>(item.description)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 1 x Orange juice ✔</span></span><br><span class="line"><span class="comment">// 1 x Bacon ✘</span></span><br><span class="line"><span class="comment">// 6 x Eggs ✘</span></span><br></pre></td></tr></table></figure></p>
 <p>上面使用数组字面量的形式创建了一个包含三个 <code>ShoppingListItem</code> 实例的新数组 <code>breakfastList</code>。数组的类型被推断为 <code>[ShoppingListItem]</code>。数组创建后，数组中的第一个元素  <code>ShoppingListItem</code> 实例的名字从 <code>&quot;[Unnamed]&quot;</code> 修改为 <code>&quot;Orange juice&quot;</code> 并被标记为已购买。打印数组中每项物品的描述会显示它们的默认状态已按预期设置。</p>
 <h2 id="可失败构造器"><a href="#可失败构造器" class="headerlink" title="可失败构造器"></a>可失败构造器</h2><p>有时定义类，结构体或是枚举，构造过程可以失败是很有帮助的。无效的构造参数值可能会触发这种失败，或是缺失某种需要的外部资源，又或是未能满足某种条件。</p>
@@ -679,7 +679,7 @@
 <p>注意那个闭包的结束是在大括号后面尾随一对空括号。这告诉 Swift 立即执行闭包。如果你忽略了这对括号，则为试图将闭包本身赋值给属性，而不是闭包的返回值。</p>
 <div class="note warning"><p>注意<br>如果你使用闭包初始化属性，记住在闭包执行时其他实例还未初始化。这意味着无法在闭包中访问其他属性值，即使那些属性有默认值。你也不能隐式使用 <code>self</code> 属性，或是调用实例方法。</p></div>
 
-<p>下例定义了一个结构体 <code>Chessboard</code>，其模型是国际象棋的棋盘。国际象棋是 8 x 8 黑白格交替的棋盘。<br><br>为了表示这个棋盘，结构体 <code>Chessboard</code> 有一个属性 <code>boardColors</code>，它是一个存储 <code>64</code> 个 <code>Bool</code> 类型值的数组。在数组中，值为 <code>true</code> 代表黑格，值为 <code>false</code> 代表白格。数组中的第一个值表示棋盘左上角的格子，数组中最后一个元素代表棋盘右下角的格子。</p>
+<p>下例定义了一个结构体 <code>Chessboard</code>，其模型是国际象棋的棋盘。国际象棋是 8 x 8 黑白格交替的棋盘。<br><img src="/2018/10/18/Swift构造过程/构造过程08.png"><br>为了表示这个棋盘，结构体 <code>Chessboard</code> 有一个属性 <code>boardColors</code>，它是一个存储 <code>64</code> 个 <code>Bool</code> 类型值的数组。在数组中，值为 <code>true</code> 代表黑格，值为 <code>false</code> 代表白格。数组中的第一个值表示棋盘左上角的格子，数组中最后一个元素代表棋盘右下角的格子。</p>
 <p>使用闭包设置颜色值并初始化数组 <code>boardColors</code>：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Chessboard</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> boardColors: [<span class="type">Bool</span>] = &#123;</span><br><span class="line">        <span class="keyword">var</span> temporaryBoard = [<span class="type">Bool</span>]()</span><br><span class="line">        <span class="keyword">var</span> isBlack = <span class="literal">false</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">1</span>...<span class="number">8</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="number">1</span>...<span class="number">8</span> &#123;</span><br><span class="line">                temporaryBoard.append(isBlack)</span><br><span class="line">                isBlack = !isBlack</span><br><span class="line">            &#125;</span><br><span class="line">            isBlack = !isBlack</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> temporaryBoard</span><br><span class="line">    &#125;()</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">squareIsBlackAt</span><span class="params">(row: Int, column: Int)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> boardColors[(row * <span class="number">8</span>) + column]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>每当一个新的 <code>Chessboard</code> 实例创建时，都会执行闭包，并且会返回已计算的 <code>boardColors</code> 默认值。上例中的闭包为棋盘上的每一格计算合适的颜色并将其值保存在临时数组 <code>temporaryBoard</code> 中，一旦完成设置就将 <code>temporary</code> 数组作为闭包的返回值返回。返回的数组保存在 <code>boardColors</code> 中并可以使用效用函数 <code>squareIsBlackAt(row:column:)</code> 查询：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> board = <span class="type">Chessboard</span>()</span><br><span class="line"><span class="built_in">print</span>(board.squareIsBlackAt(row: <span class="number">0</span>, column: <span class="number">1</span>))</span><br><span class="line"><span class="comment">// 打印 "true"</span></span><br><span class="line"><span class="built_in">print</span>(board.squareIsBlackAt(row: <span class="number">7</span>, column: <span class="number">7</span>))</span><br><span class="line"><span class="comment">// 打印 "false"</span></span><br></pre></td></tr></table></figure></p>
 
@@ -723,6 +723,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/07/Swift折构过程/" rel="prev" title="Swift4.2 折构过程">
+                Swift4.2 折构过程 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -844,7 +848,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -866,7 +870,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -956,7 +960,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">73.5k</span>
+    <span title="Site words total count">74.9k</span>
   
 </div>
 
