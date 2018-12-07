@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Swift4.2,可选链," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="可选链 是在当前可能为 nil 的可选值上查询和调用属性、方法和下标的过程。如果可选值有值，则属性、方法或下标调用成功；如果可选值为 nil ，则属性、方法或下标调用返回 nil。多个查询可以链接在一起，如果链中的任何一个节点为 nil ，整个链会返回失败。">
+<meta name="keywords" content="Swift4.2,可选链">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift4.2 可选链">
+<meta property="og:url" content="https://hadesxiye.github.io/2018/10/20/Swift可选链/index.html">
+<meta property="og:site_name" content="Fun&amp;Enjoy">
+<meta property="og:description" content="可选链 是在当前可能为 nil 的可选值上查询和调用属性、方法和下标的过程。如果可选值有值，则属性、方法或下标调用成功；如果可选值为 nil ，则属性、方法或下标调用返回 nil。多个查询可以链接在一起，如果链中的任何一个节点为 nil ，整个链会返回失败。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://hadesxiye.github.io/images/Swift.png">
+<meta property="og:updated_time" content="2018-12-07T09:56:39.097Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Swift4.2 可选链">
+<meta name="twitter:description" content="可选链 是在当前可能为 nil 的可选值上查询和调用属性、方法和下标的过程。如果可选值有值，则属性、方法或下标调用成功；如果可选值为 nil ，则属性、方法或下标调用返回 nil。多个查询可以链接在一起，如果链中的任何一个节点为 nil ，整个链会返回失败。">
+<meta name="twitter:image" content="https://hadesxiye.github.io/images/Swift.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://hadesxiye.github.io/2018/10/20/Swift可选链/"/>
+
+
+
+
+
+  <title>Swift4.2 可选链 | Fun&Enjoy</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fun&Enjoy</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">this is Hades's blogs</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-fire"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hadesxiye.github.io/2018/10/20/Swift可选链/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hades">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fun&Enjoy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Swift4.2 可选链</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-20T11:34:33+08:00">
+                2018-10-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/20/Swift可选链/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/10/20/Swift可选链/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/10/20/Swift可选链/" class="leancloud_visitors" data-flag-title="Swift4.2 可选链">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,924
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  16
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="/images/Swift.png" rel="gallery_cjpduzwrg0008lwy7txnmpj50"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="/images/Swift.png" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
+
+      
+        <p><center><strong>可选链</strong> 是在当前可能为 <code>nil</code> 的可选值上查询和调用属性、方法和下标的过程。如果可选值有值，则属性、方法或下标调用成功；如果可选值为 <code>nil</code> ，则属性、方法或下标调用返回 <code>nil</code>。多个查询可以链接在一起，如果链中的任何一个节点为 <code>nil</code> ，整个链会返回失败。</center><br><a id="more"></a></p>
+<div class="note warning"><p>注意<br>Swift 中的可选链类似于 Objective-C 中向 <code>nil</code> 传递消息，不过适用于任何类型，并且可以检查其成功与否。</p></div>
+
+<h2 id="可选链作为强制展开的代替品"><a href="#可选链作为强制展开的代替品" class="headerlink" title="可选链作为强制展开的代替品"></a>可选链作为强制展开的代替品</h2><p>如果可选项不为 <code>nil</code>， 可以在可选值后面加上问号（<code>?</code>） ，从而指定可选链。 这非常类似于在可选值之后放置感叹号（<code>!</code>）来强制展开它的值。主要的区别是，可选链在可选项为 <code>nil</code> 时只会调用失败，而强制展开在可选项为 <code>nil</code> 时会触发运行时错误。</p>
+<p>为了反映可选链可以对 <code>nil</code> 值进行调用这一事实，可选链调用的结果总是一个可选值，即使正在查询的属性、方法或下标返回一个不可选值。可以使用这个可选的返回值来检查可选链调用是否成功（返回的可选项包含一个值），或者由于链中的 <code>nil</code> 值而没有成功（返回的可选值是 <code>nil</code>）。</p>
+<p>具体来说，可选链调用的结果与预期返回值的类型相同，但包装在一个可选值中。一个平时返回 <code>Int</code> 的属性，在可选链中访问将返回 <code>Int?</code> 。</p>
+<p>接下来的几个代码片段演示了可选链与强制解包的区别，并且能够检查是否成功。</p>
+<p>首先，定义两个类 <code>Person</code> 和 <code>Residence</code>：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> residence: <span class="type">Residence</span>?</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Residence</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> numberOfRooms = <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>Residence</code> 实例有一个 <code>Int</code> 类型的属性 <code>numberOfRooms</code>，其默认值为 <code>1</code>。<code>Person</code> 实例有一个可选属性 <code>residence</code>，其类型为 <code>Residence?</code>。</p>
+<p>如果你新建一个 <code>Person</code> 实例，由于 <code>residence</code> 是可选的，所以会被初始化为 <code>nil</code>。如下代码所示，<code>john</code> 拥有一个 <code>residence</code> 属性，其值为 <code>nil</code>：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> john = <span class="type">Person</span>()</span><br></pre></td></tr></table></figure></p>
+<p>如果你尝试访问此人 <code>residence</code> 的 <code>numberOfRooms</code> 属性，通过在 <code>residence</code> 后面放置一个感叹号来强制展开其值，则会触发运行时错误，因为没有值来解包：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> roomCount = john.residence!.numberOfRooms</span><br><span class="line"><span class="comment">// 这里会触发运行时错误</span></span><br></pre></td></tr></table></figure></p>
+<p>上述代码在 <code>john.residence</code> 有非 <code>nil</code> 值并且将 <code>roomCount</code> 设置为包含适当房间数的 <code>Int</code> 值时会运行成功。但是如上所述，此代码在 <code>residence</code> 为 <code>nil</code> 时始终会触发运行时错误。</p>
+<p>可选链提供了另一种访问 <code>numberOfRooms</code> 值的方法。要使用可选链，请使用问号代替感叹号：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> roomCount = john.residence?.numberOfRooms &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"John's residence has <span class="subst">\(roomCount)</span> room(s)."</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Unable to retrieve the number of rooms."</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印 "Unable to retrieve the number of rooms."</span></span><br></pre></td></tr></table></figure></p>
+<p>这样就告诉 Swift 在可选的 <code>residence</code> 属性上「链接」，如果存在 <code>residence</code> 则检索 <code>numberOfRooms</code> 的值。</p>
+<p>因为访问 <code>numberOfRooms</code> 的尝试有可能失败，所以可选链尝试返回类型为 <code>Int?</code>，或者说「可选 <code>Int</code> 」。如上例所示，当 <code>residence</code> 为 <code>nil</code>，这个可选的 <code>Int</code> 也将是 <code>nil</code>，这反映了无法访问 <code>numberOfRooms</code> 这一事实。通过可选绑定访问该可选的 <code>Int</code> 值来展开整数并且将非可选值赋值给 <code>roomCount</code>。</p>
+<p>请注意，即使 <code>numberOfRooms</code> 是非可选的 <code>Int</code> 也是如此。这意味着通过可选链访问 <code>numberOfRooms</code> 将始终返回 <code>Int?</code> 而不是 <code>Int</code>。</p>
+<p>你可以把一个 <code>Residence</code> 实例赋值给 <code>john.residence</code>，以使它不再是 <code>nil</code>：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">john.residence = <span class="type">Residence</span>()</span><br></pre></td></tr></table></figure></p>
+<p><code>john.residence</code> 现在拥有了一个真正的 <code>Residence</code> 实例，而不是 <code>nil</code>。这时用和之前相同的可选链来访问 <code>numberOfRooms</code>，则会返回包含 <code>numberOfRooms</code> 默认值 <code>1</code> 的一个 <code>Int?</code>。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> roomCount = john.residence?.numberOfRooms &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"John's residence has <span class="subst">\(roomCount)</span> room(s)."</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Unable to retrieve the number of rooms."</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印 "John's residence has 1 room(s)."</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="为可选链定义模型类"><a href="#为可选链定义模型类" class="headerlink" title="为可选链定义模型类"></a>为可选链定义模型类</h2><p>你可以使用可选链来调用超过一级深度的属性、方法和下标。 这使你可以深入查看相互关联类型的复杂模型中的子属性，并检查是否可以访问这些子属性上的属性、方法和下标。</p>
+<p>下面的代码片段定义了四个模型类，用于后续几个示例，包括多级可选链的示例。这些类是从上面的 <code>Person</code> 和 <code>Residence</code> 扩展而来，添加了 <code>Room</code> 和 <code>Address</code> 类以及相关的属性、方法和下标。</p>
+<p><code>Person</code> 类的定义和之前一样：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> residence: <span class="type">Residence</span>?</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>Residence</code> 类比之前复杂一点。这里定义一个变量属性 <code>rooms</code>，并初始化成类型为 <code>[Room]</code> 的空数组。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Residence</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> rooms = [<span class="type">Room</span>]()</span><br><span class="line">    <span class="keyword">var</span> numberOfRooms: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> rooms.<span class="built_in">count</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">subscript</span>(i: <span class="type">Int</span>) -&gt; <span class="type">Room</span> &#123;</span><br><span class="line">        <span class="keyword">get</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> rooms[i]</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span> &#123;</span><br><span class="line">            rooms[i] = newValue</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">printNumberOfRooms</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"The number of rooms is <span class="subst">\(numberOfRooms)</span>"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> address: <span class="type">Address</span>?</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>由于这个版本的 <code>Residence</code> 储存了一个 <code>Room</code> 的数组示例，所以 <code>numberOfRooms</code> 属性变成了计算属性，而不是存储属性。计算出的 <code>numberOfRooms</code> 属性返回 <code>rooms</code> 数组的 <code>count</code> 属性的值。</p>
+<p>这个版本的 <code>Residence</code> 提供了一个可读写的下标作为访问 <code>rooms</code> 数组的快捷方式，可以访问 <code>rooms</code> 数组对应索引值下的房间。</p>
+<p><code>Residence</code> 同时提供了一个 <code>printNumberOfRooms</code> 方法来打印房间数量。</p>
+<p>最后，<code>Residence</code> 定义了一个 <code>Address?</code> 类型的可选属性 <code>address</code>，<code>Address</code> 类会在随后定义。</p>
+<p><code>rooms</code> 数组中的 <code>Room</code> 类只有一个 <code>name</code> 属性，以及一个初始化构造函数来将该属性设置为合适的房间名：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Room</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>) &#123; <span class="keyword">self</span>.name = name &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>最后是 <code>Address</code> 类。这个类有<code>3</code>个 <code>String?</code> 类型的可选属性。前两个属性 <code>buildingName</code> 和 <code>buildingNumber</code> 是该地址建筑物的标识。 第三个属性 <code>street</code> 是该地址的街道名：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Address</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> buildingName: <span class="type">String</span>?</span><br><span class="line">    <span class="keyword">var</span> buildingNumber: <span class="type">String</span>?</span><br><span class="line">    <span class="keyword">var</span> street: <span class="type">String</span>?</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">buildingIdentifier</span><span class="params">()</span></span> -&gt; <span class="type">String</span>? &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> buildingNumber = buildingNumber, <span class="keyword">let</span> street = street &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"<span class="subst">\(buildingNumber)</span> <span class="subst">\(street)</span>"</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> buildingName != <span class="literal">nil</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> buildingName</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>Address</code> 类同时提供了一个 <code>buildingIdentifier()</code> 方法，其返回值类型为 <code>String?</code>。这个方法检查地址的属性，如果 <code>buildingNumber</code> 和 <code>street</code> 都有值则把它们连接起来并返回，如果 <code>buildingName</code> 有值则返回其值，否则返回 <code>nil</code>。</p>
+<h2 id="通过可选链访问属性"><a href="#通过可选链访问属性" class="headerlink" title="通过可选链访问属性"></a>通过可选链访问属性</h2><p>就像这篇文档演示的一样， 可选链作为一种强制解包的可选方式， 你可以用可选链访问可选类型值得属性，并检查是否成功访问。</p>
+<p>用上面定义的类来创建一个新的 <code>Person</code> 实例，并跟前面一样去访问该实例的 <code>numberOfRooms</code> 属性：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> john = <span class="type">Person</span>()</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> roomCount = john.residence?.numberOfRooms &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"John's residence has <span class="subst">\(roomCount)</span> room(s)."</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Unable to retrieve the number of rooms."</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印 "Unable to retrieve the number of rooms."</span></span><br></pre></td></tr></table></figure></p>
+<p>由于 <code>john.residence</code> 的值是 <code>nil</code>，所以此次可选链的调用仍然会失败。</p>
+<p>你也可以试着用可选链去设置属性的值：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> someAddress = <span class="type">Address</span>()</span><br><span class="line">someAddress.buildingNumber = <span class="string">"29"</span></span><br><span class="line">someAddress.street = <span class="string">"Acacia Road"</span></span><br><span class="line">john.residence?.address = someAddress</span><br></pre></td></tr></table></figure></p>
+<p>在该例中，因为 <code>john.residence</code> 当前的值为 <code>nil</code>，所以试图设置 <code>john.residence</code> 的 <code>address</code> 属性的值将会失败。</p>
+<p>赋值是可选链的一部分，也就意味着 <code>=</code> 操作符的右操作数不会被计算。而之所以前面的例子不容易看出来 <code>someAddress</code> 的值从未被计算，那是因为访问常量没有副作用。接下来看下面的代码片段，它同样是赋值，但是是用函数创建 <code>Address</code> 的实例。“函数被调用” 在函数返回值之前就打印出来了，这样你可以清楚的看到是否 <code>=</code> 右操作数被计算了。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">createAddress</span><span class="params">()</span></span> -&gt; <span class="type">Address</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"函数被调用。"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> someAddress = <span class="type">Address</span>()</span><br><span class="line">    someAddress.buildingNumber = <span class="string">"29"</span></span><br><span class="line">    someAddress.street = <span class="string">"Acacia Road"</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> someAddress</span><br><span class="line">&#125;</span><br><span class="line">john.residence?.address = createAddress()</span><br></pre></td></tr></table></figure></p>
+<p>因为什么都没有打印，所以你可以区分出来函数 <code>createAddress()</code>  未被调用。</p>
+<h2 id="通过可选链调用方法"><a href="#通过可选链调用方法" class="headerlink" title="通过可选链调用方法"></a>通过可选链调用方法</h2><p>你可以使用可选链来调用一个可选值的方法，以及检查调用是否成功。即使那个方法没有返回值你依然可以这样做。</p>
+<p><code>Residence</code> 的 <code>printNumberOfRooms()</code> 方法打印当前 <code>numberOfRooms</code> 的值。代码如下：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">printNumberOfRooms</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"The number of rooms is <span class="subst">\(numberOfRooms)</span>"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这个方法没有指定返回类型。但是，没有返回值的函数和方法会有一个隐式返回类型 <code>Void</code>，可在此查看 无返回值函数。这意味着会返回一个 <code>()</code>，或者说一个空的元组。</p>
+<p>如果你用可选链调用一个可选值的方法，这个方法的返回类型会是 <code>Void?</code>，而不是 <code>Void</code>。因为可选链永远返回可选值。这使得你可以使用 <code>if</code> 表达式来检查是否可以调用 <code>printNumberOfRooms()</code> 方法，即使这个方法本身没有定义返回值。将 <code>printNumberOfRooms</code> 的返回值与 nil 进行比较来查看方法是否调用成功：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> john.residence?.printNumberOfRooms() != <span class="literal">nil</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"It was possible to print the number of rooms."</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"It was not possible to print the number of rooms."</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印 "It was not possible to print the number of rooms."</span></span><br></pre></td></tr></table></figure></p>
+<p>通过可选链尝试给一个属性赋值也是同样。这个例子 通过可选链访问属性 尝试给 <code>john.residence</code> 设置一个 <code>address</code> 值，即便这时 <code>residence</code> 属性是个 <code>nil</code>。任何通过可选链给属性赋值的尝试都会返回一个 <code>Void?</code> 类型的值。这样你可以和 <code>nil</code> 比较来检查赋值是否成功：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (john.residence?.address = someAddress) != <span class="literal">nil</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"It was possible to set the address."</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"It was not possible to set the address."</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印 "It was not possible to set the address."</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="通过可选链访问下标"><a href="#通过可选链访问下标" class="headerlink" title="通过可选链访问下标"></a>通过可选链访问下标</h2><p>你可以使用可选链尝试从可选值的下标中检索和设置值，并检查该下标调用是否成功。</p>
+<div class="note warning"><p>注意<br>当你通过可选链访问一个可选值的下标时，在下标中括号 前面 放置问号，而不是后面。可选链的问号永远是直接跟在可选表达式后面。</p></div>
+
+<p>下面的示例尝试使用 Residence 类中定义的下标检索 <code>john.residence</code> 属性的 <code>rooms</code> 数组中第一个房间的名称。由于 <code>john.residence</code> 当前是 <code>nil</code>，下标访问失败：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> firstRoomName = john.residence?[<span class="number">0</span>].name &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"The first room name is <span class="subst">\(firstRoomName)</span>."</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Unable to retrieve the first room name."</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印 "Unable to retrieve the first room name."</span></span><br></pre></td></tr></table></figure></p>
+<p>这里的问号直接跟在 <code>john.residence</code> 后面，下标中括号的前面。因为是在 <code>john.residence</code> 这个可选值上尝试取值。</p>
+<p>类似的，你可以尝试通过可选链下标来设置一个新的值：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">john.residence?[<span class="number">0</span>] = <span class="type">Room</span>(name: <span class="string">"Bathroom"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>在这里赋值的尝试都会失败，因为 <code>residence</code> 当前是 <code>nil</code>。</p>
+<p>如果你创建一个 <code>Residence</code> 实例并赋值给 <code>john.residence</code>，并且 <code>rooms</code> 数组中有一个或更多 <code>Room</code> 实例， 你就可以通过可选链来真正地用 <code>Residence</code> 下标访问到 <code>rooms</code> 数组里的实际内容：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">johnsHouse.rooms.append(<span class="type">Room</span>(name: <span class="string">"Living Room"</span>))</span><br><span class="line">johnsHouse.rooms.append(<span class="type">Room</span>(name: <span class="string">"Kitchen"</span>))</span><br><span class="line">john.residence = johnsHouse</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> firstRoomName = john.residence?[<span class="number">0</span>].name &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"The first room name is <span class="subst">\(firstRoomName)</span>."</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Unable to retrieve the first room name."</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印 "The first room name is Living Room."</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="访问可选类型的下标"><a href="#访问可选类型的下标" class="headerlink" title="访问可选类型的下标"></a>访问可选类型的下标</h2><p>如果下标返回一个可选类型的值，例如 Swift 中 <code>Dictionary</code> 的键下标，在下标的右括号 后面 放置一个问号来链接其可选的返回值：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> testScores = [<span class="string">"Dave"</span>: [<span class="number">86</span>, <span class="number">82</span>, <span class="number">84</span>], <span class="string">"Bev"</span>: [<span class="number">79</span>, <span class="number">94</span>, <span class="number">81</span>]]</span><br><span class="line">testScores[<span class="string">"Dave"</span>]?[<span class="number">0</span>] = <span class="number">91</span></span><br><span class="line">testScores[<span class="string">"Bev"</span>]?[<span class="number">0</span>] += <span class="number">1</span></span><br><span class="line">testScores[<span class="string">"Brian"</span>]?[<span class="number">0</span>] = <span class="number">72</span></span><br><span class="line"><span class="comment">// 「Dave」 数组现在是 [91, 82, 84] ，「Bev」 数组现在是 [80, 94, 81]</span></span><br></pre></td></tr></table></figure></p>
+<p>上述示例定义了一个 <code>testScores</code> 字典，它包含两个键值对，将 <code>String</code> 类型的键映射到 <code>Int</code> 值的数组。该例中使用可选链将 <code>Dave</code> 数组中的第一个元素置为 <code>91</code>；将 <code>Bev</code> 数组的第一个元素加 <code>1</code>；尝试向 <code>Brian</code> 的第一个元素设一个值。前两个调用成功，因为 <code>testScores</code> 字典包含 <code>Dave</code> 和 <code>Bev</code> 两个键。第三个调用失败，因为 <code>testScores</code> 不包含 <code>Brian</code> 键。</p>
+<h2 id="多级链表关联"><a href="#多级链表关联" class="headerlink" title="多级链表关联"></a>多级链表关联</h2><p>你可以关联多层次的可选链，以深入到模型中更深层次的属性、方法和下标。但是，多个可选链表级别不增加返回值的可选级别。</p>
+<p>换个说法:</p>
+<ul>
+<li>如果要检索的类型不是可选的，通过可选链，它将成为可选的。</li>
+<li>如果您要检索的类型已经是可选的，那么它将保持原状。</li>
+<li><p>因此:</p>
+</li>
+<li><p>如果你试图通过可选链检索一个 <code>Int</code> 值，那么不管用了多少链，总是返回一个 <code>Int?</code> 。</p>
+</li>
+<li>同样，你试图通过可选链检索一个 <code>Int?</code> 值，无论使用多少链，也总是返回一个 <code>Int?</code> 。</li>
+</ul>
+<p>下面的例子尝试访问 <code>John</code> 中的 <code>Residence</code> 属性中的 <code>Address</code> 属性中的 <code>Street</code> 属性。这里使用了两层可选链式调用，<code>Residence</code> 以及  <code>Address</code>  都是可选值：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> johnsStreet = john.residence?.address?.street &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"John's street name is <span class="subst">\(johnsStreet)</span>."</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Unable to retrieve the address."</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印 "Unable to retrieve the address."</span></span><br></pre></td></tr></table></figure></p>
+<p> <code>john.residence</code> 现在包含一个有效的 <code>Residence</code> 实例。然而， <code>john.residence.address</code> 的值当前为 <code>nil</code> 。因此，调用   <code>john.residence?.address?.street</code> 会失败。</p>
+<p>需要注意的是，上面的例子中， <code>Street</code> 的属性为 <code>String?</code> 。 <code>john.residence?.address?.street</code>  的返回值也依然是 <code>String?</code> ，即使已经使用了两层可选链式调用。</p>
+<p>如果为 <code>john.residence.address</code> 赋值一个 <code>Address</code> 实例，并且为  <code>Address</code> 中的 <code>Street</code> 属性设置一个有效值，我们就能过通过可选链式调用来访问 <code>Street</code> 属性：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> johnsAddress = <span class="type">Address</span>()</span><br><span class="line">johnsAddress.buildingName = <span class="string">"The Larches"</span></span><br><span class="line">johnsAddress.street = <span class="string">"Laurel Street"</span></span><br><span class="line">john.residence?.address = johnsAddress</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> johnsStreet = john.residence?.address?.street &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"John's street name is <span class="subst">\(johnsStreet)</span>."</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Unable to retrieve the address."</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印 "John's street name is Laurel Street."</span></span><br></pre></td></tr></table></figure></p>
+<p>在上面的例子中，因为 <code>john.residence</code> 包含一个有效的 <code>Address</code> 实例，所以对 <code>john.residence</code> 的 <code>Address</code> 属性赋值将会成功。</p>
+<h2 id="在方法的可选返回值上进行可选链式调用"><a href="#在方法的可选返回值上进行可选链式调用" class="headerlink" title="在方法的可选返回值上进行可选链式调用"></a>在方法的可选返回值上进行可选链式调用</h2><p>上面的例子展示了如何在一个可选值上通过可选链式调用来获取它的属性值。我们还可以在一个可选值上通过可选链式调用来调用方法，并且可以根据需要继续在方法的可选返回值上进行可选链式调用。</p>
+<p>在下面的例子中，通过可选链式调用来调用 <code>Address</code> 的  <code>buildingIdentifier()</code> 方法。这个方法返回 <code>String?</code> 类型的值。如上所述，通过可选链式调用来调用该方法，最终的返回值依旧会是 <code>String?</code> 类型：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> buildingIdentifier = john.residence?.address?.buildingIdentifier() &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"John's building identifier is <span class="subst">\(buildingIdentifier)</span>."</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印 "John's building identifier is The Larches."</span></span><br></pre></td></tr></table></figure></p>
+<p>如果要在该方法的返回值上进行可选链式调用，在方法的圆括号后面加上问号即可：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> beginsWithThe =</span><br><span class="line">    john.residence?.address?.buildingIdentifier()?.hasPrefix(<span class="string">"The"</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> beginsWithThe &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"John's building identifier begins with \"The\"."</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"John's building identifier does not begin with \"The\"."</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印 "John's building identifier begins with "The"."</span></span><br></pre></td></tr></table></figure></p>
+<div class="note warning"><p>注意<br>在上面的例子中，在方法的圆括号后面加上问号是因为你要在  <code>buildingIdentifier()</code> 方法的可选返回值上进行可选链式调用，而不是  <code>buildingIdentifier()</code> 方法本身。</p></div>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Swift4-2/" rel="tag"># Swift4.2</a>
+          
+            <a href="/tags/可选链/" rel="tag"># 可选链</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/19/Swift折构过程/" rel="next" title="Swift4.2 折构过程">
+                <i class="fa fa-chevron-left"></i> Swift4.2 折构过程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/tx.jpg"
+                alt="Hades" />
+            
+              <p class="site-author-name" itemprop="name">Hades</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Hadesxiye" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://steamcommunity.com/id/471692847" target="_blank" title="Steam">
+                      
+                        <i class="fa fa-fw fa-steam"></i>Steam</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=536622304&auto=1&height=66"></iframe>
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#可选链作为强制展开的代替品"><span class="nav-number">1.</span> <span class="nav-text">可选链作为强制展开的代替品</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为可选链定义模型类"><span class="nav-number">2.</span> <span class="nav-text">为可选链定义模型类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过可选链访问属性"><span class="nav-number">3.</span> <span class="nav-text">通过可选链访问属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过可选链调用方法"><span class="nav-number">4.</span> <span class="nav-text">通过可选链调用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过可选链访问下标"><span class="nav-number">5.</span> <span class="nav-text">通过可选链访问下标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问可选类型的下标"><span class="nav-number">6.</span> <span class="nav-text">访问可选类型的下标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多级链表关联"><span class="nav-number">7.</span> <span class="nav-text">多级链表关联</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在方法的可选返回值上进行可选链式调用"><span class="nav-number">8.</span> <span class="nav-text">在方法的可选返回值上进行可选链式调用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-/images/favicon.ico"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hades</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">78.8k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 访问总量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'CdORfQYjINDVtBIz1id4GeyF-gzGzoHsz',
+        appKey: 'Idy9vRmyA06TcOjV6umrd5PB',
+        placeholder: 'ヾ(･ε･｀*)嗯。。写的勉勉强强吧 (评论支持Markdown哦)',
+        avatar:'/images/tx.jpg',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("CdORfQYjINDVtBIz1id4GeyF-gzGzoHsz", "Idy9vRmyA06TcOjV6umrd5PB");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/00.PVPSerie.model.json"},"display":{"position":"right","width":200,"height":200},"mobile":{"position":"right","width":30,"height":30,"show":true},"log":false});</script></body>
+</html>
