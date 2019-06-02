@@ -448,7 +448,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="/images/Swift.png" rel="gallery_cjutrs71a0005jey7oquhi0nl"
+                 href="/images/Swift.png" rel="gallery_cjwemzjep0009oxy7fng54xqc"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="/images/Swift.png" itemprop="contentUrl"/>
               </a>
@@ -466,7 +466,7 @@
 <h2 id="下标语法"><a href="#下标语法" class="headerlink" title="下标语法"></a>下标语法</h2><p>使用下标, 让你可以通过在实例名称后面的方括号中写入一个或多个值来查询类的实例。它们的语法类似于实例方法和计算属性语法。使用 <code>subscript</code> 关键字定义下标，并且和实例方法类似，可以指定一个或多个输入参数和返回类型。与实例方法不同，下标可以是读写或只读。和计算属性类似, 读写是由 <code>getter</code> 和 <code>setter</code> 方法实现的：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">subscript</span>(index: <span class="type">Int</span>) -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">    <span class="keyword">get</span> &#123;</span><br><span class="line">        <span class="comment">// 在这里返回一个对应下标的值</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">set</span>(newValue) &#123;</span><br><span class="line">        <span class="comment">// 在这里执行对应的赋值操作</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><code>newValue</code> 的类型与下标的返回值相同。与计算属性一样，你可以选择不指定 <code>setter</code> 的 (<code>newValue</code>) 参数。但是如果你没有指定参数，那么 <code>newValue</code> 会成为你 <code>setter</code> 的默认参数。</p>
 <p>与只读计算属性一样，你可以通过删除 <code>get</code> 关键字以及大括号来简化只读下标的声明：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">subscript</span>(index: <span class="type">Int</span>) -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">    <span class="comment">// 在这里返回一个对应下标的值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这是一个只读下标实现的例子，它定义了一个 <code>TimesTable</code> 结构体来表示一个 <code>n</code> 倍整数表：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TimesTable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> multiplier: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">subscript</span>(index: <span class="type">Int</span>) -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> multiplier * index</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> threeTimesTable = <span class="type">TimesTable</span>(multiplier: <span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"six times three is <span class="subst">\(threeTimesTable[<span class="number">6</span>])</span>"</span>)</span><br><span class="line"><span class="comment">// 输出 "six times three is 18"</span></span><br></pre></td></tr></table></figure></p>
+<p>这是一个只读下标实现的例子，它定义了一个 <code>TimesTable</code> 结构体来表示一个 <code>n</code> 倍整数表：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TimesTable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> multiplier: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">subscript</span>(index: <span class="type">Int</span>) -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> multiplier * index</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> threeTimesTable = <span class="type">TimesTable</span>(multiplier: <span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"six times three is \(threeTimesTable[6])"</span>)</span><br><span class="line"><span class="comment">// 输出 "six times three is 18"</span></span><br></pre></td></tr></table></figure></p>
 <p>在这个例子中，创建了一个新的 <code>TimesTable</code> 实例来表示三倍表。通过将值 <code>3</code> 作为实例的 <code>multiplier</code> 参数值来初始化结构体。</p>
 <p>你能够通过下标来调用 <code>threeTimesTable</code> 实例，比如调用 <code>threeTimesTable[6]</code>。这请求了三倍表中的第六项，返回 <code>18</code> ，也就是 <code>6</code> 的 <code>3</code> 倍。</p>
 <div class="note warning"><p>注意<br><code>n</code> 倍表是基于固定的数学规则定义的。给 <code>threeTimesTable[someIndex]</code> 赋新值是不合适的，因此 <code>TimesTable</code> 的下标倍定义为只读下标。</p></div>
@@ -650,7 +650,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -661,7 +661,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -762,7 +762,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">89.0k</span>
+    <span title="Site words total count">90.7k</span>
   
 </div>
 

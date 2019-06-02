@@ -448,7 +448,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="/images/Swift.png" rel="gallery_cjutrs72b000rjey7km5ormws"
+                 href="/images/Swift.png" rel="gallery_cjwemzjfd000zoxy78ls5zvrc"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="/images/Swift.png" itemprop="contentUrl"/>
               </a>
@@ -479,11 +479,11 @@
 <p>一个 <code>Extension</code> 可以被用于去扩展一个泛型，例如 <a href="https://docs.swift.org/swift-book/LanguageGuide/Generics.html#ID185" target="_blank" rel="noopener">Extending a Generic Type</a>. 当然你也可以去为所扩展的泛型添加一些功能条件，如下所述  <a href="https://docs.swift.org/swift-book/LanguageGuide/Generics.html#ID553" target="_blank" rel="noopener">Extensions with a Generic Where Clause</a>.</p>
 <div class="note warning"><p>注意<br>如果你想为一个已经存在的类型的进行扩展并添加一个新的功能，那么这个功能将会被该类所有的实例使用，即使在这个 <code>Extension</code> 被定义之前。</p></div>
 
-<h2 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h2><p><code>Extensions</code> 可以将计算实例属性与计算类型属性添加到现有类中去。例如以下就是在 Swift 的内置类型 <code>Double</code> 中添加了五个计算实例属性，为距离单位提供了基础支持：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Double</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> km: <span class="type">Double</span> &#123; <span class="keyword">return</span> <span class="keyword">self</span> * <span class="number">1_000.0</span> &#125;</span><br><span class="line">    <span class="keyword">var</span> m: <span class="type">Double</span> &#123; <span class="keyword">return</span> <span class="keyword">self</span> &#125;</span><br><span class="line">    <span class="keyword">var</span> cm: <span class="type">Double</span> &#123; <span class="keyword">return</span> <span class="keyword">self</span> / <span class="number">100.0</span> &#125;</span><br><span class="line">    <span class="keyword">var</span> mm: <span class="type">Double</span> &#123; <span class="keyword">return</span> <span class="keyword">self</span> / <span class="number">1_000.0</span> &#125;</span><br><span class="line">    <span class="keyword">var</span> ft: <span class="type">Double</span> &#123; <span class="keyword">return</span> <span class="keyword">self</span> / <span class="number">3.28084</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> oneInch = <span class="number">25.4</span>.mm</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"One inch is <span class="subst">\(oneInch)</span> meters"</span>)</span><br><span class="line"><span class="comment">// Prints "One inch is 0.0254 meters"</span></span><br><span class="line"><span class="keyword">let</span> threeFeet = <span class="number">3</span>.ft</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Three feet is <span class="subst">\(threeFeet)</span> meters"</span>)</span><br><span class="line"><span class="comment">// Prints "Three feet is 0.914399970739201 meters"</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h2><p><code>Extensions</code> 可以将计算实例属性与计算类型属性添加到现有类中去。例如以下就是在 Swift 的内置类型 <code>Double</code> 中添加了五个计算实例属性，为距离单位提供了基础支持：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Double</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> km: <span class="type">Double</span> &#123; <span class="keyword">return</span> <span class="keyword">self</span> * <span class="number">1_000.0</span> &#125;</span><br><span class="line">    <span class="keyword">var</span> m: <span class="type">Double</span> &#123; <span class="keyword">return</span> <span class="keyword">self</span> &#125;</span><br><span class="line">    <span class="keyword">var</span> cm: <span class="type">Double</span> &#123; <span class="keyword">return</span> <span class="keyword">self</span> / <span class="number">100.0</span> &#125;</span><br><span class="line">    <span class="keyword">var</span> mm: <span class="type">Double</span> &#123; <span class="keyword">return</span> <span class="keyword">self</span> / <span class="number">1_000.0</span> &#125;</span><br><span class="line">    <span class="keyword">var</span> ft: <span class="type">Double</span> &#123; <span class="keyword">return</span> <span class="keyword">self</span> / <span class="number">3.28084</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> oneInch = <span class="number">25.4</span>.mm</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"One inch is \(oneInch) meters"</span>)</span><br><span class="line"><span class="comment">// Prints "One inch is 0.0254 meters"</span></span><br><span class="line"><span class="keyword">let</span> threeFeet = <span class="number">3</span>.ft</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Three feet is \(threeFeet) meters"</span>)</span><br><span class="line"><span class="comment">// Prints "Three feet is 0.914399970739201 meters"</span></span><br></pre></td></tr></table></figure></p>
 <p>这些计算属性应该被看作是 <code>Double</code> 值中的一个特定长度单位。尽管它们被看作是计算属性而被实现的，但是这些属性仍然可以被用于浮点类型的点语法而调用，被作为一种字面值去进行距离转换。</p>
 <p>在这个举例中，当 <code>Double</code> 值为 <code>1.0</code> 时可被看作是 <code>1</code>米 。这就是为什么使用 <code>m</code> 时的计算属性会返回<code>Self</code> – 表达式 <code>1.m</code> 就表示是 <code>1.0</code> 的 <code>Double</code> 值。</p>
 <p>其它的单位就需要作一些转换以便用作于以米为单位的表达。一公里就表示一千米，所以 <code>km</code> 这个计算属性将会通过乘以 <code>1_000.00</code> 去转换为米作单位去表达。同样，<code>3.28084</code> 英尺也可以表示为 <code>1</code>米 ，因此 ft 的计算属性将用 <code>Double</code> 值去除以 <code>3.28084</code> ，从而实现从英尺到米的转换。</p>
-<p>为了代码的简洁性，这些属性是只读的，所以他们不能使用 <code>get</code> 关键字去调用。当然他们的返回值也是 <code>Double</code> 类型，并且他们能在任何可以使用 <code>Double</code> 类型的地方进行数学计算。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> aMarathon = <span class="number">42</span>.km + <span class="number">195</span>.m</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"A marathon is <span class="subst">\(aMarathon)</span> meters long"</span>)</span><br><span class="line"><span class="comment">// Prints "A marathon is 42195.0 meters long"</span></span><br></pre></td></tr></table></figure></p>
+<p>为了代码的简洁性，这些属性是只读的，所以他们不能使用 <code>get</code> 关键字去调用。当然他们的返回值也是 <code>Double</code> 类型，并且他们能在任何可以使用 <code>Double</code> 类型的地方进行数学计算。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> aMarathon = <span class="number">42</span>.km + <span class="number">195</span>.m</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"A marathon is \(aMarathon) meters long"</span>)</span><br><span class="line"><span class="comment">// Prints "A marathon is 42195.0 meters long"</span></span><br></pre></td></tr></table></figure></p>
 <div class="note warning"><p>注意<br><code>Extensions</code> 可以添加一个新的属性，但是他们不能存储这些属性，也不能为现有类型添加属性观察者。</p></div>
 
 <h2 id="初始化器"><a href="#初始化器" class="headerlink" title="初始化器"></a>初始化器</h2><p><code>Extensions</code> 可以给现有类型添加一个新的初始化构造器。 这使你能够扩展一些其他类型去接收你自定义的类型用作为初始化参数，或者提供该类型的源码实现中未包含的初始化类型。</p>
@@ -549,7 +549,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/23/UIView圆形动画/" rel="prev" title="UIView圆形动画">
+              <a href="/2019/03/02/UIView圆形动画/" rel="prev" title="UIView圆形动画">
                 UIView圆形动画 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -673,7 +673,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -684,7 +684,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -785,7 +785,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">89.0k</span>
+    <span title="Site words total count">90.7k</span>
   
 </div>
 
