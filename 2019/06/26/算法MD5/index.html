@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="LLVM,Clang,GNU,GCC,Xcode," />
+  <meta name="keywords" content="MD5,信息安全," />
 
 
 
@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="LLVM的logo用的是dragon，为啥？因为dragon象征力量，速度和智慧，同时又带着时尚，优雅和modular（官方error），并且从1977年起，诸多颇具影响力的编译器书籍封面上都有龙">
-<meta name="keywords" content="LLVM,Clang,GNU,GCC,Xcode">
+<meta name="description" content="客户端在向服务端发送请求时，服务端会要求添加数字签名，其中就涉及到MD5算法，OC中实现MD5很简单，短短几行一搜就有，但MD5究竟是什么，为什么能用于数字签名呢？">
+<meta name="keywords" content="MD5,信息安全">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LLVM是什么( ´ﾟωﾟ)？">
-<meta property="og:url" content="https://hadesxiye.github.io/2018/08/23/LLVM/index.html">
+<meta property="og:title" content="MD5算法（消息摘要）">
+<meta property="og:url" content="https://hadesxiye.github.io/2019/06/26/算法MD5/index.html">
 <meta property="og:site_name" content="Hades">
-<meta property="og:description" content="LLVM的logo用的是dragon，为啥？因为dragon象征力量，速度和智慧，同时又带着时尚，优雅和modular（官方error），并且从1977年起，诸多颇具影响力的编译器书籍封面上都有龙">
+<meta property="og:description" content="客户端在向服务端发送请求时，服务端会要求添加数字签名，其中就涉及到MD5算法，OC中实现MD5很简单，短短几行一搜就有，但MD5究竟是什么，为什么能用于数字签名呢？">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://hadesxiye.github.io/images/LLVM.png">
-<meta property="og:updated_time" content="2018-11-26T09:58:08.686Z">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/06/26/算法MD5/MD5.png">
+<meta property="og:updated_time" content="2019-06-26T08:15:45.064Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LLVM是什么( ´ﾟωﾟ)？">
-<meta name="twitter:description" content="LLVM的logo用的是dragon，为啥？因为dragon象征力量，速度和智慧，同时又带着时尚，优雅和modular（官方error），并且从1977年起，诸多颇具影响力的编译器书籍封面上都有龙">
-<meta name="twitter:image" content="https://hadesxiye.github.io/images/LLVM.png">
+<meta name="twitter:title" content="MD5算法（消息摘要）">
+<meta name="twitter:description" content="客户端在向服务端发送请求时，服务端会要求添加数字签名，其中就涉及到MD5算法，OC中实现MD5很简单，短短几行一搜就有，但MD5究竟是什么，为什么能用于数字签名呢？">
+<meta name="twitter:image" content="https://hadesxiye.github.io/2019/06/26/算法MD5/MD5.png">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://hadesxiye.github.io/2018/08/23/LLVM/"/>
+  <link rel="canonical" href="https://hadesxiye.github.io/2019/06/26/算法MD5/"/>
 
 
 
 
 
-  <title>LLVM是什么( ´ﾟωﾟ)？ | Hades</title>
+  <title>MD5算法（消息摘要） | Hades</title>
   
 
 
@@ -299,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hadesxiye.github.io/2018/08/23/LLVM/">
+    <link itemprop="mainEntityOfPage" href="https://hadesxiye.github.io/2019/06/26/算法MD5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hades">
@@ -316,7 +316,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">LLVM是什么( ´ﾟωﾟ)？</h2>
+          <h2 class="post-title" itemprop="name headline">MD5算法（消息摘要）</h2>
         
 
         <div class="post-meta">
@@ -328,8 +328,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-23T18:54:52+08:00">
-                2018-08-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-26T15:54:55+08:00">
+                2019-06-26
               </time>
             
 
@@ -351,8 +351,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编译相关/" itemprop="url" rel="index">
-                    <span itemprop="name">编译相关</span>
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
                   </a>
                 </span>
 
@@ -369,8 +369,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/23/LLVM/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/08/23/LLVM/" itemprop="commentCount"></span>
+                <a href="/2019/06/26/算法MD5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/26/算法MD5/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -378,7 +378,7 @@
 
           
           
-             <span id="/2018/08/23/LLVM/" class="leancloud_visitors" data-flag-title="LLVM是什么( ´ﾟωﾟ)？">
+             <span id="/2019/06/26/算法MD5/" class="leancloud_visitors" data-flag-title="MD5算法（消息摘要）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,739
+                  2,600
                 </span>
               
 
@@ -424,7 +424,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  14
+                  11
                 </span>
               
             </div>
@@ -443,107 +443,45 @@
 
       
       
-        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-          
-          
-            <div class="post-gallery-row">
-              <a class="post-gallery-img fancybox"
-                 href="/images/LLVM.png" rel="gallery_cjxcywaqf0001hfy7pp6pisxw"
-                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
-                <img src="/images/LLVM.png" itemprop="contentUrl"/>
-              </a>
-            
-          
-
-          
-          </div>
-        </div>
-      
 
       
-        <p><center>LLVM的logo用的是dragon，为啥？因为dragon象征力量，速度和智慧，同时又带着时尚，优雅和modular（官方error），并且从1977年起，诸多颇具影响力的编译器书籍封面上都有龙</center><br><a id="more"></a></p>
-<h1 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h1><h2 id="LLVM"><a href="#LLVM" class="headerlink" title="LLVM"></a><strong><font color="#FF8C00">LLVM</font></strong></h2><blockquote>
-<p>一个开源编译器架构，目前Xcode采用的就是LLVM架构。</p>
-</blockquote>
-<h2 id="Clang"><a href="#Clang" class="headerlink" title="Clang"></a><strong><font color="#FF8C00">Clang</font></strong></h2><blockquote>
-<p>由苹果赞助支持开发的LLVM的编译器前端，目前支持C,C++,Object-C和Object-C++.相对于GCC，Clang快，占用内存小，易于IDE集成，与GCC兼容，诊断可读性强和易拓展等。</p>
-</blockquote>
-<h2 id="GCC"><a href="#GCC" class="headerlink" title="GCC"></a><strong><font color="#FF8C00">GCC</font></strong></h2><blockquote>
-<p>GNU的编译器套装，原本只处理C语言，后来拓展可处理Fortran、Pascal、Objective-C、Java、Ada，Go等。许多操作系统，包括许多类Unix系统，如Linux及BSD家族都采用GCC作为标准编译器。苹果计算机预装的Mac OS X操作系统也采用这个编译器。</p>
-</blockquote>
-<h2 id="GNU"><a href="#GNU" class="headerlink" title="GNU"></a><strong><font color="#FF8C00">GNU</font></strong></h2><blockquote>
-<p>GNU是一个自由的操作系统，但其具有完备功能的内核尚未被开发成功。GNU的内核，称为Hurd，其发展尚未成熟。在实际使用上，多半使用Linux内核、FreeBSD等替代方案，作为系统核心，其中主要的操作系统是Linux的发行版。</p>
-</blockquote>
-<h2 id="在Xcode上使用GCC"><a href="#在Xcode上使用GCC" class="headerlink" title="在Xcode上使用GCC"></a><strong><font color="#FF8C00">在Xcode上使用GCC</font></strong></h2><blockquote>
-<p>Xcode在C和C++上是支持使用GCC的，如下：<br><img src="/2018/08/23/LLVM/XcodeGNU.jpg" title="Xcode9.4上的截图"><br>具体参数的使用请参考：<a href="https://stackoverflow.com/questions/35300064/gnu-gcc-on-xcode" target="_blank" rel="noopener">stackoverflow:Xcode上的GNU GCC</a></p>
-</blockquote>
-<h1 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="LLVM-1"><a href="#LLVM-1" class="headerlink" title="LLVM"></a>LLVM</h3><p>全名：<br>Low Level Virtual Machine  直译：底层虚拟机<br>/loʊ ˈlɛvəl ˈvɜrʧuəl məˈʃin/</p>
-<p>  The LLVM Project is a collection of modular and reusable compiler and toolchain technologies. Despite its name, LLVM has little to do with traditional virtual machines. The name “LLVM” itself is not an acronym; it is the full name of the project.<br>- 来自LLVM官网的介绍 <a href="http://llvm.org/" target="_blank" rel="noopener">LLVM官网</a></p>
-<p>  LLVM项目是模块化和可重用的编译器和工具链技术的集合。尽管名称如此，但LLVM与传统虚拟机几乎没有关系。“LLVM”不是首字母缩略词而是项目的全名。</p>
-<p>  LLVM是一个自由软件项目，它是一种编译器基础设施，以C++写成。它是为了任意一种编程语言而写成的程序，利用虚拟技术创造出编译时期、链接时期、运行时期以及“闲置时期”的最优化。它最早以C/C++为实现对象，而目前它已支持包括ActionScript、Ada、D语言、Fortran、GLSL、Haskell、Java字节码、Objective-C、Swift、Python、Ruby、Rust、Scala以及C#等语言。<br> - 来自维基百科 <a href="https://zh.wikipedia.org/wiki/LLVM" target="_blank" rel="noopener">LLVM on wiki</a></p>
-<p>  简单来说</p>
+        <img src="/2019/06/26/算法MD5/MD5.png">
+<p><center>客户端在向服务端发送请求时，服务端会要求添加数字签名，其中就涉及到MD5算法，OC中实现MD5很简单，短短几行一搜就有，但MD5究竟是什么，为什么能用于数字签名呢？</center><br><a id="more"></a></p>
+<h2 id="概括"><a href="#概括" class="headerlink" title="概括"></a>概括</h2><p><code>MD5 Message-Digest Algorithm</code>，一种被广泛使用的消息摘要算法，可以产生出一个<code>128</code>位元（<code>16</code>位元组）的散列值（<code>hash value</code>），用于确保信息传输完整一致。</p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
+<li><code>压缩性</code>：任意长度的数据，算出的MD5值长度都是固定的。</li>
+<li><code>容易计算</code>：从原数据计算出MD5值很容易。</li>
+<li><code>抗修改性</code>：对原数据进行任何改动，哪怕只修改1个字节，所得到的MD5值都有很大区别。</li>
+<li><code>强抗碰撞</code>：想找到两个不同的数据，使它们具有相同的MD5值，是非常困难的。</li>
+</ul>
+<h2 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h2><ul>
+<li><code>文件校验</code>：如，客户端向服务端发送的数据，附加上原数据<code>MD5</code>的值，服务端就可验证是否是未篡改数据。</li>
+<li><code>密码加密</code>：如，客户端存储用户密码，只存储用户密码的<code>MD5</code>值在数据库，用户再次登录只需将密码<code>MD5</code>值和数据库内的做比较即可。</li>
+<li><code>数字签名</code>：如，客户端向服务器发送数据，并将原始数据按约定的算法进行运算，并将结果的<code>MD5</code>值一同发送给服务端，服务端在接受到数据后，只需要对原始数据做一样的操作，对比两个MD5值是否相同就能确保数据未篡改。</li>
+<li><code>鉴权协议</code>：有个称为<code>挑战-认证模式</code>的鉴权协议：需要鉴权的一方，向将被鉴权的一方发送随机串（<code>挑战</code>），被鉴权方将该随机串和自己的鉴权口令字一起进行 <code>Hash</code> 运算后，返还鉴权方，鉴权方将收到的<code>Hash</code>值与在己端用该随机串和对方的鉴权口令字进行 <code>Hash</code> 运算的结果相比较（<code>认证</code>），如相同，则可在统计上认为对方拥有该口令字，即通过鉴权。</li>
+</ul>
+<h2 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h2><p>普遍认为<code>MD5</code>是很安全，因为暴力破解的时间是一般人无法接受的。实际上如果把用户的密码<code>MD5</code>处理后再存储到数据库，其实是很不安全的。因为用户的密码是比较短的，而且很多用户的密码都使用生日，手机号码，身份证号码，电话号码等等。或者使用常用的一些吉利的数字，或者某个英文单词。如果我把常用的密码先<code>MD5</code>处理，把数据存储起来，然后再跟你的<code>MD5</code>结果匹配，这时我就有可能得到明文。比如某个<a href="http://www.cmd5.com/default.aspx" target="_blank" rel="noopener">MD5破解网站</a>，所以现在大多数网站密码的策略是强制要求用户使用数字大小写字母的组合的方式提高用户密码的安全度。</p>
+<h2 id="唯一性？"><a href="#唯一性？" class="headerlink" title="唯一性？"></a>唯一性？</h2><p>首先<code>MD5</code>是数据摘要，得到的是<code>128</code>位数据，大致一想，显然比原数据少了很多很多，必然会出现多个原数据对应一个<code>MD5</code>的情况。只不过概率很低，而且如果还想把特定数据加入原数据就更难了。<br>网上的专业回答：</p>
 <blockquote>
-<p>LLVM是一个开源的编译器架构而不是编译器。是一套用于开发编译器、解释器等程序语言相关工具的库，主要聚焦于编译器后端功能，如代码生成、代码优化、JIT等。<br>编译器是Clang，GCC，ICC，VC++等。</p>
+<p><code>md5</code>是用来做消息摘要的，不是加密算法，当然它可以作为普通的密码验证字串作为保存来屏蔽密码泄露。任何散列算法都是会碰撞的，毕竟将任意数据散列为一个固定长度的整数不出现重复是不可能的，但是为了验证数据有效性的消息摘要算法，需要保证散列的雪崩性——即是越是相近的数据散列出来的结果差异越大，由此特性来明确数据的差异能做到覆盖任何情况，毕竟两个差异过于明显的数据是不需要用散列来认证的。<br>举个例子来说，一般现在网上实现了很多网盘的功能的急速秒传就是通过散列来认证服务器是否存在相同文件，而且算法很多是<code>sha1</code>(和<code>md5</code>相同功能但是更加高级精确的散列算法)，但是就芸芸众多文件而已，不发生碰撞是不可能的，但是为什么还是可以用这个算法来认真，就是因为算法本身的雪崩性，两个发生碰撞的数据，其差异很有可能异常巨大，如果发生碰撞，只要稍微判断一下其它项即可解决，例如数据长度，数据首<code>N</code>个数据段或者尾N数据段进行匹配即可。</p>
 </blockquote>
-<h4 id="Xcode和LLVM"><a href="#Xcode和LLVM" class="headerlink" title="Xcode和LLVM"></a>Xcode和LLVM</h4><blockquote>
-<p>Xcode3之前，用的是GCC<br>Xcode3,GCC仍然保留，但是也推出了LLVM，苹果推荐LLVM-GCC混合编译器，但还不是默认编译器<br>Xcode4,LLVM-GCC成为默认编译器，但GCC仍保留<br>Xcode4.2,LLVM3.0成为默认编译器,纯用GCC不复可能<br>Xcode4.6,LLVM升级到4.2版本<br>Xcode5,LLVM-GCC被遗弃，新的编译器是LLVM5.0，从GCC过渡到LLVM的时代正式完成</p>
-</blockquote>
-<h3 id="Clang-1"><a href="#Clang-1" class="headerlink" title="Clang"></a>Clang</h3><p>Clang /ˈklæŋ/ 是一个C、C++、Objective-C和Objective-C++编程语言的编译器前端。它采用了底层虚拟机（LLVM）作为其后端，而且由LLVM2.6开始，一起发布新版本。它的目标是提供一个GNU编译器套装（GCC）的替代品，支持了GNU编译器大多数的编译设置以及非官方语言的扩展。作者是克里斯·拉特纳（Chris Lattner），在苹果公司的赞助支持下进行开发，而源代码许可是使用类BSD的伊利诺伊大学厄巴纳-香槟分校开源码许可。<br>Clang项目包括Clang前端和Clang静态分析器等。<br>- 来自维基百科 <a href="https://zh.wikipedia.org/wiki/Clang" target="_blank" rel="noopener">Clang on wiki</a></p>
-<h3 id="GCC-1"><a href="#GCC-1" class="headerlink" title="GCC"></a>GCC</h3><p><a href="http://gcc.gnu.org/" target="_blank" rel="noopener">GCC官网</a><br>GNU编译器套装（英语：GNU Compiler Collection，缩写为GCC），指一套编程语言编译器，以GPL及LGPL许可证所发行的自由软件，也是GNU项目的关键部分，也是GNU工具链的主要组成部分之一。GCC（特别是其中的C语言编译器）也常被认为是跨平台编译器的事实标准。1985年由理查德·马修·斯托曼开始发展，现在由自由软件基金会负责维护工作。</p>
-<p>原名为GNU C语言编译器（GNU C Compiler），因为它原本只能处理C语言。GCC在发布后很快地得到扩展，变得可处理C++。之后也变得可处理Fortran、Pascal、Objective-C、Java、Ada，Go与其他语言。</p>
-<p>许多操作系统，包括许多类Unix系统，如Linux及BSD家族都采用GCC作为标准编译器。苹果计算机预装的Mac OS X操作系统也采用这个编译器。</p>
-<p>GCC原本用C开发，后来因为LLVM、Clang的崛起，它更快地将开发语言转换为C++。许多C的爱好者在对C++一知半解的情况下主观认定C++的性能一定会输给C，但是Ian Lance Taylor给出了不同的意见，并表明C++不但性能不输给C，而且能设计出更好，更容易维护的程序。<br>- 来自维基百科 <a href="https://zh.wikipedia.org/wiki/GCC" target="_blank" rel="noopener">GCC on wiki</a></p>
-<h3 id="GNU-1"><a href="#GNU-1" class="headerlink" title="GNU"></a>GNU</h3><p><a href="https://www.gnu.org/" target="_blank" rel="noopener">GNU官网</a><br>GNU是一个自由的操作系统，其内容软件完全以GPL方式发布。这个操作系统是GNU计划的主要目标，名称来自GNU’s Not Unix!的递归缩写，因为GNU的设计类似Unix，但它不包含具著作权的Unix代码。GNU的创始人，理查德·马修·斯托曼，将GNU视为“达成社会目的技术方法”。</p>
-<p>作为操作系统，GNU的发展仍未完成，其中最大的问题是具有完备功能的内核尚未被开发成功。GNU的内核，称为Hurd，是自由软件基金会发展的重点，但是其发展尚未成熟。在实际使用上，多半使用Linux内核、FreeBSD等替代方案，作为系统核心，其中主要的操作系统是Linux的发行版。Linux操作系统包涵了Linux内核与其他自由软件项目中的GNU组件和软件，可以被称为GNU/Linux。<br>- 来自维基百科 <a href="https://zh.wikipedia.org/zh-cn/GNU" target="_blank" rel="noopener">GNU on wiki</a></p>
-<h3 id="LLDB"><a href="#LLDB" class="headerlink" title="LLDB"></a>LLDB</h3><p>LLDB是一种软件调试器。它构建为一组可重用的组件，被LLVM项目的现有库广泛使用，例如Clang表达式解析器和LLVM 反汇编程序。<br>尽管LLDB处于早期开发阶段，但它已经足够成熟，可以支持用C，Objective-C，C ++和Swift编写的程序的基本调试。<br>LLDB可以在macOS，Linux，FreeBSD和Windows上运行，并支持i386，x86-64和ARM 指令集。它用作Xcode 5及更高版本的默认调试器。</p>
-<h3 id="GDB"><a href="#GDB" class="headerlink" title="GDB"></a>GDB</h3><p>GNU Debugger 顾名思义<br>支持编程语言有C、C++、Pascal以及FORTRAN<br>在许多的类UNIX操作系统上都可以使用</p>
-<h3 id="词法分析"><a href="#词法分析" class="headerlink" title="词法分析"></a>词法分析</h3><p>lexical analysis /ˈlɛksɪkəl/<br>词法分析阶段是编译过程的第一个阶段。这个阶段的任务是从左到右一个字符一个字符地读入源程序，即对构成源程序的字符流进行扫描然后根据构词规则识别单词(也称单词符号或符号)。词法分析程序实现这个任务。词法分析程序可以使用lex等工具自动生成。</p>
-<h3 id="语法分析"><a href="#语法分析" class="headerlink" title="语法分析"></a>语法分析</h3><p>syntactic analysis，也叫 parsing<br>/sɪnˈtæktɪk əˈnæləsəs/  /ˈpɑːzɪŋ/<br>语法分析是编译过程的一个逻辑阶段。语法分析的任务是在词法分析的基础上将单词序列组合成各类语法短语，如“程序”，“语句”，“表达式”等等.语法分析程序判断源程序在结构上是否正确.源程序的结构由上下文无关文法描述.</p>
-<h3 id="语法分析器"><a href="#语法分析器" class="headerlink" title="语法分析器"></a>语法分析器</h3><p>parser<br>通常是作为编译器或解释器的组件出现的，它的作用是进行语法检查、并构建由输入的单词组成的数据结构（一般是语法分析树、抽象语法树等层次化的数据结构）。语法分析器通常使用一个独立的词法分析器从输入字符流中分离出一个个的“单词”，并将单词流作为其输入。实际开发中，语法分析器可以手工编写，也可以使用工具（半）自动生成。</p>
-<h3 id="源语言-amp-源程序"><a href="#源语言-amp-源程序" class="headerlink" title="源语言&amp;源程序"></a>源语言&amp;源程序</h3><p>Source language&amp;Source program<br>被编译程序翻译的程序称为源程序,书写该程序的语言称为源语言。</p>
-<h3 id="目标语言-amp-目标程序"><a href="#目标语言-amp-目标程序" class="headerlink" title="目标语言&amp;目标程序"></a>目标语言&amp;目标程序</h3><p>Object language or Target language &amp; Object program or Target program<br>编译程序翻译源程序而得到的结果程序称为目标程序, 书写该程序的语言称为目标语言。</p>
-<h3 id="中间语言（中间表示）"><a href="#中间语言（中间表示）" class="headerlink" title="中间语言（中间表示）"></a>中间语言（中间表示）</h3><p>Intermediate language（representation）<br>在进行了语法分析和语义分析阶段的工作之后，有的编译程序将源程序变成一种内部表示形式，这种内部表示形式叫做中间语言或中间表示或中间代码。所谓“中间代码”是一种结构简单、含义明确的记号系统，这种记号系统复杂性介于源程序语言和机器语言之间，容易将它翻译成目标代码。另外，还可以在中间代码一级进行与机器无关的优化。</p>
-<h3 id="文法"><a href="#文法" class="headerlink" title="文法"></a>文法</h3><p>Grammars<br>/ˈgræməz/<br>文法是用于描述语言的语法结构的形式规则。</p>
-<h3 id="token"><a href="#token" class="headerlink" title="token"></a>token</h3><p>是一个字符串，是构成源代码的最小单位。从输入字符流中生成标记的过程叫作标记化（tokenization），在这个过程中，词法分析器还会对标记进行分类。<br>词法分析器通常不会关心标记之间的关系（属于语法分析的范畴），举例来说：词法分析器能够将括号识别为标记，但并不保证括号是否匹配。</p>
-<h3 id="抽象语法树"><a href="#抽象语法树" class="headerlink" title="抽象语法树"></a>抽象语法树</h3><p>abstract syntax tree或者缩写为AST<br>/ˈæbstrækt ˈsɪnˌtæks tri/<br>抽象语法树，或者语法树（syntax tree），是源代码的抽象语法结构的树状表现形式，这里特指编程语言的源代码。和抽象语法树相对的是具体语法树（concrete syntaxtree），通常称作分析树（parse tree）。一般的，在源代码的翻译和编译过程中，语法分析器创建出分析树。一旦AST被创建出来，在后续的处理过程中，比如语义分析阶段，会添加一些信息。</p>
-<h2 id="具体"><a href="#具体" class="headerlink" title="具体"></a>具体</h2><h3 id="CMD-B"><a href="#CMD-B" class="headerlink" title="CMD+B"></a>CMD+B</h3><p>Objective-C与swift都采用Clang作为编译器前端，编译器前端主要进行语法分析，语义分析，生成中间代码，在这个过程中，会进行类型检查，如果发现错误或者警告会标注出来在哪一行。<br>编译器后端会进行机器无关的代码优化，生成机器语言，并且进行机器相关的代码优化，根据不同的系统架构生成不同的机器码。<br>C++,Objective C都是编译语言。编译语言在执行的时候，必须先通过编译器生成机器码。</p>
-<p>在使用Xcode按下cmd+B后，会经过以下流程：<br><img src="/2018/08/23/LLVM/02.png" title="Clang/LLVM 编译过程"><br><strong>预处理（Pre-process）</strong>：他的主要工作就是将宏替换，删除注释展开头文件，生成.i文件。</p>
-<p><strong>词法分析 （Lexical Analysis）</strong>：将代码切成一个个 token，比如大小括号，等于号还有字符串等。是计算机科学中将字符序列转换为标记序列的过程。</p>
-<p><strong>语法分析（Semantic Analysis）</strong>：验证语法是否正确，然后将所有节点组成抽象语法树 AST 。由 Clang 中 Parser 和 Sema 配合完成。</p>
-<p><strong>静态分析（Static Analysis）</strong>：使用它来表示用于分析源代码以便自动发现错误。</p>
-<p><strong>中间代码生成（Code Generation）</strong>：开始IR中间代码的生成了，CodeGen 会负责将语法树自顶向下遍历逐步翻译成 LLVM IR，IR 是编译过程的前端的输出后端的输入。</p>
-<p><strong>优化（Optimize）</strong>：LLVM 会去做些优化工作，在 Xcode 的编译设置里也可以设置优化级别-01，-03，-0s，还可以写些自己的 Pass，官方有比较完整的 Pass 教程： Writing an LLVM Pass — LLVM 5 documentation 。如果开启了 bitcode 苹果会做进一步的优化，有新的后端架构还是可以用这份优化过的 bitcode 去生成。</p>
-<p><strong>生成目标文件（Assemble）</strong>：生成Target相关Object(Mach-o) 。</p>
-<p><strong>链接（Link）</strong>：生成 Executable 可执行文件。</p>
-<p>关于此过程的详细测试，参考<a href="https://juejin.im/post/5a30ea0ff265da43094526f9" target="_blank" rel="noopener">掘金</a></p>
-<h3 id="LLVM的具体操作"><a href="#LLVM的具体操作" class="headerlink" title="LLVM的具体操作"></a>LLVM的具体操作</h3><p>请参考<a href="http://www.alonemonkey.com/2016/12/21/learning-llvm/" target="_blank" rel="noopener">关于LLVM，这些东西你必须知道！</a></p>
-<blockquote>
-<p>基于ClangPlugin 可以用来定义一些编码规范，比如代码风格检查，命名检查等等<br>Pass就是LLVM系统转化和优化的工作的一个节点，可以写一个这样的节点去做一些自己的优化工作或者其它的操作，比如 <code>a+b</code> 改为 <code>a-(-b)</code><br>将Pass加入PassManager管理,这样我们就可以直接通过clang的参数去加载我们的Pass了<br>基于Pass，我们可以编写自己的Pass去混淆代码，以增加他人反编译的难度。</p>
-</blockquote>
-<p>所以基于LLVM可以完成：</p>
-<ul>
-<li>做语法树分析，实现语言转换OC转Swift、JS or 其它语言，字符串加密。</li>
-<li>编写ClangPlugin，命名规范，代码规范，扩展功能。</li>
-<li>编写Pass，代码混淆优化。</li>
+<h2 id="攻击MD5手段"><a href="#攻击MD5手段" class="headerlink" title="攻击MD5手段"></a>攻击MD5手段</h2><ul>
+<li>预计算的哈希链集（<code>Precomputed hash chains</code>）</li>
+<li>彩虹表（<code>rainbow table</code>）</li>
 </ul>
-<h3 id="使用Clang进行开发"><a href="#使用Clang进行开发" class="headerlink" title="使用Clang进行开发"></a>使用Clang进行开发</h3><p>详细参考<a href="https://www.ibm.com/developerworks/cn/opensource/os-cn-clang/index.html" target="_blank" rel="noopener">IBM developerWorks</a></p>
-<p>Clang的特性<br>相比于 GCC，Clang 具有如下优点：</p>
-<ul>
-<li>编译速度快：在某些平台上，Clang 的编译速度显著的快过 GCC。</li>
-<li>占用内存小：Clang 生成的 AST 所占用的内存是 GCC 的五分之一左右。</li>
-<li>模块化设计：Clang 采用基于库的模块化设计，易于 IDE 集成及其他用途的重用。</li>
-<li>诊断信息可读性强：在编译过程中，Clang 创建并保留了大量详细的元数据 (metadata)，有利于调试和错误报告。</li>
-<li>设计清晰简单，容易理解，易于扩展增强。与代码基础古老的 GCC 相比，学习曲线平缓。</li>
-</ul>
-<p>当前 Clang 还处在不断完善过程中，相比于 GCC, Clang 在以下方面还需要加强：</p>
-<ul>
-<li>支持更多语言：GCC 除了支持 C/C++/Objective-C, 还支持 Fortran/Pascal/Java/Ada/Go 和其他语言。Clang 目前支持的语言有 C/C++/Objective-C/Objective-C++。</li>
-<li>支持更多平台：GCC 流行的时间比较长，已经被广泛使用，对各种平台的支持也很完备。Clang 目前支持的平台有 Linux/Windows/Mac OS。</li>
-</ul>
-<p>以下是目前GCC和Clang对C++支持的情况：<br><img src="/2018/08/23/LLVM/03.png" title="GCC Clang对C++支持对比"></p>
-<p>更多参考<a href="https://zh.cppreference.com/w/cpp/compiler_support" target="_blank" rel="noopener">C++ 编译器支持情况表</a></p>
-<h3 id="使用LLVM创建一个编译器"><a href="#使用LLVM创建一个编译器" class="headerlink" title="使用LLVM创建一个编译器"></a>使用LLVM创建一个编译器</h3><p>首先参考这篇文章来写一个helloworld<br><a href="https://www.ibm.com/developerworks/cn/opensource/os-createcompilerllvm1/" target="_blank" rel="noopener">IBM developerWorks</a></p>
-<p>关于LLVM IR的生成与创建<br><a href="https://www.ibm.com/developerworks/cn/opensource/os-createcompilerllvm2/index.html" target="_blank" rel="noopener">IBM developerWorks</a></p>
+<h2 id="防止MD5攻击手段"><a href="#防止MD5攻击手段" class="headerlink" title="防止MD5攻击手段"></a>防止MD5攻击手段</h2><p>在密码保护上，客户端一般只能做下对密码明文的加密，将加密的密码传给服务端或者存在本地数据库。<br>而在服务端的防护看链接<a href="https://www.zhihu.com/question/20060155" target="_blank" rel="noopener">知乎链接</a></p>
+<h2 id="MD5的计算逻辑"><a href="#MD5的计算逻辑" class="headerlink" title="MD5的计算逻辑"></a>MD5的计算逻辑</h2><h3 id="大致逻辑"><a href="#大致逻辑" class="headerlink" title="大致逻辑"></a>大致逻辑</h3><p>MD5将输入的信息以512位分组来处理，且每一分组又被划分为16个32位子分组，​经过了一系列的处理后，算法的输出由四个32位分组组成，将这四个32位分组级联后将生成一个128位散列值。</p>
+<h3 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h3><h4 id="第一步：填充"><a href="#第一步：填充" class="headerlink" title="第一步：填充"></a>第一步：填充</h4><p>如果输入信息的长度(<a href="https://baike.baidu.com/item/%E6%AF%94%E7%89%B9%28bit%29/7675114?fr=aladdin" target="_blank" rel="noopener">bit</a>)对<code>512</code>求余的结果不等于<code>448</code>，就需要填充使得对<code>512</code>求余的结果等于<code>448</code>。<br> ​填充的方法是填充<code>1</code>个<code>1</code>和<code>n</code>个<code>0</code>。填充完后，信息的长度就为<code>N*512+448</code>(bit)；<br> ​</p>
+<h4 id="​第二步：记录信息长度"><a href="#​第二步：记录信息长度" class="headerlink" title="​第二步：记录信息长度"></a>​第二步：记录信息长度</h4><p>用<code>64</code>位来存储填充前信息长度。这<code>64</code>位加在第一步结果的后面，这样信息长度就变为<code>N*512+448+64=(N+1)*512</code>位。</p>
+<h4 id="第三步：装入标准的幻数（四个整数参数）"><a href="#第三步：装入标准的幻数（四个整数参数）" class="headerlink" title="第三步：装入标准的幻数（四个整数参数）"></a>第三步：装入标准的幻数（四个整数参数）</h4><p>标准的幻数（物理顺序）是（<code>A=(01234567)16</code>，<code>B=(89ABCDEF)16</code>，<code>C=(FEDCBA98)16</code>，<code>D=(76543210)16</code>）。如果在程序中定义应该是（<code>A=0x67452301</code>，<code>B=0xEFCDAB89</code>，<code>C=0x98BADCFE</code>，<code>D=0x10325476</code>）。</p>
+<h4 id="第四步：四轮循环运算"><a href="#第四步：四轮循环运算" class="headerlink" title="第四步：四轮循环运算"></a>第四步：四轮循环运算</h4><p>循环的次数是分组的个数（<code>N+1</code>）<br>（1）将每一<code>512</code>字节细分成<code>16</code>个小组，每个小组<code>64</code>位（<code>8</code>个字节）<br>（2）先认识四个线性函数(<code>&amp;</code>是与,<code>|</code>是或,<code>~</code>是非,<code>^</code>是异或)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">F(X,Y,Z)=(X&amp;Y)|((~X)&amp;Z)  </span><br><span class="line">G(X,Y,Z)=(X&amp;Z)|(Y&amp;(~Z))  </span><br><span class="line">H(X,Y,Z)=X^Y^Z  </span><br><span class="line">I(X,Y,Z)=Y^(X|(~Z))</span><br></pre></td></tr></table></figure></p>
+<p>（3）设<code>Mj</code>表示消息的第<code>j</code>个子分组（从0到15），<code>&lt;&lt;&lt;s</code>表示循环左移<code>s</code>位，则四种操作为： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FF(a,b,c,d,Mj,s,ti)表示a=b+((a+F(b,c,d)+Mj+ti)&lt;&lt;&lt;s)  </span><br><span class="line">GG(a,b,c,d,Mj,s,ti)表示a=b+((a+G(b,c,d)+Mj+ti)&lt;&lt;&lt;s)  </span><br><span class="line">HH(a,b,c,d,Mj,s,ti)表示a=b+((a+H(b,c,d)+Mj+ti)&lt;&lt;&lt;s)  </span><br><span class="line">II(a,b,c,d,Mj,s,ti)表示a=b+((a+I(b,c,d)+Mj+ti)&lt;&lt;&lt;s)</span><br></pre></td></tr></table></figure>
+<p> （4）四轮运算</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">第一轮  </span><br><span class="line"> a=FF(a,b,c,d,M0,7,0xd76aa478)  </span><br><span class="line"> b=FF(d,a,b,c,M1,12,0xe8c7b756)  </span><br><span class="line"> c=FF(c,d,a,b,M2,17,0x242070db)  </span><br><span class="line"> d=FF(b,c,d,a,M3,22,0xc1bdceee)  </span><br><span class="line"> a=FF(a,b,c,d,M4,7,0xf57c0faf)  </span><br><span class="line"> b=FF(d,a,b,c,M5,12,0x4787c62a)  </span><br><span class="line"> c=FF(c,d,a,b,M6,17,0xa8304613)  </span><br><span class="line"> d=FF(b,c,d,a,M7,22,0xfd469501)  </span><br><span class="line"> a=FF(a,b,c,d,M8,7,0x698098d8)  </span><br><span class="line"> b=FF(d,a,b,c,M9,12,0x8b44f7af)  </span><br><span class="line"> c=FF(c,d,a,b,M10,17,0xffff5bb1)  </span><br><span class="line"> d=FF(b,c,d,a,M11,22,0x895cd7be)  </span><br><span class="line"> a=FF(a,b,c,d,M12,7,0x6b901122)  </span><br><span class="line"> b=FF(d,a,b,c,M13,12,0xfd987193)  </span><br><span class="line"> c=FF(c,d,a,b,M14,17,0xa679438e)  </span><br><span class="line"> d=FF(b,c,d,a,M15,22,0x49b40821)  </span><br><span class="line">  </span><br><span class="line">第二轮  </span><br><span class="line"> a=GG(a,b,c,d,M1,5,0xf61e2562)  </span><br><span class="line"> b=GG(d,a,b,c,M6,9,0xc040b340)  </span><br><span class="line"> c=GG(c,d,a,b,M11,14,0x265e5a51)  </span><br><span class="line"> d=GG(b,c,d,a,M0,20,0xe9b6c7aa)  </span><br><span class="line"> a=GG(a,b,c,d,M5,5,0xd62f105d)  </span><br><span class="line"> b=GG(d,a,b,c,M10,9,0x02441453)  </span><br><span class="line"> c=GG(c,d,a,b,M15,14,0xd8a1e681)  </span><br><span class="line"> d=GG(b,c,d,a,M4,20,0xe7d3fbc8)  </span><br><span class="line"> a=GG(a,b,c,d,M9,5,0x21e1cde6)  </span><br><span class="line"> b=GG(d,a,b,c,M14,9,0xc33707d6)  </span><br><span class="line"> c=GG(c,d,a,b,M3,14,0xf4d50d87)  </span><br><span class="line"> d=GG(b,c,d,a,M8,20,0x455a14ed)  </span><br><span class="line"> a=GG(a,b,c,d,M13,5,0xa9e3e905)  </span><br><span class="line"> b=GG(d,a,b,c,M2,9,0xfcefa3f8)  </span><br><span class="line"> c=GG(c,d,a,b,M7,14,0x676f02d9)  </span><br><span class="line"> d=GG(b,c,d,a,M12,20,0x8d2a4c8a)  </span><br><span class="line">  </span><br><span class="line">第三轮  </span><br><span class="line"> a=HH(a,b,c,d,M5,4,0xfffa3942)  </span><br><span class="line"> b=HH(d,a,b,c,M8,11,0x8771f681)  </span><br><span class="line"> c=HH(c,d,a,b,M11,16,0x6d9d6122)  </span><br><span class="line"> d=HH(b,c,d,a,M14,23,0xfde5380c)  </span><br><span class="line"> a=HH(a,b,c,d,M1,4,0xa4beea44)  </span><br><span class="line"> b=HH(d,a,b,c,M4,11,0x4bdecfa9)  </span><br><span class="line"> c=HH(c,d,a,b,M7,16,0xf6bb4b60)  </span><br><span class="line"> d=HH(b,c,d,a,M10,23,0xbebfbc70)  </span><br><span class="line"> a=HH(a,b,c,d,M13,4,0x289b7ec6)  </span><br><span class="line"> b=HH(d,a,b,c,M0,11,0xeaa127fa)  </span><br><span class="line"> c=HH(c,d,a,b,M3,16,0xd4ef3085)  </span><br><span class="line"> d=HH(b,c,d,a,M6,23,0x04881d05)  </span><br><span class="line"> a=HH(a,b,c,d,M9,4,0xd9d4d039)  </span><br><span class="line"> b=HH(d,a,b,c,M12,11,0xe6db99e5)  </span><br><span class="line"> c=HH(c,d,a,b,M15,16,0x1fa27cf8)  </span><br><span class="line"> d=HH(b,c,d,a,M2,23,0xc4ac5665)  </span><br><span class="line">  </span><br><span class="line">第四轮  </span><br><span class="line"> a=II(a,b,c,d,M0,6,0xf4292244)  </span><br><span class="line"> b=II(d,a,b,c,M7,10,0x432aff97)  </span><br><span class="line"> c=II(c,d,a,b,M14,15,0xab9423a7)  </span><br><span class="line"> d=II(b,c,d,a,M5,21,0xfc93a039)  </span><br><span class="line"> a=II(a,b,c,d,M12,6,0x655b59c3)  </span><br><span class="line"> b=II(d,a,b,c,M3,10,0x8f0ccc92)  </span><br><span class="line"> c=II(c,d,a,b,M10,15,0xffeff47d)  </span><br><span class="line"> d=II(b,c,d,a,M1,21,0x85845dd1)  </span><br><span class="line"> a=II(a,b,c,d,M8,6,0x6fa87e4f)  </span><br><span class="line"> b=II(d,a,b,c,M15,10,0xfe2ce6e0)  </span><br><span class="line"> c=II(c,d,a,b,M6,15,0xa3014314)  </span><br><span class="line"> d=II(b,c,d,a,M13,21,0x4e0811a1)  </span><br><span class="line"> a=II(a,b,c,d,M4,6,0xf7537e82)  </span><br><span class="line"> b=II(d,a,b,c,M11,10,0xbd3af235)  </span><br><span class="line"> c=II(c,d,a,b,M2,15,0x2ad7d2bb)  </span><br><span class="line"> d=II(b,c,d,a,M9,21,0xeb86d391)</span><br></pre></td></tr></table></figure>
+<p>（5）每轮循环后，将<code>A</code>，<code>B</code>，<code>C</code>，<code>D</code>分别加上<code>a</code>，<code>b</code>，<code>c</code>，<code>d</code>，然后进入下一循环<br>所有这些完成之后，将<code>a</code>、<code>b</code>、<code>c</code>、<code>d</code>分别在原来基础上再加上<code>A</code>、<code>B</code>、<code>C</code>、<code>D</code>。<br>即<code>a = a + A</code>，<code>b = b + B</code>，<code>c = c + C</code>，<code>d = d + D</code><br>然后用下一分组数据继续运行以上算法。</p>
+<h4 id="第五步：输出"><a href="#第五步：输出" class="headerlink" title="第五步：输出"></a>第五步：输出</h4><p> 最后的输出是<code>a</code>、<code>b</code>、<code>c</code>和<code>d</code>的级联。</p>
+<h2 id="OC实现MD5"><a href="#OC实现MD5" class="headerlink" title="OC实现MD5"></a>OC实现MD5</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">  -(NSString *) md5</span><br><span class="line">&#123;</span><br><span class="line">    const char *cStr = [self UTF8String];</span><br><span class="line">    unsigned char digest[CC_MD5_DIGEST_LENGTH];</span><br><span class="line">    CC_MD5( cStr, strlen(cStr), digest );</span><br><span class="line"> </span><br><span class="line">    NSMutableString *output = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];</span><br><span class="line"> </span><br><span class="line">    for(int i = 0; i &lt; CC_MD5_DIGEST_LENGTH; i++)</span><br><span class="line">        [output appendFormat:@&quot;%02x&quot;, digest[i]];</span><br><span class="line"> </span><br><span class="line">    return output;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -561,15 +499,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/LLVM/" rel="tag"># LLVM</a>
+            <a href="/tags/MD5/" rel="tag"># MD5</a>
           
-            <a href="/tags/Clang/" rel="tag"># Clang</a>
-          
-            <a href="/tags/GNU/" rel="tag"># GNU</a>
-          
-            <a href="/tags/GCC/" rel="tag"># GCC</a>
-          
-            <a href="/tags/Xcode/" rel="tag"># Xcode</a>
+            <a href="/tags/信息安全/" rel="tag"># 信息安全</a>
           
         </div>
       
@@ -582,8 +514,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/15/Shell脚本的入门（一）/" rel="next" title="Shell脚本的入门（一）">
-                <i class="fa fa-chevron-left"></i> Shell脚本的入门（一）
+              <a href="/2019/06/02/Runtime/" rel="next" title="Runtime">
+                <i class="fa fa-chevron-left"></i> Runtime
               </a>
             
           </div>
@@ -591,10 +523,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/03/Swift/" rel="prev" title="Swift4.2光速入门٩(๑>◡<๑)۶">
-                Swift4.2光速入门٩(๑>◡<๑)۶ <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -787,7 +715,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简述"><span class="nav-number">1.</span> <span class="nav-text">简述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LLVM"><span class="nav-number">1.1.</span> <span class="nav-text">LLVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Clang"><span class="nav-number">1.2.</span> <span class="nav-text">Clang</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GCC"><span class="nav-number">1.3.</span> <span class="nav-text">GCC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GNU"><span class="nav-number">1.4.</span> <span class="nav-text">GNU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在Xcode上使用GCC"><span class="nav-number">1.5.</span> <span class="nav-text">在Xcode上使用GCC</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更多"><span class="nav-number">2.</span> <span class="nav-text">更多</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">2.1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LLVM-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">LLVM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Xcode和LLVM"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">Xcode和LLVM</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Clang-1"><span class="nav-number">2.1.2.</span> <span class="nav-text">Clang</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GCC-1"><span class="nav-number">2.1.3.</span> <span class="nav-text">GCC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GNU-1"><span class="nav-number">2.1.4.</span> <span class="nav-text">GNU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LLDB"><span class="nav-number">2.1.5.</span> <span class="nav-text">LLDB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GDB"><span class="nav-number">2.1.6.</span> <span class="nav-text">GDB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#词法分析"><span class="nav-number">2.1.7.</span> <span class="nav-text">词法分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语法分析"><span class="nav-number">2.1.8.</span> <span class="nav-text">语法分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语法分析器"><span class="nav-number">2.1.9.</span> <span class="nav-text">语法分析器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#源语言-amp-源程序"><span class="nav-number">2.1.10.</span> <span class="nav-text">源语言&amp;源程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目标语言-amp-目标程序"><span class="nav-number">2.1.11.</span> <span class="nav-text">目标语言&amp;目标程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中间语言（中间表示）"><span class="nav-number">2.1.12.</span> <span class="nav-text">中间语言（中间表示）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文法"><span class="nav-number">2.1.13.</span> <span class="nav-text">文法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#token"><span class="nav-number">2.1.14.</span> <span class="nav-text">token</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象语法树"><span class="nav-number">2.1.15.</span> <span class="nav-text">抽象语法树</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#具体"><span class="nav-number">2.2.</span> <span class="nav-text">具体</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CMD-B"><span class="nav-number">2.2.1.</span> <span class="nav-text">CMD+B</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LLVM的具体操作"><span class="nav-number">2.2.2.</span> <span class="nav-text">LLVM的具体操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Clang进行开发"><span class="nav-number">2.2.3.</span> <span class="nav-text">使用Clang进行开发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用LLVM创建一个编译器"><span class="nav-number">2.2.4.</span> <span class="nav-text">使用LLVM创建一个编译器</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概括"><span class="nav-number">1.</span> <span class="nav-text">概括</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特点"><span class="nav-number">2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用途"><span class="nav-number">3.</span> <span class="nav-text">用途</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安全性"><span class="nav-number">4.</span> <span class="nav-text">安全性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#唯一性？"><span class="nav-number">5.</span> <span class="nav-text">唯一性？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#攻击MD5手段"><span class="nav-number">6.</span> <span class="nav-text">攻击MD5手段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#防止MD5攻击手段"><span class="nav-number">7.</span> <span class="nav-text">防止MD5攻击手段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MD5的计算逻辑"><span class="nav-number">8.</span> <span class="nav-text">MD5的计算逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#大致逻辑"><span class="nav-number">8.1.</span> <span class="nav-text">大致逻辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#具体步骤"><span class="nav-number">8.2.</span> <span class="nav-text">具体步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一步：填充"><span class="nav-number">8.2.1.</span> <span class="nav-text">第一步：填充</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#​第二步：记录信息长度"><span class="nav-number">8.2.2.</span> <span class="nav-text">​第二步：记录信息长度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三步：装入标准的幻数（四个整数参数）"><span class="nav-number">8.2.3.</span> <span class="nav-text">第三步：装入标准的幻数（四个整数参数）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第四步：四轮循环运算"><span class="nav-number">8.2.4.</span> <span class="nav-text">第四步：四轮循环运算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第五步：输出"><span class="nav-number">8.2.5.</span> <span class="nav-text">第五步：输出</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OC实现MD5"><span class="nav-number">9.</span> <span class="nav-text">OC实现MD5</span></a></li></ol></div>
             
 
           </div>
