@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ipa砸壳," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="在《iOS逆向工程》第二版中，介绍的是dumpdecrypted砸壳，这种方法繁琐复杂，还需要开2个终端做不同的操作，并且只能获取到二进制文件。而 AloneMonkey 后来又开源了 frida-ios-dump基于frida的一键砸壳脚本，能直接获取砸壳后的ipa包。并且在 AloneMonkey 开源的逆向插件MonkeyDev中自带了一键破壳。先介绍下前两种方法的具体步骤，然后有兴趣的可">
+<meta name="keywords" content="ipa砸壳">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS砸壳-方法篇">
+<meta property="og:url" content="https://hadesxiye.github.io/2019/06/28/iOS破壳-方法篇/index.html">
+<meta property="og:site_name" content="Hades">
+<meta property="og:description" content="在《iOS逆向工程》第二版中，介绍的是dumpdecrypted砸壳，这种方法繁琐复杂，还需要开2个终端做不同的操作，并且只能获取到二进制文件。而 AloneMonkey 后来又开源了 frida-ios-dump基于frida的一键砸壳脚本，能直接获取砸壳后的ipa包。并且在 AloneMonkey 开源的逆向插件MonkeyDev中自带了一键破壳。先介绍下前两种方法的具体步骤，然后有兴趣的可">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/06/28/iOS破壳-方法篇/逆向.jpg">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/06/28/iOS破壳-方法篇/media/15616237472472/frida.png">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616281198370.jpg">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616287170428.jpg">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616287791306.jpg">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616299471051.jpg">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616299952047.jpg">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616245953820.jpg">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616247707333.jpg">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616390783179.jpg">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616391217160.jpg">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616391642788.jpg">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616393373594.jpg">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616397771246.jpg">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616867674411.jpg">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616870994332.jpg">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616911877323.jpg">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616913126593.jpg">
+<meta property="og:updated_time" content="2019-07-01T12:25:27.170Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS砸壳-方法篇">
+<meta name="twitter:description" content="在《iOS逆向工程》第二版中，介绍的是dumpdecrypted砸壳，这种方法繁琐复杂，还需要开2个终端做不同的操作，并且只能获取到二进制文件。而 AloneMonkey 后来又开源了 frida-ios-dump基于frida的一键砸壳脚本，能直接获取砸壳后的ipa包。并且在 AloneMonkey 开源的逆向插件MonkeyDev中自带了一键破壳。先介绍下前两种方法的具体步骤，然后有兴趣的可">
+<meta name="twitter:image" content="https://hadesxiye.github.io/2019/06/28/iOS破壳-方法篇/逆向.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://hadesxiye.github.io/2019/06/28/iOS破壳-方法篇/"/>
+
+
+
+
+
+  <title>iOS砸壳-方法篇 | Hades</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hades</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">这个人很帅，什么都没留下</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-fire"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hadesxiye.github.io/2019/06/28/iOS破壳-方法篇/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hades">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hades">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">iOS砸壳-方法篇</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-28T13:52:53+08:00">
+                2019-06-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS逆向/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS逆向</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/28/iOS破壳-方法篇/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/28/iOS破壳-方法篇/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/06/28/iOS破壳-方法篇/" class="leancloud_visitors" data-flag-title="iOS砸壳-方法篇">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,220
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <img src="/2019/06/28/iOS破壳-方法篇/逆向.jpg">
+<p><center>在《iOS逆向工程》第二版中，介绍的是<code>dumpdecrypted</code>砸壳，这种方法繁琐复杂，还需要开2个终端做不同的操作，并且只能获取到二进制文件。<br>而 <code>AloneMonkey</code> 后来又开源了 <code>frida-ios-dump</code>基于<code>frida</code>的一键砸壳脚本，能直接获取砸壳后的<code>ipa</code>包。<br>并且在 <code>AloneMonkey</code> 开源的逆向插件<code>MonkeyDev</code>中自带了一键破壳。<br>先介绍下前两种方法的具体步骤，然后有兴趣的可以看下原理。</center><br><a id="more"></a></p>
+<h2 id="frida-ios-dump安装步骤"><a href="#frida-ios-dump安装步骤" class="headerlink" title="frida-ios-dump安装步骤"></a>frida-ios-dump安装步骤</h2><p><code>github</code>地址：<a href="https://github.com/AloneMonkey/frida-ios-dump" target="_blank" rel="noopener">https://github.com/AloneMonkey/frida-ios-dump</a></p>
+<h3 id="1-macOS安装frida"><a href="#1-macOS安装frida" class="headerlink" title="1 macOS安装frida"></a>1 macOS安装frida</h3><p>在终端输入<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install frida</span><br></pre></td></tr></table></figure></p>
+<p>如果失败尝试科学上网</p>
+<h3 id="2-越狱设备安装frida"><a href="#2-越狱设备安装frida" class="headerlink" title="2 越狱设备安装frida"></a>2 越狱设备安装frida</h3><p>打开越狱手机，打开cydia，添加cydia源 <a href="https://build.frida.re/" target="_blank" rel="noopener">https://build.frida.re/</a> ，添加成功之后，搜索Frida插件，5s及以后的都是选择第一个安装。<br><img src="/2019/06/28/iOS破壳-方法篇/media/15616237472472/frida.png" title="frida"></p>
+<h3 id="3-验证frida安装"><a href="#3-验证frida安装" class="headerlink" title="3 验证frida安装"></a>3 验证frida安装</h3><p>确认设备和macOS都安装成功后<br>用USB连接设备和电脑<br>终端输入<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frida-ps -U</span><br></pre></td></tr></table></figure></p>
+<p>如果显示一堆 PID 和 NAME 就说明安装成功。<br><img src="/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616281198370.jpg"></p>
+<h3 id="4-越狱设备安装OpenSSH"><a href="#4-越狱设备安装OpenSSH" class="headerlink" title="4 越狱设备安装OpenSSH"></a>4 越狱设备安装OpenSSH</h3><p>在<code>Cydia</code>中主页就能直接安装</p>
+<h3 id="5-检查OpenSSH安装"><a href="#5-检查OpenSSH安装" class="headerlink" title="5 检查OpenSSH安装"></a>5 检查OpenSSH安装</h3><p>设备和电脑同一<code>wifi</code>，在终端中用<code>ssh</code>连接手机<code>ip</code><br>如我的手机<code>ip</code>是<code>192.168.43.155</code><br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.43.155</span><br></pre></td></tr></table></figure></p>
+<img src="/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616287170428.jpg">
+<p><code>OpenSSH</code>初始密码是<code>alpine</code><br>登录成功后如图。<br><img src="/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616287791306.jpg"></p>
+<h3 id="6-安装libmobiledevice和usbmuxd"><a href="#6-安装libmobiledevice和usbmuxd" class="headerlink" title="6 安装libmobiledevice和usbmuxd"></a>6 安装libmobiledevice和usbmuxd</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install libimobiledevice</span><br><span class="line">brew install usbmuxd</span><br></pre></td></tr></table></figure>
+<p>安装完成之后，在终端将USB端口映射到未被使用的端口，这里使用2222<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iproxy 2222 22</span><br></pre></td></tr></table></figure></p>
+
+<p>然后在新开一个终端，通过ssh连接本地的2222端口<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -p 2222 root@localhost</span><br></pre></td></tr></table></figure></p>
+<img src="/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616299471051.jpg">
+<p>输入OpenSSH密码，即可登录。<br><img src="/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616299952047.jpg"></p>
+<h3 id="7-检查python版本"><a href="#7-检查python版本" class="headerlink" title="7 检查python版本"></a>7 检查python版本</h3><p>打开终端<br>输入<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python  //或者 python -v</span><br></pre></td></tr></table></figure></p>
+<img src="/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616245953820.jpg">
+<p>输入<code>quit()</code>可退出<code>python</code>交互界面。</p>
+<h3 id="8-安装frida-ios-dump"><a href="#8-安装frida-ios-dump" class="headerlink" title="8 安装frida-ios-dump"></a>8 安装frida-ios-dump</h3><p>进入 <a href="https://github.com/AloneMonkey/frida-ios-dump" target="_blank" rel="noopener">https://github.com/AloneMonkey/frida-ios-dump</a><br>如果是<code>python2.7</code>就使用<code>master</code>分支。<br><code>python3.x</code>使用 <code>3.x</code> 分支。<br><img src="/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616247707333.jpg"><br>不是以上版本自行安装对应版本<code>python</code>，并重复步骤<code>7</code>确认。</p>
+<p>确认<code>python</code>版本和分支一致后，<code>clone</code>项目到本地<br>然后<code>cd</code>到该项目的根目录<br>执行安装依赖<br><strong>Python 2.7</strong><br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install -r requirements.txt --upgrade</span><br></pre></td></tr></table></figure></p>
+<p><strong>Python 3.x</strong><br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip3 install -r requirements.txt --upgrade</span><br></pre></td></tr></table></figure></p>
+<h2 id="frida-ios-dump-使用"><a href="#frida-ios-dump-使用" class="headerlink" title="frida-ios-dump 使用"></a>frida-ios-dump 使用</h2><h3 id="终端A"><a href="#终端A" class="headerlink" title="终端A"></a>终端A</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iproxy 2222 22</span><br></pre></td></tr></table></figure>
+<img src="/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616390783179.jpg">
+<p>输完不要关闭<br>开一个新的终端<code>B</code></p>
+<h3 id="终端B"><a href="#终端B" class="headerlink" title="终端B"></a>终端B</h3><p><strong>先用USB连接越狱设备</strong><br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -p 2222 root@localhost</span><br></pre></td></tr></table></figure></p>
+<img src="/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616391217160.jpg">
+<p>输入<code>OpenSSH</code>密码，连接成功<br><img src="/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616391642788.jpg"><br>此时终端<code>A`</code>B<code>都不要关闭
+新建终端</code>C`</p>
+<h3 id="终端C"><a href="#终端C" class="headerlink" title="终端C"></a>终端C</h3><p><code>cd</code> 到<code>frida-ios-dump</code>项目的根目录<br>执行<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./dump.py -l</span><br></pre></td></tr></table></figure></p>
+<img src="/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616393373594.jpg">
+<p>找到你要逆向的<code>APP</code><br>执行<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./dump.py [上面对应的Name]  </span><br><span class="line">//或者</span><br><span class="line">./dump.py [上面对应的Identifier]</span><br></pre></td></tr></table></figure></p>
+<img src="/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616397771246.jpg">
+<p>成功，砸壳的<code>ipa</code>在<code>frida-ios-dump</code>的项目根目录中。</p>
+<p>注意，如果你修改了OpenSSH的密码，或者修改了映射端口号，会砸壳失败，只需要修改 dump.py 里的这里为你修改后的内容就OK了<br></p>
+<h2 id="dumpdecrypt破壳"><a href="#dumpdecrypt破壳" class="headerlink" title="dumpdecrypt破壳"></a><code>dumpdecrypt</code>破壳</h2><p><code>github</code>地址：<a href="https://github.com/VictorZhang2014/dumpdecrypted" target="_blank" rel="noopener">https://github.com/VictorZhang2014/dumpdecrypted</a></p>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>1 <code>clone</code> 该库到本地<br>2 终端cd到该目录，执行<code>make</code>命令，会生成一个<code>dumpdecrypted.dylib</code><br>3 对<code>dumpdecrypted.dylib</code>进行签名<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 列出可签名证书</span></span><br><span class="line">security find-identity -v -p codesigning</span><br><span class="line"><span class="comment">## 为dumpecrypted.dylib签名</span></span><br><span class="line">codesign --force --verify --verbose --sign <span class="string">"iPhone Developer: xxx xxxx (xxxxxxxxxx)"</span> dumpdecrypted.dylib</span><br></pre></td></tr></table></figure></p>
+<p>4 越狱设备安装<code>OpenSSH</code></p>
+<h3 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h3><p>1 连接设备<br>在<code>终端A</code>中用<code>ssh</code>连接越狱设备<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.43.155</span><br></pre></td></tr></table></figure></p>
+<img src="/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616867674411.jpg">
+<p>2 定位<code>目标App</code><br>关闭设备全部进程，打开<code>目标App</code><br>执行<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -e</span><br></pre></td></tr></table></figure></p>
+<p>找到目标App <code>WeChat</code><br><img src="/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616870994332.jpg"></p>
+<blockquote>
+<p><strong>记录前面的<code>PID</code> <code>4841</code> 和后面的app二进制路径<code>/var/containers/Bundle/Application/A0F664FC-E1CB-4977-A7A6-67AE7645A07F/WeChat.app/WeChat</code></strong></p>
+</blockquote>
+<p>3 获取<code>documents</code>所在目录<br>执行<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cycript -p 4841[上面记录的PID]</span><br></pre></td></tr></table></figure></p>
+<p>进入<code>cycript</code><br><img src="/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616911877323.jpg"><br>输入<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[NSFileManager defaultManager]URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask][<span class="number">0</span>]</span><br></pre></td></tr></table></figure></p>
+<img src="/2019/06/28/iOS破壳-方法篇/media/15616237472472/15616913126593.jpg">
+<blockquote>
+<p><strong>记录Document路径<code>/var/mobile/Containers/Data/Application/9F41D812-273D-4E60-B323-8362F060A453/Documents/</code></strong></p>
+</blockquote>
+<p>4 拷贝<code>dumpdecrypted</code>到<code>document</code><br>开启新的终端B<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scp [dumpdecrypted.dylib的路径]/dumpdecrypted.dylib root@[手机ip]:[上面记录的Document路径]dumpdecrypted.dylib</span><br><span class="line">//例子</span><br><span class="line">scp /Users/hades/Documents/dumpdecrypted-master/dumpdecrypted.dylib root@192.168.92.140:/var/mobile/Containers/Data/Application/9F41D812-273D-4E60-B323-8362F060A453/Documents/dumpdecrypted.dylib</span><br></pre></td></tr></table></figure></p>
+<p>5 砸壳<br>在<code>终端A</code> <code>ctr+D</code>退出 <code>cycript</code><br><code>cd</code> 到上面记录的<code>document目录</code><br>执行<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DYLD_INSERT_LIBRARIES=dumpdecrypted.dylib [最开始记录的app二进制路径]</span><br><span class="line"><span class="comment">//例子</span></span><br><span class="line">DYLD_INSERT_LIBRARIES=dumpdecrypted.dylib  /var/containers/Bundle/Application/A0F664FC-E1CB<span class="number">-4977</span>-A7A6<span class="number">-67</span>AE7645A07F/WeChat.app/WeChat</span><br></pre></td></tr></table></figure></p>
+<p>执行完，在对应的<code>document目录</code>下会生成 <code>[appName].decrypted</code><br>6 拷贝<code>[appName].decrypted</code>到电脑<br>终端B<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scp root@[手机ip]:[(appName).decrypted路径] [电脑目标路径]</span><br><span class="line">//例子</span><br><span class="line">scp root@192.168.92.140:/var/mobile/Containers/Data/Application/9F41D812-273D-4E60-B323-8362F060A453/Documents/WeChat.decrypted /Users/hades/Documents/</span><br></pre></td></tr></table></figure></p>
+<h3 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h3><div class="note info"><p>有的App二进制竟然是中文！而SSH中没法输入中文<br>解决方案：<a href="http://bbs.iosre.com/t/ios-os-ssh/8010" target="_blank" rel="noopener">http://bbs.iosre.com/t/ios-os-ssh/8010</a><br><br>SSH中空格的输入方式 \[空格]</p></div>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ipa砸壳/" rel="tag"># ipa砸壳</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/26/算法MD5/" rel="next" title="MD5算法（消息摘要）">
+                <i class="fa fa-chevron-left"></i> MD5算法（消息摘要）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/tx.jpg"
+                alt="Hades" />
+            
+              <p class="site-author-name" itemprop="name">Hades</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Hadesxiye" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://steamcommunity.com/id/471692847" target="_blank" title="Steam">
+                      
+                        <i class="fa fa-fw fa-steam"></i>Steam</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=536622304&auto=1&height=66"></iframe>
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#frida-ios-dump安装步骤"><span class="nav-number">1.</span> <span class="nav-text">frida-ios-dump安装步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-macOS安装frida"><span class="nav-number">1.1.</span> <span class="nav-text">1 macOS安装frida</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-越狱设备安装frida"><span class="nav-number">1.2.</span> <span class="nav-text">2 越狱设备安装frida</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-验证frida安装"><span class="nav-number">1.3.</span> <span class="nav-text">3 验证frida安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-越狱设备安装OpenSSH"><span class="nav-number">1.4.</span> <span class="nav-text">4 越狱设备安装OpenSSH</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-检查OpenSSH安装"><span class="nav-number">1.5.</span> <span class="nav-text">5 检查OpenSSH安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-安装libmobiledevice和usbmuxd"><span class="nav-number">1.6.</span> <span class="nav-text">6 安装libmobiledevice和usbmuxd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-检查python版本"><span class="nav-number">1.7.</span> <span class="nav-text">7 检查python版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-安装frida-ios-dump"><span class="nav-number">1.8.</span> <span class="nav-text">8 安装frida-ios-dump</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#frida-ios-dump-使用"><span class="nav-number">2.</span> <span class="nav-text">frida-ios-dump 使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#终端A"><span class="nav-number">2.1.</span> <span class="nav-text">终端A</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#终端B"><span class="nav-number">2.2.</span> <span class="nav-text">终端B</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#终端C"><span class="nav-number">2.3.</span> <span class="nav-text">终端C</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dumpdecrypt破壳"><span class="nav-number">3.</span> <span class="nav-text">dumpdecrypt破壳</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备工作"><span class="nav-number">3.1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用步骤"><span class="nav-number">3.2.</span> <span class="nav-text">使用步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可能遇到的问题"><span class="nav-number">3.3.</span> <span class="nav-text">可能遇到的问题</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-/images/favicon.ico"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hades</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">94.5k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 访问总量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'CdORfQYjINDVtBIz1id4GeyF-gzGzoHsz',
+        appKey: 'Idy9vRmyA06TcOjV6umrd5PB',
+        placeholder: 'ヾ(･ε･｀*)嗯。。写的勉勉强强吧 (评论支持Markdown哦)',
+        avatar:'/images/tx.jpg',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("CdORfQYjINDVtBIz1id4GeyF-gzGzoHsz", "Idy9vRmyA06TcOjV6umrd5PB");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/00.PVPSerie.model.json"},"display":{"position":"right","width":200,"height":200},"mobile":{"position":"right","width":30,"height":30,"show":true},"log":false});</script></body>
+</html>
