@@ -79,39 +79,39 @@
 
 
 
-<meta name="description" content="Runtime相关介绍">
+<meta name="description" content="Runtime作为Objective-C一个重要特性，简称运行时，就是它让OC成为一个动态语言，那它到底做了些什么呢？">
 <meta name="keywords" content="hades&#39;s blog,Hades&#39;s blog,hades,Hades">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Runtime">
-<meta property="og:url" content="https://hadesxiye.github.io/2019/06/02/Runtime/index.html">
+<meta property="og:url" content="https://hadesxiye.github.io/2019/04/02/Runtime/index.html">
 <meta property="og:site_name" content="Hades">
-<meta property="og:description" content="Runtime相关介绍">
+<meta property="og:description" content="Runtime作为Objective-C一个重要特性，简称运行时，就是它让OC成为一个动态语言，那它到底做了些什么呢？">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://hadesxiye.github.io/2019/06/02/Runtime/runtime.png">
-<meta property="og:image" content="https://hadesxiye.github.io/2019/06/02/Runtime/1557752732104.png">
-<meta property="og:image" content="https://hadesxiye.github.io/2019/06/02/Runtime/1557752999524.png">
-<meta property="og:image" content="https://hadesxiye.github.io/2019/06/02/Runtime/1557797910085.png">
-<meta property="og:image" content="https://hadesxiye.github.io/2019/06/02/Runtime/1557798381294.png">
-<meta property="og:image" content="https://hadesxiye.github.io/2019/06/02/Runtime/1557903750536.png">
-<meta property="og:image" content="https://hadesxiye.github.io/2019/06/02/Runtime/1558007614045.png">
-<meta property="og:image" content="https://hadesxiye.github.io/2019/06/02/Runtime/1558008204799.png">
-<meta property="og:image" content="https://hadesxiye.github.io/2019/06/02/Runtime/1558008401781.png">
-<meta property="og:image" content="https://hadesxiye.github.io/2019/06/02/Runtime/1558008700782.png">
-<meta property="og:image" content="https://hadesxiye.github.io/2019/06/02/Runtime/1558355463856.png">
-<meta property="og:image" content="https://hadesxiye.github.io/2019/06/02/Runtime/1558359358555.png">
-<meta property="og:image" content="https://hadesxiye.github.io/2019/06/02/Runtime/1558359712388.png">
-<meta property="og:image" content="https://hadesxiye.github.io/2019/06/02/Runtime/1558359927515.png">
-<meta property="og:image" content="https://hadesxiye.github.io/2019/06/02/Runtime/1558360327967.png">
-<meta property="og:image" content="https://hadesxiye.github.io/2019/06/02/Runtime/1558360366032.png">
-<meta property="og:image" content="https://hadesxiye.github.io/2019/06/02/Runtime/1558437185524.png">
-<meta property="og:image" content="https://hadesxiye.github.io/2019/06/02/Runtime/1558438196945.png">
-<meta property="og:image" content="https://hadesxiye.github.io/2019/06/02/Runtime/1558445548665.png">
-<meta property="og:image" content="https://hadesxiye.github.io/2019/06/02/Runtime/1558862620685.png">
-<meta property="og:updated_time" content="2019-06-26T08:16:38.399Z">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/04/02/Runtime/runtime.png">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/04/02/Runtime/1557752732104.png">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/04/02/Runtime/1557752999524.png">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/04/02/Runtime/1557797910085.png">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/04/02/Runtime/1557798381294.png">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/04/02/Runtime/1557903750536.png">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/04/02/Runtime/1558007614045.png">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/04/02/Runtime/1558008204799.png">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/04/02/Runtime/1558008401781.png">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/04/02/Runtime/1558008700782.png">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/04/02/Runtime/1558355463856.png">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/04/02/Runtime/1558359358555.png">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/04/02/Runtime/1558359712388.png">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/04/02/Runtime/1558359927515.png">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/04/02/Runtime/1558360327967.png">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/04/02/Runtime/1558360366032.png">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/04/02/Runtime/1558437185524.png">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/04/02/Runtime/1558438196945.png">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/04/02/Runtime/1558445548665.png">
+<meta property="og:image" content="https://hadesxiye.github.io/2019/04/02/Runtime/1558862620685.png">
+<meta property="og:updated_time" content="2019-07-04T07:01:38.092Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Runtime">
-<meta name="twitter:description" content="Runtime相关介绍">
-<meta name="twitter:image" content="https://hadesxiye.github.io/2019/06/02/Runtime/runtime.png">
+<meta name="twitter:description" content="Runtime作为Objective-C一个重要特性，简称运行时，就是它让OC成为一个动态语言，那它到底做了些什么呢？">
+<meta name="twitter:image" content="https://hadesxiye.github.io/2019/04/02/Runtime/runtime.png">
 
 
 
@@ -141,7 +141,7 @@
 
 
 
-  <link rel="canonical" href="https://hadesxiye.github.io/2019/06/02/Runtime/"/>
+  <link rel="canonical" href="https://hadesxiye.github.io/2019/04/02/Runtime/"/>
 
 
 
@@ -318,7 +318,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hadesxiye.github.io/2019/06/02/Runtime/">
+    <link itemprop="mainEntityOfPage" href="https://hadesxiye.github.io/2019/04/02/Runtime/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hades">
@@ -347,8 +347,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-02T14:59:26+08:00">
-                2019-06-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-02T14:59:26+08:00">
+                2019-04-02
               </time>
             
 
@@ -370,8 +370,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Object-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Object-C</span>
+                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
+                    <span itemprop="name">Objective-C</span>
                   </a>
                 </span>
 
@@ -388,8 +388,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/06/02/Runtime/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/02/Runtime/" itemprop="commentCount"></span>
+                <a href="/2019/04/02/Runtime/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/02/Runtime/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -397,7 +397,7 @@
 
           
           
-             <span id="/2019/06/02/Runtime/" class="leancloud_visitors" data-flag-title="Runtime">
+             <span id="/2019/04/02/Runtime/" class="leancloud_visitors" data-flag-title="Runtime">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -427,7 +427,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,673
+                  1,707
                 </span>
               
 
@@ -443,7 +443,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  7
                 </span>
               
             </div>
@@ -464,10 +464,8 @@
       
 
       
-        <img src="/2019/06/02/Runtime/runtime.png">
-<center>Runtime相关介绍</center>
-
-<a id="more"></a>
+        <img src="/2019/04/02/Runtime/runtime.png">
+<p><center>Runtime作为Objective-C一个重要特性，简称运行时，就是它让<code>OC</code>成为一个动态语言，那它到底做了些什么呢？</center><br><a id="more"></a></p>
 <h1 id="Runtime"><a href="#Runtime" class="headerlink" title="Runtime"></a>Runtime</h1><h2 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h2><ul>
 <li>数据结构<ul>
 <li><code>objc_object</code></li>
@@ -484,17 +482,17 @@
 <li>动态添加方法</li>
 <li>动态方法解析</li>
 </ul>
-<h2 id="objc-object"><a href="#objc-object" class="headerlink" title="objc_object"></a>objc_object</h2><img src="/2019/06/02/Runtime/1557752732104.png">
-<h2 id="objc-class"><a href="#objc-class" class="headerlink" title="objc_class"></a>objc_class</h2><img src="/2019/06/02/Runtime/1557752999524.png">
-<h2 id="isa指针"><a href="#isa指针" class="headerlink" title="isa指针"></a>isa指针</h2><img src="/2019/06/02/Runtime/1557797910085.png">
+<h2 id="objc-object"><a href="#objc-object" class="headerlink" title="objc_object"></a>objc_object</h2><img src="/2019/04/02/Runtime/1557752732104.png">
+<h2 id="objc-class"><a href="#objc-class" class="headerlink" title="objc_class"></a>objc_class</h2><img src="/2019/04/02/Runtime/1557752999524.png">
+<h2 id="isa指针"><a href="#isa指针" class="headerlink" title="isa指针"></a>isa指针</h2><img src="/2019/04/02/Runtime/1557797910085.png">
 <div class="note info"><p><br><strong><code>isa</code>是什么？</strong><br><code>isa</code>首先分为指针型<code>isa</code>和非指针型<code>isa</code><br>对于<code>ARM64</code>架构下，只需要三四十位就能代表<code>Class</code>的地址，剩余的位数就可以存储其他数据。以此达到节省内存的目的。<br></p></div>
 
-<h2 id="isa指向"><a href="#isa指向" class="headerlink" title="isa指向"></a>isa指向</h2><img src="/2019/06/02/Runtime/1557798381294.png">
+<h2 id="isa指向"><a href="#isa指向" class="headerlink" title="isa指向"></a>isa指向</h2><img src="/2019/04/02/Runtime/1557798381294.png">
 <h2 id="cache-t"><a href="#cache-t" class="headerlink" title="cache_t"></a>cache_t</h2><ul>
 <li>用于<code>快速</code>查找方法执行函数</li>
 <li>是可<code>增量扩展</code>的<code>哈希表</code>结构</li>
 <li>是<code>局部性原理</code>的最佳应用<ul>
-<li>局部性原理的简单说明：一个类中部分方法使用频次较高，就将这些方法放入缓存中，这样下次调用方法，直接从缓存中读取的概率就比较高。<img src="/2019/06/02/Runtime/1557903750536.png">
+<li>局部性原理的简单说明：一个类中部分方法使用频次较高，就将这些方法放入缓存中，这样下次调用方法，直接从缓存中读取的概率就比较高。<img src="/2019/04/02/Runtime/1557903750536.png">
 <code>cache_t</code>的数据结构<br>是个数组类型，成员是bucket_t类型<br><code>bucket_t</code>包含 <code>key</code> 和 <code>IMP</code><br><code>key</code>就是方法选择器的名称，通过<code>SEL</code>调用<br><code>IMP</code>是个无类型的函数指针<br>根据<code>key</code>，用哈希查找算法，定位当前<code>key</code>所对应的<code>bucket_t</code>类型的数据结构，位于数据哪个位置，然后根据<code>IMP</code>调用函数</li>
 </ul>
 </li>
@@ -504,33 +502,33 @@
 <li><code>class_rw_t</code>代表了类相关的读写信息（如分类，协议，方法，属性等）、对<code>class_ro_t</code>的封装（<code>readonly</code> 成员变量，内部方法等）</li>
 <li><code>class_ro_t</code>代表了类相关的只读信息</li>
 </ul>
-<h3 id="class-rw-t"><a href="#class-rw-t" class="headerlink" title="class_rw_t"></a>class_rw_t</h3><img src="/2019/06/02/Runtime/1558007614045.png">
+<h3 id="class-rw-t"><a href="#class-rw-t" class="headerlink" title="class_rw_t"></a>class_rw_t</h3><img src="/2019/04/02/Runtime/1558007614045.png">
 <p>一般情况下，都是存储分类方法添加的内容</p>
-<h3 id="class-ro-t"><a href="#class-ro-t" class="headerlink" title="class_ro_t"></a>class_ro_t</h3><img src="/2019/06/02/Runtime/1558008204799.png">
-<h3 id="method-t"><a href="#method-t" class="headerlink" title="method_t"></a>method_t</h3><img src="/2019/06/02/Runtime/1558008401781.png">
+<h3 id="class-ro-t"><a href="#class-ro-t" class="headerlink" title="class_ro_t"></a>class_ro_t</h3><img src="/2019/04/02/Runtime/1558008204799.png">
+<h3 id="method-t"><a href="#method-t" class="headerlink" title="method_t"></a>method_t</h3><img src="/2019/04/02/Runtime/1558008401781.png">
 <h3 id="Type-Encodings"><a href="#Type-Encodings" class="headerlink" title="Type Encodings"></a>Type Encodings</h3><ul>
-<li><code>const char* types;</code><img src="/2019/06/02/Runtime/1558008700782.png">
+<li><code>const char* types;</code><img src="/2019/04/02/Runtime/1558008700782.png">
 </li>
 </ul>
-<h2 id="整体数据结构"><a href="#整体数据结构" class="headerlink" title="整体数据结构"></a>整体数据结构</h2><img src="/2019/06/02/Runtime/1558355463856.png">
+<h2 id="整体数据结构"><a href="#整体数据结构" class="headerlink" title="整体数据结构"></a>整体数据结构</h2><img src="/2019/04/02/Runtime/1558355463856.png">
 <hr>
 <h1 id="对象、类对象、元类对象"><a href="#对象、类对象、元类对象" class="headerlink" title="对象、类对象、元类对象"></a>对象、类对象、元类对象</h1><ul>
 <li>类对象存储实例方法列表等信息</li>
-<li>元类对象存储类方法列表等信息<img src="/2019/06/02/Runtime/1558359358555.png">
+<li>元类对象存储类方法列表等信息<img src="/2019/04/02/Runtime/1558359358555.png">
 </li>
 </ul>
 <div class="note info"><p><br><strong>Q:</strong>类对象和元类对象有什么区别？<br><strong>A:</strong>1.实例对象可以通过isa指针找到类对象，访问实例方法列表并通过类的isa指针找到元类对象，访问类方法列表等。<br> 2.任何一个元类对象的isa指针，都指向根元类对象，包括根元类对象本身。<br><br><strong>Q:</strong>如果我们调用的一个类方法，没有对应的实现，但是根类有同名的实例方法的时候，这时候会不会发生崩溃，会不会产生实际调用？<br><strong>A:</strong> 由于根元类的superClass指针，指向根类，所以会调用根类的同名实例方法。<br></p></div>
 
 <p> 消息传递简述<br> 调用实例方法<code>a</code>，根据<code>isa</code>指针，找到对应的类的方法列表，然后找父类，然后父类，最后<code>nil</code>。<br> 调用类方法<code>a</code>，通过类的<code>isa</code>指针，找到对应的类，然后找类的方法列表，然后根据<code>superClass</code>指针找父类的，到根类，最后<code>nil</code>。</p>
 <h1 id="消息传递"><a href="#消息传递" class="headerlink" title="消息传递"></a>消息传递</h1><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> objc_msgSend(<span class="keyword">void</span> <span class="comment">/* id self,SEL op, ... */</span>)</span><br></pre></td></tr></table></figure>
-<img src="/2019/06/02/Runtime/1558359712388.png">
+<img src="/2019/04/02/Runtime/1558359712388.png">
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> objc_msgSendSuper(<span class="keyword">void</span> <span class="comment">/* struct objc_super *super,SEL op, ...*/</span>)</span><br></pre></td></tr></table></figure>
-<img src="/2019/06/02/Runtime/1558359927515.png">
-<img src="/2019/06/02/Runtime/1558360327967.png">
-<img src="/2019/06/02/Runtime/1558360366032.png">
+<img src="/2019/04/02/Runtime/1558359927515.png">
+<img src="/2019/04/02/Runtime/1558360327967.png">
+<img src="/2019/04/02/Runtime/1558360366032.png">
 <div class="note info"><p><br>&gt;答案：都是 Phone<br>&gt;理由：因为objc_msgSend和objc_msgSendSuper的消息接收者，都是self这个实例对象。<br>&gt;objc_msgSendSuper只是代表，寻找方法从父类开始查找，而class这个方法是NSObject的方法，父类Mobile中也没有，所以最终都是Phone<br></p></div>
 
-<h2 id="缓存查找"><a href="#缓存查找" class="headerlink" title="缓存查找"></a>缓存查找</h2><img src="/2019/06/02/Runtime/1558437185524.png">
+<h2 id="缓存查找"><a href="#缓存查找" class="headerlink" title="缓存查找"></a>缓存查找</h2><img src="/2019/04/02/Runtime/1558437185524.png">
 <h2 id="当前类中查找"><a href="#当前类中查找" class="headerlink" title="当前类中查找"></a>当前类中查找</h2><ul>
 <li>对于已排好序的列表，采用二分查找算法查找方法对应执行函数</li>
 <li>对于没有排序的列表，采用一般遍历查找方法对应执行函数</li>
@@ -540,7 +538,7 @@
 <li>2.必须按关键字大小有序排列。<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">binarySearch</span>&lt;T: Comparable&gt;<span class="params">(<span class="number">_</span> a: [T], key: T)</span></span> -&gt; <span class="type">Int</span>? &#123;    </span><br><span class="line">    <span class="keyword">var</span> lowerBound = <span class="number">0</span>    </span><br><span class="line">    <span class="keyword">var</span> upperBound = a.<span class="built_in">count</span>    </span><br><span class="line">    <span class="keyword">while</span> lowerBound &lt; upperBound &#123;        </span><br><span class="line">        <span class="keyword">let</span> midIndex = lowerBound + (upperBound - lowerBound) / <span class="number">2</span>        </span><br><span class="line">        <span class="keyword">if</span> a[midIndex] == key &#123;            </span><br><span class="line">            <span class="keyword">return</span> midIndex        </span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> a[midIndex] &lt; key &#123;            </span><br><span class="line">            lowerBound = midIndex + <span class="number">1</span>        </span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;            </span><br><span class="line">            upperBound = midIndex        </span><br><span class="line">        &#125;    </span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="父类逐级查找"><a href="#父类逐级查找" class="headerlink" title="父类逐级查找"></a>父类逐级查找</h2><img src="/2019/06/02/Runtime/1558438196945.png">
+<h2 id="父类逐级查找"><a href="#父类逐级查找" class="headerlink" title="父类逐级查找"></a>父类逐级查找</h2><img src="/2019/04/02/Runtime/1558438196945.png">
 <h1 id="消息转发流程"><a href="#消息转发流程" class="headerlink" title="消息转发流程"></a>消息转发流程</h1><p>1 动态方法解析</p>
 <ul>
 <li>向当前类发送<code>resolveInstanceMethod:</code>信号，检查是否动态向该类添加了方法。 </li>
@@ -558,10 +556,10 @@
 </ul>
 <p>4 消息转发机制</p>
 <ul>
-<li><code>forwardInvocation</code><img src="/2019/06/02/Runtime/1558445548665.png">
+<li><code>forwardInvocation</code><img src="/2019/04/02/Runtime/1558445548665.png">
 </li>
 </ul>
-<h1 id="Method-Swizzling"><a href="#Method-Swizzling" class="headerlink" title="Method-Swizzling"></a>Method-Swizzling</h1><img src="/2019/06/02/Runtime/1558862620685.png">
+<h1 id="Method-Swizzling"><a href="#Method-Swizzling" class="headerlink" title="Method-Swizzling"></a>Method-Swizzling</h1><img src="/2019/04/02/Runtime/1558862620685.png">
 <p>简单的来说。就是交换了方法的实现</p>
 <p><code>RuntimeObject.h</code><br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">RuntimeObject</span> : <span class="title">NSObject</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)test;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)otherTest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure></p>
 <p><code>RuntimeObject.m</code><br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"RuntimeObject.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;objc/runtime.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">RuntimeObject</span></span></span><br><span class="line"></span><br><span class="line">+ (<span class="keyword">void</span>)load&#123;</span><br><span class="line">    <span class="comment">//获取test方法</span></span><br><span class="line">    Method test = class_getInstanceMethod(<span class="keyword">self</span>, <span class="keyword">@selector</span>(test));</span><br><span class="line">    <span class="comment">//获取otherTest的结构体</span></span><br><span class="line">    Method otherTest = class_getInstanceMethod(<span class="keyword">self</span>, <span class="keyword">@selector</span>(otherTest));</span><br><span class="line">    <span class="comment">//交换方法实现</span></span><br><span class="line">    method_exchangeImplementations(test, otherTest);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)test&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"test"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)otherTest&#123;</span><br><span class="line">    <span class="comment">//实际上是调用了test的具体实现</span></span><br><span class="line">    [<span class="keyword">self</span> otherTest];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"otherTest"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -596,8 +594,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/02/UIView圆形动画/" rel="next" title="UIView圆形动画">
-                <i class="fa fa-chevron-left"></i> UIView圆形动画
+              <a href="/2019/03/04/内存管理/" rel="next" title="内存管理">
+                <i class="fa fa-chevron-left"></i> 内存管理
               </a>
             
           </div>
@@ -730,7 +728,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -752,7 +750,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -842,7 +840,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">94.5k</span>
+    <span title="Site words total count">97.9k</span>
   
 </div>
 
